@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>
+    HIT : The World ランキング分析
+</title>
+
+<link
+    rel="stylesheet"
+    href="style.css"
+>
+
+
+</head>
+
+<body>
+
+<header>
+
+
+<div class="container">
+
+    <h1>
+        HIT : The World
+    </h1>
+
+    <p class="subtitle">
+        ワールドランキング分析
+    </p>
+
+    <p id="update-date">
+        読み込み中...
+    </p>
+
+</div>
+```
+
+</header>
+
+<main class="container">
+
+
+<!-- ========================= -->
+<!-- データ履歴 -->
+<!-- ========================= -->
+
+<section>
+
+    <h2>
+        📅 ランキング履歴
+    </h2>
+
+    <div class="history-panel">
+
+        <label for="history-date">
+            データを選択
+        </label>
+
+        <select id="history-date">
+            <option>
+                読み込み中...
+            </option>
+        </select>
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- 基本情報 -->
+<!-- ========================= -->
+
+<section>
+
+    <h2>
+        ランキング概要
+    </h2>
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-title">
+                ランキング人数
+            </div>
+
+            <div
+                class="card-value"
+                id="total"
+            >
+                -
+            </div>
+
+            <div class="card-unit">
+                人
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                最高レベル
+            </div>
+
+            <div
+                class="card-value"
+                id="max-level"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                平均レベル
+            </div>
+
+            <div
+                class="card-value"
+                id="average-level"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                最低レベル
+            </div>
+
+            <div
+                class="card-value"
+                id="min-level"
+            >
+                -
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                最多レベル
+            </div>
+
+            <div
+                class="card-value"
+                id="most-level"
+            >
+                -
+            </div>
+
+            <div
+                class="card-unit"
+                id="most-count"
+            >
+                -
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- レベル分析 -->
+<!-- ========================= -->
+
+<section>
+
+    <h2>
+        レベル分析
+    </h2>
+
+
+    <div class="panel">
+
+        <div id="level-list">
+            読み込み中...
+        </div>
+
+    </div>
+
+
+
+</section>
+
+
+<!-- ========================= -->
+<!-- サーバー分析 -->
+<!-- ========================= -->
+
+<section>
+
+    <h2>
+        サーバー別人数
+    </h2>
+
+
+    <div class="panel">
+
+        <div id="server-list">
+            読み込み中...
+        </div>
+
+    </div>
+
+
+    <!-- サーバー一覧とEda/Virbaカードの間に余白 -->
+
+    <div style="margin-bottom: 24px;"></div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-title">
+                Eda系
+            </div>
+
+            <div
+                class="card-value"
+                id="eda"
+            >
+                -
+            </div>
+
+            <div class="card-unit">
+                人
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                Virba系
+            </div>
+
+            <div
+                class="card-value"
+                id="virba"
+            >
+                -
+            </div>
+
+            <div class="card-unit">
+                人
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- ========================= -->
+<!-- ギルド分析 -->
+<!-- ========================= -->
+
+<section>
+
+    <h2>
+        ギルド分析
+    </h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <div class="card-title">
+                ギルド所属
+            </div>
+
+            <div
+                class="card-value"
+                id="guild-members"
+            >
+                -
+            </div>
+
+            <div class="card-unit">
+                人
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="card-title">
+                無所属
+            </div>
+
+            <div
+                class="card-value"
+                id="no-guild"
+            >
+                -
+            </div>
+
+            <div class="card-unit">
+                人
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="panel">
+
+        <h3>
+            ギルド掲載人数 TOP20
+        </h3>
+
+        <div id="guild-list">
+            読み込み中...
+        </div>
+
+    </div>
+
+
+</section>
+
+</main>
+
+<footer>
+
+
+<div class="container">
+
+    <p>
+        HIT : The World ランキング分析
+    </p>
+
+    <p>
+        ※公式ランキングをもとに集計しています。
+    </p>
+
+</div>
+
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

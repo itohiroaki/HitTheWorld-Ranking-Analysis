@@ -1,0 +1,456 @@
+```css
+* {
+    box-sizing: border-box;
+}
+
+
+/* ========================= */
+/* BODY */
+/* ========================= */
+
+body {
+    margin: 0;
+
+    font-family:
+        "Yu Gothic",
+        "Meiryo",
+        sans-serif;
+
+    background: #f4f6f8;
+
+    color: #222;
+}
+
+
+/* ========================= */
+/* CONTAINER */
+/* ========================= */
+
+.container {
+    width: min(
+        1200px,
+        calc(100% - 32px)
+    );
+
+    margin: 0 auto;
+}
+
+
+/* ========================= */
+/* HEADER */
+/* ========================= */
+
+header {
+    background: #111827;
+
+    color: white;
+
+    padding: 32px 0;
+}
+
+
+header h1 {
+    margin: 0;
+
+    font-size: 32px;
+}
+
+
+.subtitle {
+    margin: 6px 0;
+
+    font-size: 18px;
+
+    opacity: 0.8;
+}
+
+
+#update-date {
+    margin: 10px 0 0;
+
+    font-size: 14px;
+
+    opacity: 0.7;
+}
+
+
+/* ========================= */
+/* SECTION */
+/* ========================= */
+
+section {
+    margin: 32px 0;
+}
+
+
+h2 {
+    margin-bottom: 16px;
+
+    font-size: 24px;
+}
+
+
+h3 {
+    margin-top: 0;
+}
+
+
+/* ========================= */
+/* CARDS */
+/* ========================= */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px, 1fr)
+        );
+
+    gap: 16px;
+}
+
+
+.card {
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.06);
+}
+
+
+.card-title {
+    color: #666;
+
+    font-size: 14px;
+}
+
+
+.card-value {
+    margin-top: 8px;
+
+    font-size: 32px;
+
+    font-weight: bold;
+}
+
+
+.card-unit {
+    margin-top: 4px;
+
+    color: #777;
+}
+
+
+/* ========================= */
+/* PANEL */
+/* ========================= */
+
+.panel {
+    background: white;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    margin-top: 16px;
+
+    box-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.06);
+}
+
+
+/* ========================= */
+/* LEVEL */
+/* ========================= */
+
+.level-row {
+    display: grid;
+
+    grid-template-columns:
+        70px 1fr 70px;
+
+    gap: 10px;
+
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+
+.level-bar-container {
+    height: 24px;
+
+    background: #e5e7eb;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+}
+
+
+.level-bar {
+    height: 100%;
+
+    background: #3b82f6;
+}
+
+
+/* ========================= */
+/* SERVER */
+/* ========================= */
+
+.server-row {
+    display: grid;
+
+    grid-template-columns:
+        70px 1fr 60px;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 14px;
+}
+
+
+/* サーバー名 */
+
+.server-row > div:first-child {
+    font-weight: 600;
+}
+
+
+/* サーバー人数バー */
+
+.server-bar-container {
+    width: 100%;
+
+    height: 24px;
+
+    background: #e5e7eb;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+}
+
+
+.server-bar {
+    height: 100%;
+
+    background: #10b981;
+}
+
+
+/* サーバー一覧とEda/Virbaカードの間 */
+
+#server-list {
+    margin-bottom: 24px;
+}
+
+
+/* ========================= */
+/* サーバー主要ギルド */
+/* ========================= */
+
+.server-major-guilds {
+
+    grid-column: 1 / -1;
+
+    margin-top: 2px;
+    margin-bottom: 8px;
+
+    padding-left: 70px;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 4px 10px;
+
+    font-size: 0.75rem;
+    line-height: 1.5;
+
+    color: #777;
+
+}
+
+
+.server-major-guild {
+
+    display: inline-block;
+
+    white-space: nowrap;
+
+}
+
+
+.server-major-guild-count {
+
+    margin-left: 2px;
+
+    font-size: 0.7rem;
+
+    color: #999;
+
+}
+
+/* ========================= */
+/* GUILD */
+/* ========================= */
+
+.guild-row {
+    display: grid;
+
+    grid-template-columns:
+        40px 160px 1fr 60px;
+
+    gap: 10px;
+
+    align-items: center;
+
+    padding: 8px 0;
+
+    border-bottom:
+        1px solid #eee;
+}
+
+
+.guild-rank {
+    font-weight: bold;
+}
+
+
+.guild-name {
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+.guild-bar-container {
+    height: 24px;
+
+    background: #e5e7eb;
+
+    border-radius: 4px;
+
+    overflow: hidden;
+}
+
+
+.guild-bar {
+    height: 100%;
+
+    background: #8b5cf6;
+}
+
+
+.guild-count {
+    text-align: right;
+
+    white-space: nowrap;
+}
+
+
+/* ========================= */
+/* CHART */
+/* ========================= */
+
+.chart-container {
+    width: 100%;
+
+    margin: 20px 0 30px;
+
+    text-align: center;
+}
+
+
+.chart-container img {
+    max-width: 100%;
+
+    height: auto;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 2px 10px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer {
+    margin-top: 60px;
+
+    padding: 30px 0;
+
+    background: #111827;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+
+footer p {
+    margin: 4px 0;
+}
+
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 25px;
+    }
+
+
+    .card-value {
+        font-size: 26px;
+    }
+
+
+    .level-row {
+        grid-template-columns:
+            55px 1fr 55px;
+    }
+
+
+    .server-row {
+        grid-template-columns:
+            80px 1fr 60px;
+    }
+
+
+    .guild-row {
+        grid-template-columns:
+            30px 110px 1fr 55px;
+
+        gap: 6px;
+
+        font-size: 13px;
+    }
+
+
+    .guild-bar-container {
+        height: 20px;
+    }
+
+}
+```
