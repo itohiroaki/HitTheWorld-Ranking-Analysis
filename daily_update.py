@@ -2,8 +2,7 @@ from pathlib import Path
 import subprocess
 import sys
 import shutil
-from datetime import datetime
-import subprocess
+import os
 from datetime import datetime
 
 
@@ -43,7 +42,7 @@ def run_script(label, script_name):
     print()
 
     if not script_path.exists():
-        print(f"❌ ファイルが見つかりません:")
+        print("❌ ファイルが見つかりません:")
         print(f"   {script_path}")
         return False
 
@@ -223,6 +222,11 @@ def sync_web_data():
 
         for source_file in source_daily_analysis.glob("*.json"):
 
+            # index.jsonは下で明示的にコピーするため、
+            # ここでは二重コピーしない
+            if source_file.name == "index.json":
+                continue
+
             destination_file = (
                 web_daily_analysis
                 / source_file.name
@@ -373,9 +377,16 @@ def sync_web_data():
     return True
 
 
+# ============================================================
+# GitHub自動更新
+# ============================================================
+
 def git_sync_web_data():
     """
     Web公開用データをGitHubへ自動commit / pushする。
+
+    Task Schedulerから実行した場合に、
+    GitHub認証待ちなどで無限に停止しないようにする。
     """
 
     print()
@@ -383,60 +394,127 @@ def git_sync_web_data():
     print("GitHub自動更新")
     print("=" * 70)
 
+    # --------------------------------------------------------
+    # Git用環境変数
+    # --------------------------------------------------------
+
+    git_env = os.environ.copy()
+
+    # Gitが認証入力を求めても、
+    # Task Scheduler上で無限待機しないようにする
+    git_env["GIT_TERMINAL_PROMPT"] = "0"
+
     try:
-        # --------------------------------------------------
+
+        # ----------------------------------------------------
         # Gitの状態確認
-        # --------------------------------------------------
+        # ----------------------------------------------------
+
+        print()
+        print("  Git状態を確認しています...")
+
         result = subprocess.run(
-            ["git", "status", "--porcelain", "--", "web/data"],
+            [
+                "git",
+                "status",
+                "--porcelain",
+                "--",
+                "web/data",
+            ],
             cwd=BASE_DIR,
             capture_output=True,
             text=True,
             encoding="utf-8",
-            errors="replace"
+            errors="replace",
+            env=git_env,
+            timeout=120,
         )
 
         if result.returncode != 0:
-            print("❌ Git statusに失敗しました。")
-            print(result.stderr)
+
+            print(
+                "❌ Git statusに失敗しました。"
+            )
+
+            print(
+                result.stderr
+            )
+
             return False
 
-        # --------------------------------------------------
+        # ----------------------------------------------------
         # 変更がない場合
-        # --------------------------------------------------
+        # ----------------------------------------------------
+
         if not result.stdout.strip():
-            print("  ℹ️ Web公開用データに変更はありません。")
-            print("  GitHubへのpushは不要です。")
+
+            print(
+                "  ℹ️ Web公開用データに変更はありません。"
+            )
+
+            print(
+                "  GitHubへのpushは不要です。"
+            )
+
             return True
 
-        print("  Web公開用データの変更を検出しました。")
+        print(
+            "  Web公開用データの変更を検出しました。"
+        )
 
-        # --------------------------------------------------
+        # ----------------------------------------------------
         # web/dataだけをステージ
-        # --------------------------------------------------
+        # ----------------------------------------------------
+
+        print()
+        print("  Git addを実行しています...")
+
         result = subprocess.run(
-            ["git", "add", "web/data"],
+            [
+                "git",
+                "add",
+                "web/data",
+            ],
             cwd=BASE_DIR,
             capture_output=True,
             text=True,
             encoding="utf-8",
-            errors="replace"
+            errors="replace",
+            env=git_env,
+            timeout=120,
         )
 
         if result.returncode != 0:
-            print("❌ git add に失敗しました。")
-            print(result.stderr)
+
+            print(
+                "❌ git add に失敗しました。"
+            )
+
+            print(
+                result.stderr
+            )
+
             return False
 
-        print("  ✅ git add 完了")
+        print(
+            "  ✅ git add 完了"
+        )
 
-        # --------------------------------------------------
+        # ----------------------------------------------------
         # commit
-        # --------------------------------------------------
-        today = datetime.now().strftime("%Y-%m-%d")
+        # ----------------------------------------------------
+
+        today = datetime.now().strftime(
+            "%Y-%m-%d"
+        )
 
         commit_message = (
             f"Daily ranking update {today}"
+        )
+
+        print()
+        print(
+            "  Git commitを実行しています..."
         )
 
         result = subprocess.run(
@@ -444,49 +522,133 @@ def git_sync_web_data():
                 "git",
                 "commit",
                 "-m",
-                commit_message
+                commit_message,
             ],
             cwd=BASE_DIR,
             capture_output=True,
             text=True,
             encoding="utf-8",
-            errors="replace"
+            errors="replace",
+            env=git_env,
+            timeout=120,
         )
 
         if result.returncode != 0:
-            print("❌ git commit に失敗しました。")
-            print(result.stdout)
-            print(result.stderr)
+
+            print(
+                "❌ git commit に失敗しました。"
+            )
+
+            print(
+                result.stdout
+            )
+
+            print(
+                result.stderr
+            )
+
             return False
 
-        print(f"  ✅ commit: {commit_message}")
+        print(
+            f"  ✅ commit: {commit_message}"
+        )
 
-        # --------------------------------------------------
+        # ----------------------------------------------------
         # push
-        # --------------------------------------------------
+        # ----------------------------------------------------
+
+        print()
+        print(
+            "  GitHubへpushしています..."
+        )
+
         result = subprocess.run(
-            ["git", "push"],
+            [
+                "git",
+                "push",
+            ],
             cwd=BASE_DIR,
             capture_output=True,
             text=True,
             encoding="utf-8",
-            errors="replace"
+            errors="replace",
+            env=git_env,
+            timeout=120,
         )
 
         if result.returncode != 0:
-            print("❌ git push に失敗しました。")
-            print(result.stdout)
-            print(result.stderr)
+
+            print()
+            print(
+                "❌ git push に失敗しました。"
+            )
+
+            print()
+
+            if result.stdout:
+                print(
+                    result.stdout
+                )
+
+            if result.stderr:
+                print(
+                    result.stderr
+                )
+
+            print()
+            print(
+                "考えられる原因:"
+            )
+            print(
+                "  ・GitHub認証情報が取得できない"
+            )
+            print(
+                "  ・Task Schedulerの実行環境からGitHubへ接続できない"
+            )
+            print(
+                "  ・GitHubへのpush権限がない"
+            )
+
             return False
 
-        print("  ✅ GitHubへのpush完了")
+        print(
+            "  ✅ GitHubへのpush完了"
+        )
 
         return True
 
-    except Exception as e:
-        print("❌ GitHub自動更新中にエラーが発生しました。")
-        print(f"   {e}")
+    except subprocess.TimeoutExpired as e:
+
+        print()
+        print(
+            "❌ Git処理が120秒以内に終了しませんでした。"
+        )
+
+        print(
+            "  GitHub認証またはGit通信で"
+            "待機している可能性があります。"
+        )
+
+        print(
+            f"  対象コマンド: {e.cmd}"
+        )
+
         return False
+
+    except Exception as e:
+
+        print()
+        print(
+            "❌ GitHub自動更新中に"
+            "エラーが発生しました。"
+        )
+
+        print(
+            f"   {e}"
+        )
+
+        return False
+
 
 # ============================================================
 # メイン
@@ -509,8 +671,9 @@ def main():
 
     print()
     print(
-        f"作業フォルダ:"
+        "作業フォルダ:"
     )
+
     print(
         f"  {BASE_DIR}"
     )
@@ -558,14 +721,28 @@ def main():
 
     output_ok = check_output_files()
 
+    # --------------------------------------------------------
+    # Web公開用データ同期
+    # --------------------------------------------------------
+
     if output_ok:
+
         web_data_ok = sync_web_data()
+
     else:
+
         web_data_ok = False
 
+    # --------------------------------------------------------
+    # GitHub自動更新
+    # --------------------------------------------------------
+
     if web_data_ok:
+
         git_ok = git_sync_web_data()
+
     else:
+
         git_ok = False
 
     # --------------------------------------------------------
@@ -580,11 +757,25 @@ def main():
     print("=" * 70)
 
     if output_ok and web_data_ok and git_ok:
-        print("🎉 日次更新完了")
-        print("   GitHubへの公開データ更新も完了しました。")
+
+        print(
+            "🎉 日次更新完了"
+        )
+
+        print(
+            "   GitHubへの公開データ更新も完了しました。"
+        )
+
     else:
-        print("⚠️ 日次更新は完了しましたが、")
-        print("   一部の処理または出力ファイルを確認できませんでした。")
+
+        print(
+            "⚠️ 日次更新は完了しましたが、"
+        )
+
+        print(
+            "   一部の処理または出力ファイルを"
+            "確認できませんでした。"
+        )
 
     print("=" * 70)
 
@@ -602,8 +793,15 @@ def main():
     print()
 
     if output_ok and web_data_ok and git_ok:
-        print("Webサイト用データの更新が完了しました。")
-        print("GitHubへのpushも完了しました。")
+
+        print(
+            "Webサイト用データの更新が完了しました。"
+        )
+
+        print(
+            "GitHubへのpushも完了しました。"
+        )
+
         return 0
 
     return 1
