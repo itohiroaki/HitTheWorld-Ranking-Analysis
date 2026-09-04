@@ -2407,3 +2407,27 @@ select {
 #dashboard-highlight-modal .guild-members-table td {
     text-align: center;
 }
+
+/* =========================================================
+   ギルドメンバーモーダル：レイアウト調整
+========================================================= */
+
+.guild-members-list {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.guild-members-table-header,
+.guild-member-row {
+    text-align: center;
+}
+
+/* =========================================================
+   Level Members Modal - 左寄せ調整
+========================================================= */
+
+#level-members-modal .guild-members-table-header,
+#level-members-modal .guild-member-row {
+    padding-left: 14px;
+    padding-right: 14px;
+}
