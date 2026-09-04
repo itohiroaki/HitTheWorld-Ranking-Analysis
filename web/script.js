@@ -3372,6 +3372,8 @@ function displayDashboardHighlights(
 
     `;
 
+setupDashboardHighlightButtons();    
+
 }
 
 
@@ -6198,6 +6200,392 @@ function setupDashboardLevelButtons() {
 
 }
 
+function setupDashboardHighlightButtons() {
+
+    const cards =
+        document.querySelectorAll(
+            ".dashboard-highlight-card"
+        );
+
+    if (!cards.length) {
+        return;
+    }
+
+    cards.forEach((card, index) => {
+
+        card.style.cursor = "pointer";
+
+        card.addEventListener(
+            "click",
+            () => {
+
+                if (!currentData) {
+                    return;
+                }
+
+                const types = [
+                    "level_up",
+                    "rank_up",
+                    "rank_down"
+                ];
+
+                openDashboardHighlightModal(
+                    types[index]
+                );
+
+            }
+        );
+
+    });
+
+}
+
+function openDashboardHighlightModal(
+    type
+) {
+
+    if (!currentData) {
+        return;
+    }
+
+    const list =
+        filterTodayEvents(
+            currentData?.rankings?.[type] || [],
+            currentData?.date
+        );
+
+    const titles = {
+        level_up: "🆙 本日のLv UP",
+        rank_up: "📈 順位上昇",
+        rank_down: "📉 順位下降"
+    };
+
+    const title =
+        titles[type] ||
+        "今日の注目";
+
+    const existing =
+        document.getElementById(
+            "dashboard-highlight-modal"
+        );
+
+    if (existing) {
+        existing.remove();
+    }
+
+    const modal =
+        document.createElement("div");
+
+    modal.id =
+        "dashboard-highlight-modal";
+
+    modal.className =
+        "guild-members-modal";
+
+    const memberRows =
+        list.length
+            ? list.map(
+                item => {
+
+                    const character =
+                        String(
+                            item.character || ""
+                        ).trim();
+
+                        let currentLevel = null;
+
+                    const group =
+                        String(
+                            item.group || ""
+                        ).trim();
+
+                    const oldRank =
+                        toNumber(
+                            item.old_rank
+                        );
+
+                    const newRank =
+                        toNumber(
+                            item.new_rank
+                        );
+
+                        let currentRank = null;
+
+                    const oldLevel =
+                        toNumber(
+                            item.old_level
+                        );
+
+ const newLevel =
+    toNumber(
+        item.new_level
+    );
+
+if (
+    type === "level_up" ||
+    type === "rank_up" ||
+    type === "rank_down"
+) {
+
+    const players =
+        getUniqueCombinedRanking(
+            currentData
+        );
+
+    const player =
+        players.find(
+            p =>
+                String(
+                    p.character || ""
+                ).trim() === character
+        );
+
+    if (player) {
+
+        currentLevel =
+            getPlayerLevel(
+                player
+            );
+
+        currentRank =
+            toNumber(
+                player.rank
+            );
+
+    }
+
+}
+
+let change = "";
+
+                    if (
+                        type === "rank_up" ||
+                        type === "rank_down"
+                    ) {
+
+                        if (
+                            Number.isFinite(oldRank) &&
+                            Number.isFinite(newRank)
+                        ) {
+
+                            const diff =
+                                oldRank - newRank;
+
+                            change =
+                                diff > 0
+                                    ? `+${diff}`
+                                    : `${diff}`;
+
+                        }
+
+                    } else if (
+                        type === "level_up"
+                    ) {
+
+                        if (
+                            Number.isFinite(oldLevel) &&
+                            Number.isFinite(newLevel)
+                        ) {
+
+                            change =
+                                `Lv${oldLevel} → Lv${newLevel}`;
+
+                        }
+
+                    }
+
+                    return `
+                        <tr>
+
+                            <td>
+                                ${
+    type === "level_up"
+        ? (
+            Number.isFinite(currentRank)
+                ? currentRank
+                : "-"
+        )
+        : (
+            Number.isFinite(newRank)
+                ? newRank
+                : "-"
+        )
+}
+                            </td>
+
+<td>
+    ${
+        type === "level_up"
+            ? (
+                Number.isFinite(newLevel)
+                    ? `Lv${newLevel}`
+                    : "-"
+            )
+            : (
+                Number.isFinite(currentLevel)
+                    ? `Lv${currentLevel}`
+                    : "-"
+            )
+    }
+</td>
+
+                            <td>
+                                <button
+                                    type="button"
+                                    class="player-clickable"
+                                    data-character="${escapeHtml(
+                                        character
+                                    )}"
+                                >
+                                    ${escapeHtml(
+                                        character
+                                    )}
+                                </button>
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    group
+                                )}
+                            </td>
+
+                            <td>
+                                ${escapeHtml(
+                                    change
+                                )}
+                            </td>
+
+                        </tr>
+                    `;
+
+                }
+            ).join("")
+            : `
+                <tr>
+                    <td
+                        colspan="5"
+                        class="empty-state"
+                    >
+                        該当するプレイヤーはいません
+                    </td>
+                </tr>
+            `;
+
+    modal.innerHTML = `
+        <div class="guild-members-modal-backdrop"></div>
+
+        <div
+    class="guild-members-modal-dialog"
+    role="dialog"
+    aria-modal="true"
+>
+
+            <div class="guild-members-modal-header">
+
+                <div>
+
+                    <h2>
+                        ${escapeHtml(title)}
+                    </h2>
+
+                    <p>
+                        ${list.length}人
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="guild-members-modal-close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+            <div class="guild-members-modal-body">
+
+                <table class="guild-members-table">
+
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>Lv</th>
+                            <th>キャラクター</th>
+                            <th>所属</th>
+                            <th>変動</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        ${memberRows}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(
+        modal
+    );
+
+    const closeModal = () => {
+        modal.remove();
+    };
+
+    const closeButton =
+        modal.querySelector(
+            ".guild-members-modal-close"
+        );
+
+    if (closeButton) {
+        closeButton.addEventListener(
+            "click",
+            closeModal
+        );
+    }
+
+    const backdrop =
+        modal.querySelector(
+            ".guild-members-modal-backdrop"
+        );
+
+    if (backdrop) {
+        backdrop.addEventListener(
+            "click",
+            closeModal
+        );
+    }
+
+    const escapeHandler =
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeModal();
+
+                document.removeEventListener(
+                    "keydown",
+                    escapeHandler
+                );
+
+            }
+
+        };
+
+    document.addEventListener(
+        "keydown",
+        escapeHandler
+    );
+
+    setupPlayerClickableElements();
+
+}
 
 function openGuildMembersModal(
     server,
@@ -6333,7 +6721,11 @@ function openGuildMembersModal(
     modal.innerHTML = `
         <div class="guild-members-modal-backdrop"></div>
 
-        <div class="guild-members-modal-content">
+        <div
+    class="guild-members-modal-dialog"
+    role="dialog"
+    aria-modal="true"
+>
 
             <div class="guild-members-modal-header">
 

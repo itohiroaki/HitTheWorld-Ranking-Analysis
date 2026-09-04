@@ -2368,3 +2368,42 @@ select {
     }
 
 }
+
+/* Dashboard Highlight Modal Scroll */
+
+#dashboard-highlight-modal .guild-members-modal-body {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+/* 今日の注目モーダル：キャラクターボタン */
+
+#dashboard-highlight-modal .player-clickable {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: none;
+    font: inherit;
+    color: #2563eb;
+    cursor: pointer;
+}
+
+#dashboard-highlight-modal .player-clickable:hover {
+    text-decoration: underline;
+}
+
+/* 今日の注目モーダル：レイアウト調整 */
+
+#dashboard-highlight-modal .guild-members-modal-body {
+    padding: 20px;
+}
+
+#dashboard-highlight-modal .guild-members-table {
+    width: 100%;
+    margin: 0 auto;
+}
+
+#dashboard-highlight-modal .guild-members-table th,
+#dashboard-highlight-modal .guild-members-table td {
+    text-align: center;
+}
