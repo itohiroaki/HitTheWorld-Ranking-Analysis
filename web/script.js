@@ -878,11 +878,132 @@ const guildChange =
         levelUp.length
     );
 
-    setText(
+        setText(
         "event-guild-change",
         guildChange.length
     );
 
+
+    /* =====================================================
+       TOP100入りカード
+       クリックで共通キャラ一覧モーダル
+    ===================================================== */
+
+    const entryCard =
+        document.querySelector(
+            ".event-card.event-entry"
+        );
+
+
+    if (entryCard) {
+
+        entryCard.style.cursor =
+            "pointer";
+
+
+        entryCard.onclick =
+            () => {
+
+                const players =
+                    getUniqueCombinedRanking(
+                        data
+                    );
+
+
+                const members =
+                    entry
+                        .map(
+                            event => {
+
+                                const character =
+                                    String(
+                                        event.character ||
+                                        ""
+                                    );
+
+
+                                const currentPlayer =
+                                    players.find(
+                                        player =>
+                                            String(
+                                                player.character ||
+                                                ""
+                                            ) === character
+                                    );
+
+
+                                if (
+                                    !currentPlayer
+                                ) {
+                                    return null;
+                                }
+
+
+                                return {
+
+                                    rank:
+                                        currentPlayer.rank,
+
+                                    server:
+                                        currentPlayer.server,
+
+                                    character:
+                                        currentPlayer.character,
+
+                                    guild:
+                                        currentPlayer.guild
+
+                                };
+
+                            }
+                        )
+                        .filter(
+                            player =>
+                                player !== null
+                        )
+                        .sort(
+                            (a, b) => {
+
+                                const rankA =
+                                    Number(a.rank);
+
+                                const rankB =
+                                    Number(b.rank);
+
+
+                                if (
+                                    Number.isFinite(rankA) &&
+                                    Number.isFinite(rankB)
+                                ) {
+                                    return rankA - rankB;
+                                }
+
+
+                                return String(
+                                    a.character || ""
+                                ).localeCompare(
+                                    String(
+                                        b.character || ""
+                                    ),
+                                    "ja"
+                                );
+
+                            }
+                        );
+
+
+                openCharacterListModal(
+                    "🆕 TOP100入り",
+                    `${members.length}人`,
+                    members
+                );
+
+            };
+
+    }
+
+    
+    
 }
 
 /* =========================================================
