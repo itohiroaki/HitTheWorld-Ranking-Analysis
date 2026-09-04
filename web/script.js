@@ -41,6 +41,9 @@ let availableDates = [];
 let currentRankingGroup = "Combined";
 let currentTodayGroup = "All";
 let dashboardServerDistributionData = null;
+let dashboardLevelDistributionData = null;
+
+
 
 /* =========================================================
    Initialization
@@ -2799,6 +2802,8 @@ function displayDashboardLevelDistribution(
     data
 ) {
 
+dashboardLevelDistributionData = data;
+
     const container =
         document.getElementById(
             "dashboard-level-distribution"
@@ -2898,13 +2903,17 @@ function displayDashboardLevelDistribution(
 
                         <div class="dashboard-bar-row">
 
-                            <div class="dashboard-bar-label">
-                                Lv${escapeHtml(
-                                    String(
-                                        level
-                                    )
-                                )}
-                            </div>
+                            <button
+    type="button"
+    class="dashboard-bar-label dashboard-level-button"
+    data-level="${escapeHtml(
+        String(level)
+    )}"
+>
+    Lv${escapeHtml(
+        String(level)
+    )}
+</button>
 
 
                             <div class="dashboard-bar-track">
@@ -2928,6 +2937,9 @@ function displayDashboardLevelDistribution(
                 }
             )
             .join("");
+
+    setupDashboardLevelButtons();
+
 
 }
 
@@ -6150,14 +6162,48 @@ function setupDashboardGuildButtons() {
     });
 }
 
+function setupDashboardLevelButtons() {
+
+    const buttons =
+        document.querySelectorAll(
+            ".dashboard-level-button"
+        );
+
+
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const level =
+                    Number(
+                        button.dataset.level
+                    );
+
+
+                if (!Number.isFinite(level)) {
+                    return;
+                }
+
+
+                openLevelMembersModal(
+                    level
+                );
+
+            }
+        );
+
+    });
+
+}
+
 
 function openGuildMembersModal(
     server,
     guild
 ) {
-    if (
-        !dashboardServerDistributionData
-    ) {
+    if (!dashboardServerDistributionData) {
         return;
     }
 
@@ -6179,11 +6225,8 @@ function openGuildMembersModal(
             )
             .sort(
                 (a, b) => {
-                    const rankA =
-                        Number(a.rank);
-
-                    const rankB =
-                        Number(b.rank);
+                    const rankA = Number(a.rank);
+                    const rankB = Number(b.rank);
 
                     if (
                         Number.isFinite(rankA) &&
@@ -6203,7 +6246,6 @@ function openGuildMembersModal(
                 }
             );
 
-
     const existing =
         document.getElementById(
             "guild-members-modal"
@@ -6212,7 +6254,6 @@ function openGuildMembersModal(
     if (existing) {
         existing.remove();
     }
-
 
     const modal =
         document.createElement("div");
@@ -6223,27 +6264,293 @@ function openGuildMembersModal(
     modal.className =
         "guild-members-modal";
 
+    const memberRows =
+        members.length
+            ? members.map(
+                player => {
+
+                    const rank =
+                        Number(
+                            player.rank
+                        );
+
+                    const level =
+                        getPlayerLevel(
+                            player
+                        );
+
+                    const character =
+                        String(
+                            player.character || ""
+                        ).trim();
+
+                    return `
+                        <tr>
+                            <td>
+                                ${
+                                    Number.isFinite(rank)
+                                        ? rank
+                                        : "-"
+                                }
+                            </td>
+
+                            <td>
+                                ${
+                                    level !== null
+                                        ? `Lv${level}`
+                                        : "-"
+                                }
+                            </td>
+
+                            <td>
+                                <button
+                                    type="button"
+                                    class="player-clickable"
+                                    data-character="${escapeHtml(
+                                        character
+                                    )}"
+                                >
+                                    ${escapeHtml(
+                                        character
+                                    )}
+                                </button>
+                            </td>
+                        </tr>
+                    `;
+                }
+            ).join("")
+            : `
+                <tr>
+                    <td
+                        colspan="3"
+                        class="empty-state"
+                    >
+                        メンバーが見つかりません
+                    </td>
+                </tr>
+            `;
+
+    modal.innerHTML = `
+        <div class="guild-members-modal-backdrop"></div>
+
+        <div class="guild-members-modal-content">
+
+            <div class="guild-members-modal-header">
+
+                <div>
+                    <h2>
+                        🏰 ${escapeHtml(guild)}
+                    </h2>
+
+                    <p>
+                        ${escapeHtml(server)}
+                        /
+                        ${members.length}人
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="guild-members-modal-close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+            <div class="guild-members-modal-body">
+
+                <table class="guild-members-table">
+
+                    <thead>
+                        <tr>
+                            <th>順位</th>
+                            <th>Lv</th>
+                            <th>キャラクター</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        ${memberRows}
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(
+        modal
+    );
+
+    const closeModal = () => {
+        modal.remove();
+    };
+
+    const closeButton =
+        modal.querySelector(
+            ".guild-members-modal-close"
+        );
+
+    if (closeButton) {
+        closeButton.addEventListener(
+            "click",
+            closeModal
+        );
+    }
+
+    const backdrop =
+        modal.querySelector(
+            ".guild-members-modal-backdrop"
+        );
+
+    if (backdrop) {
+        backdrop.addEventListener(
+            "click",
+            closeModal
+        );
+    }
+
+    const escapeHandler =
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+                closeModal();
+
+                document.removeEventListener(
+                    "keydown",
+                    escapeHandler
+                );
+            }
+        };
+
+    document.addEventListener(
+        "keydown",
+        escapeHandler
+    );
+
+    setupPlayerClickableElements();
+}
+
+/* =========================================================
+   Dashboard Level Members Modal
+========================================================= */
+
+function openLevelMembersModal(
+    level
+) {
+
+    if (
+        !dashboardLevelDistributionData
+    ) {
+        return;
+    }
+
+
+    const players =
+        getUniqueCombinedRanking(
+            dashboardLevelDistributionData
+        );
+
+
+    const members =
+        players
+            .filter(
+                player =>
+                    getPlayerLevel(
+                        player
+                    ) === level
+            )
+            .sort(
+                (a, b) => {
+
+                    const rankA =
+                        Number(a.rank);
+
+                    const rankB =
+                        Number(b.rank);
+
+
+                    if (
+                        Number.isFinite(rankA) &&
+                        Number.isFinite(rankB)
+                    ) {
+                        return rankA - rankB;
+                    }
+
+
+                    return String(
+                        a.character || ""
+                    ).localeCompare(
+                        String(
+                            b.character || ""
+                        ),
+                        "ja"
+                    );
+
+                }
+            );
+
+
+    const existing =
+        document.getElementById(
+            "level-members-modal"
+        );
+
+
+    if (existing) {
+        existing.remove();
+    }
+
+
+    const modal =
+        document.createElement("div");
+
+
+    modal.id =
+        "level-members-modal";
+
+
+    modal.className =
+        "guild-members-modal";
+
 
     const memberRows =
         members.length
             ? members
                 .map(
                     player => {
+
                         const rank =
                             Number(
                                 player.rank
                             );
 
-                        const level =
-                            getPlayerLevel(
-                                player
+
+                        const server =
+                            String(
+                                player.server ||
+                                ""
                             );
+
+
+                        const guild =
+                            String(
+                                player.guild ||
+                                ""
+                            ).trim();
+
 
                         const character =
                             String(
                                 player.character ||
                                 ""
                             );
+
 
                         return `
                             <div
@@ -6252,6 +6559,7 @@ function openGuildMembersModal(
                                     character
                                 )}"
                             >
+
                                 <div class="guild-member-rank">
                                     ${
                                         Number.isFinite(
@@ -6262,29 +6570,49 @@ function openGuildMembersModal(
                                     }
                                 </div>
 
+
                                 <div class="guild-member-level">
-                                    ${
-                                        level != null
-                                            ? `Lv${escapeHtml(
-                                                String(level)
-                                            )}`
-                                            : "-"
-                                    }
+                                    ${escapeHtml(
+                                        server
+                                    )}
                                 </div>
 
+
                                 <div class="guild-member-character">
+
                                     ${escapeHtml(
                                         character
                                     )}
+
+                                    ${
+                                        guild
+                                            ? `
+                                                <span
+                                                    style="
+                                                        margin-left:8px;
+                                                        font-size:0.85em;
+                                                        color:#6b7280;
+                                                    "
+                                                >
+                                                    ${escapeHtml(
+                                                        guild
+                                                    )}
+                                                </span>
+                                            `
+                                            : ""
+                                    }
+
                                 </div>
+
                             </div>
                         `;
+
                     }
                 )
                 .join("")
             : `
                 <div class="guild-members-empty">
-                    メンバーが見つかりません
+                    キャラクターが見つかりません
                 </div>
             `;
 
@@ -6292,24 +6620,30 @@ function openGuildMembersModal(
     modal.innerHTML = `
         <div class="guild-members-modal-backdrop"></div>
 
+
         <div
             class="guild-members-modal-dialog"
             role="dialog"
             aria-modal="true"
         >
+
             <div class="guild-members-modal-header">
 
                 <div>
+
                     <div class="guild-members-modal-title">
-                        🏰 ${escapeHtml(guild)}
+                        ⭐ Lv${escapeHtml(
+                            String(level)
+                        )}
                     </div>
 
+
                     <div class="guild-members-modal-subtitle">
-                        ${escapeHtml(server)}
-                        /
                         ${members.length}人
                     </div>
+
                 </div>
+
 
                 <button
                     type="button"
@@ -6323,9 +6657,13 @@ function openGuildMembersModal(
 
 
             <div class="guild-members-table-header">
+
                 <div>順位</div>
-                <div>Lv</div>
-                <div>キャラクター</div>
+
+                <div>サーバー</div>
+
+                <div>キャラクター / ギルド</div>
+
             </div>
 
 
@@ -6371,19 +6709,28 @@ function openGuildMembersModal(
     document.addEventListener(
         "keydown",
         function handleEscape(event) {
+
             if (
                 event.key === "Escape"
             ) {
+
                 closeModal();
+
 
                 document.removeEventListener(
                     "keydown",
                     handleEscape
                 );
+
             }
+
         }
     );
 
 
     setupPlayerClickableElements();
+
 }
+
+
+    

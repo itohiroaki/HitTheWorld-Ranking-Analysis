@@ -2043,7 +2043,8 @@ select {
     margin: 6px 0 0 65px;
 }
 
-.dashboard-server-guild {
+.dashboard-server-guild,
+.dashboard-level-button {
     display: inline-flex;
     align-items: center;
     gap: 4px;
@@ -2137,7 +2138,8 @@ select {
    Dashboard Guild Button
 ========================================================= */
 
-.dashboard-server-guild {
+.dashboard-server-guild,
+.dashboard-level-button {
     appearance: none;
     border: none;
     background: transparent;
@@ -2159,7 +2161,8 @@ select {
         transform 0.15s ease;
 }
 
-.dashboard-server-guild:hover {
+.dashboard-server-guild:hover,
+.dashboard-level-button:hover {
     background: rgba(59, 130, 246, 0.10);
     transform: translateY(-1px);
 }
