@@ -3,6 +3,8 @@ import subprocess
 import sys
 import shutil
 from datetime import datetime
+import subprocess
+from datetime import datetime
 
 
 # ============================================================
@@ -370,6 +372,122 @@ def sync_web_data():
 
     return True
 
+
+def git_sync_web_data():
+    """
+    Web公開用データをGitHubへ自動commit / pushする。
+    """
+
+    print()
+    print("=" * 70)
+    print("GitHub自動更新")
+    print("=" * 70)
+
+    try:
+        # --------------------------------------------------
+        # Gitの状態確認
+        # --------------------------------------------------
+        result = subprocess.run(
+            ["git", "status", "--porcelain", "--", "web/data"],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace"
+        )
+
+        if result.returncode != 0:
+            print("❌ Git statusに失敗しました。")
+            print(result.stderr)
+            return False
+
+        # --------------------------------------------------
+        # 変更がない場合
+        # --------------------------------------------------
+        if not result.stdout.strip():
+            print("  ℹ️ Web公開用データに変更はありません。")
+            print("  GitHubへのpushは不要です。")
+            return True
+
+        print("  Web公開用データの変更を検出しました。")
+
+        # --------------------------------------------------
+        # web/dataだけをステージ
+        # --------------------------------------------------
+        result = subprocess.run(
+            ["git", "add", "web/data"],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace"
+        )
+
+        if result.returncode != 0:
+            print("❌ git add に失敗しました。")
+            print(result.stderr)
+            return False
+
+        print("  ✅ git add 完了")
+
+        # --------------------------------------------------
+        # commit
+        # --------------------------------------------------
+        today = datetime.now().strftime("%Y-%m-%d")
+
+        commit_message = (
+            f"Daily ranking update {today}"
+        )
+
+        result = subprocess.run(
+            [
+                "git",
+                "commit",
+                "-m",
+                commit_message
+            ],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace"
+        )
+
+        if result.returncode != 0:
+            print("❌ git commit に失敗しました。")
+            print(result.stdout)
+            print(result.stderr)
+            return False
+
+        print(f"  ✅ commit: {commit_message}")
+
+        # --------------------------------------------------
+        # push
+        # --------------------------------------------------
+        result = subprocess.run(
+            ["git", "push"],
+            cwd=BASE_DIR,
+            capture_output=True,
+            text=True,
+            encoding="utf-8",
+            errors="replace"
+        )
+
+        if result.returncode != 0:
+            print("❌ git push に失敗しました。")
+            print(result.stdout)
+            print(result.stderr)
+            return False
+
+        print("  ✅ GitHubへのpush完了")
+
+        return True
+
+    except Exception as e:
+        print("❌ GitHub自動更新中にエラーが発生しました。")
+        print(f"   {e}")
+        return False
+
 # ============================================================
 # メイン
 # ============================================================
@@ -440,17 +558,15 @@ def main():
 
     output_ok = check_output_files()
 
-    # --------------------------------------------------------
-    # Web公開用データ同期
-    # --------------------------------------------------------
-
     if output_ok:
-
         web_data_ok = sync_web_data()
-
     else:
-
         web_data_ok = False
+
+    if web_data_ok:
+        git_ok = git_sync_web_data()
+    else:
+        git_ok = False
 
     # --------------------------------------------------------
     # 完了
@@ -463,12 +579,10 @@ def main():
     print()
     print("=" * 70)
 
-    if output_ok and web_data_ok:
-
+    if output_ok and web_data_ok and git_ok:
         print("🎉 日次更新完了")
-
+        print("   GitHubへの公開データ更新も完了しました。")
     else:
-
         print("⚠️ 日次更新は完了しましたが、")
         print("   一部の処理または出力ファイルを確認できませんでした。")
 
@@ -487,10 +601,9 @@ def main():
 
     print()
 
-    if output_ok and web_data_ok:
-
+    if output_ok and web_data_ok and git_ok:
         print("Webサイト用データの更新が完了しました。")
-
+        print("GitHubへのpushも完了しました。")
         return 0
 
     return 1
