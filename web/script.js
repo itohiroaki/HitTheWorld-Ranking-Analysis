@@ -19,16 +19,16 @@
 ========================================================= */
 
 const LATEST_DATA_URL =
-    "../data/history/daily_analysis_latest.json";
+    "/data/history/daily_analysis_latest.json";
 
 const DAILY_ANALYSIS_DIR =
-    "../data/history/daily_analysis";
+    "/data/history/daily_analysis";
 
 const DAILY_INDEX_URL =
     `${DAILY_ANALYSIS_DIR}/index.json`;
 
 const PLAYER_HISTORY_URL =
-    "../data/history/player_history.json";
+    "/data/history/player_history.json";
 
 
 /* =========================================================

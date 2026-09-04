@@ -1,6 +1,7 @@
 from pathlib import Path
 import subprocess
 import sys
+import shutil
 from datetime import datetime
 
 
@@ -168,6 +169,208 @@ def check_output_files():
 
 
 # ============================================================
+# Web公開用データ同期
+# ============================================================
+
+def sync_web_data():
+
+    print()
+    print("=" * 70)
+    print("Web公開用データ同期")
+    print("=" * 70)
+
+    source_history = (
+        BASE_DIR
+        / "data"
+        / "history"
+    )
+
+    web_history = (
+        BASE_DIR
+        / "web"
+        / "data"
+        / "history"
+    )
+
+    web_daily_analysis = (
+        web_history
+        / "daily_analysis"
+    )
+
+    # --------------------------------------------------------
+    # 保存先フォルダ作成
+    # --------------------------------------------------------
+
+    web_daily_analysis.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    # --------------------------------------------------------
+    # daily_analysis
+    # --------------------------------------------------------
+
+    source_daily_analysis = (
+        source_history
+        / "daily_analysis"
+    )
+
+    copied_count = 0
+
+    if source_daily_analysis.exists():
+
+        for source_file in source_daily_analysis.glob("*.json"):
+
+            destination_file = (
+                web_daily_analysis
+                / source_file.name
+            )
+
+            shutil.copy2(
+                source_file,
+                destination_file,
+            )
+
+            print(
+                f"  ✅ {source_file.name}"
+            )
+
+            copied_count += 1
+
+    else:
+
+        print(
+            "  ❌ daily_analysis フォルダが"
+            "見つかりません。"
+        )
+
+        return False
+
+    # --------------------------------------------------------
+    # daily_analysis_latest.json
+    # --------------------------------------------------------
+
+    latest_source = (
+        source_history
+        / "daily_analysis_latest.json"
+    )
+
+    latest_destination = (
+        web_history
+        / "daily_analysis_latest.json"
+    )
+
+    if latest_source.exists():
+
+        shutil.copy2(
+            latest_source,
+            latest_destination,
+        )
+
+        print(
+            "  ✅ daily_analysis_latest.json"
+        )
+
+        copied_count += 1
+
+    else:
+
+        print(
+            "  ❌ daily_analysis_latest.json"
+            " が見つかりません。"
+        )
+
+        return False
+
+    # --------------------------------------------------------
+    # index.json
+    # --------------------------------------------------------
+
+    index_source = (
+        source_daily_analysis
+        / "index.json"
+    )
+
+    index_destination = (
+        web_daily_analysis
+        / "index.json"
+    )
+
+    if index_source.exists():
+
+        shutil.copy2(
+            index_source,
+            index_destination,
+        )
+
+        print(
+            "  ✅ daily_analysis/index.json"
+        )
+
+        copied_count += 1
+
+    else:
+
+        print(
+            "  ❌ daily_analysis/index.json"
+            " が見つかりません。"
+        )
+
+        return False
+
+    # --------------------------------------------------------
+    # player_history.json
+    # --------------------------------------------------------
+
+    player_history_source = (
+        source_history
+        / "player_history.json"
+    )
+
+    player_history_destination = (
+        web_history
+        / "player_history.json"
+    )
+
+    if player_history_source.exists():
+
+        shutil.copy2(
+            player_history_source,
+            player_history_destination,
+        )
+
+        print(
+            "  ✅ player_history.json"
+        )
+
+        copied_count += 1
+
+    else:
+
+        print(
+            "  ❌ player_history.json"
+            " が見つかりません。"
+        )
+
+        return False
+
+    # --------------------------------------------------------
+    # 完了
+    # --------------------------------------------------------
+
+    print()
+    print(
+        f"Web公開用データ: "
+        f"{copied_count} ファイル"
+    )
+
+    print(
+        "✅ Web公開用データ同期完了"
+    )
+
+    return True
+
+# ============================================================
 # メイン
 # ============================================================
 
@@ -238,6 +441,18 @@ def main():
     output_ok = check_output_files()
 
     # --------------------------------------------------------
+    # Web公開用データ同期
+    # --------------------------------------------------------
+
+    if output_ok:
+
+        web_data_ok = sync_web_data()
+
+    else:
+
+        web_data_ok = False
+
+    # --------------------------------------------------------
     # 完了
     # --------------------------------------------------------
 
@@ -248,14 +463,14 @@ def main():
     print()
     print("=" * 70)
 
-    if output_ok:
+    if output_ok and web_data_ok:
 
         print("🎉 日次更新完了")
 
     else:
 
         print("⚠️ 日次更新は完了しましたが、")
-        print("   一部の出力ファイルを確認できませんでした。")
+        print("   一部の処理または出力ファイルを確認できませんでした。")
 
     print("=" * 70)
 
@@ -272,8 +487,10 @@ def main():
 
     print()
 
-    if output_ok:
+    if output_ok and web_data_ok:
+
         print("Webサイト用データの更新が完了しました。")
+
         return 0
 
     return 1
