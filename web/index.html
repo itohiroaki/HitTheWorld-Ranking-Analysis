@@ -1,0 +1,1672 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        HIT : The World ランキング分析
+    </title>
+
+
+    <meta
+        name="description"
+        content="HIT : The WorldのEda・Virbaサーバーランキングを毎日分析。ランキング、順位変動、TOP100入り、圏外、レベルアップ、ギルド変更、プレイヤー履歴などを確認できます。"
+    >
+
+
+    <meta
+        name="theme-color"
+        content="#111827"
+    >
+
+
+    <link
+        rel="stylesheet"
+        href="style.css?v=8"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header">
+
+    <div class="container">
+
+        <div class="header-title">
+
+            <div>
+
+                <h1>
+                    HIT : The World
+                </h1>
+
+                <p>
+                    ランキング分析
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="header-info">
+
+            <span id="update-date">
+                データ読み込み中...
+            </span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main class="container">
+
+
+    <!-- =====================================================
+         DATE SELECTOR
+    ====================================================== -->
+
+    <section class="date-section">
+
+        <div class="section-heading">
+
+            <div>
+
+                <h2>
+                    📅 分析日
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div class="date-selector">
+
+            <label for="history-date">
+                分析日
+            </label>
+
+
+            <select
+                id="history-date"
+            >
+
+                <option value="">
+                    読み込み中...
+                </option>
+
+            </select>
+
+
+            <button
+                id="latest-button"
+                type="button"
+            >
+                最新データ
+            </button>
+
+        </div>
+
+
+        <p
+            id="comparison-date"
+            class="comparison-date"
+        >
+            -
+        </p>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN NAVIGATION
+    ====================================================== -->
+
+    <nav
+        class="main-tabs"
+        aria-label="メインメニュー"
+    >
+
+        <button
+            type="button"
+            class="main-tab active"
+            data-page="dashboard"
+        >
+
+            <span class="main-tab-icon">
+                🏠
+            </span>
+
+            <span class="main-tab-label">
+                概要
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="main-tab"
+            data-page="ranking"
+        >
+
+            <span class="main-tab-icon">
+                🏆
+            </span>
+
+            <span class="main-tab-label">
+                ランキング
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="main-tab"
+            data-page="today"
+        >
+
+            <span class="main-tab-icon">
+                🔥
+            </span>
+
+            <span class="main-tab-label">
+                今日の動き
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            class="main-tab"
+            data-page="player"
+        >
+
+            <span class="main-tab-icon">
+                🔍
+            </span>
+
+            <span class="main-tab-label">
+                プレイヤー
+            </span>
+
+        </button>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         PAGE : DASHBOARD
+    ====================================================== -->
+
+    <div
+        id="page-dashboard"
+        class="main-page active"
+    >
+
+
+        <!-- =================================================
+             DASHBOARD INTRO
+        ================================================== -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        🏠 ランキング概要
+                    </h2>
+
+                    <p>
+                        Eda・Virba TOP100を横断した全体分析
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             OVERVIEW
+        ================================================== -->
+
+        <section>
+
+            <div class="dashboard-overview-grid">
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        👥
+                    </div>
+
+
+                    <div class="dashboard-stat-info">
+
+                        <div class="dashboard-stat-label">
+                            対象プレイヤー
+                        </div>
+
+
+                        <div
+                            id="dashboard-player-count"
+                            class="dashboard-stat-value"
+                        >
+                            -
+                        </div>
+
+
+                        <div class="dashboard-stat-unit">
+                            人
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        🥇
+                    </div>
+
+
+                    <div class="dashboard-stat-info">
+
+                        <div class="dashboard-stat-label">
+                            最高レベル
+                        </div>
+
+
+                        <div
+                            id="dashboard-max-level"
+                            class="dashboard-stat-value"
+                        >
+                            -
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        📊
+                    </div>
+
+
+                    <div class="dashboard-stat-info">
+
+                        <div class="dashboard-stat-label">
+                            平均レベル
+                        </div>
+
+
+                        <div
+                            id="dashboard-average-level"
+                            class="dashboard-stat-value"
+                        >
+                            -
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        📉
+                    </div>
+
+
+                    <div class="dashboard-stat-info">
+
+                        <div class="dashboard-stat-label">
+                            最低レベル
+                        </div>
+
+
+                        <div
+                            id="dashboard-min-level"
+                            class="dashboard-stat-value"
+                        >
+                            -
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="dashboard-stat-card">
+
+                    <div class="dashboard-stat-icon">
+                        🎯
+                    </div>
+
+
+                    <div class="dashboard-stat-info">
+
+                        <div class="dashboard-stat-label">
+                            最も多いレベル
+                        </div>
+
+
+                        <div
+                            id="dashboard-mode-level"
+                            class="dashboard-stat-value"
+                        >
+                            -
+                        </div>
+
+
+                        <div
+                            id="dashboard-mode-level-count"
+                            class="dashboard-stat-unit"
+                        >
+                            -
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TODAY HIGHLIGHTS
+        ================================================== -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        🔥 今日の注目
+                    </h2>
+
+                    <p>
+                        本日のランキング変動
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="dashboard-highlights"
+                class="dashboard-highlights"
+            >
+
+                <div class="loading">
+                    データ読み込み中...
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DASHBOARD ANALYSIS GRID
+        ================================================== -->
+
+        <section>
+
+            <div class="dashboard-analysis-grid">
+
+
+                <!-- =========================================
+                     LEVEL DISTRIBUTION
+                ========================================== -->
+
+                <div class="dashboard-analysis-card">
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <h2>
+                                🎚 レベル分布
+                            </h2>
+
+                            <p>
+                                Eda・Virba TOP100を合算
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="dashboard-level-distribution"
+                        class="dashboard-distribution"
+                    >
+
+                        <div class="loading">
+                            データ読み込み中...
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =========================================
+                     SERVER DISTRIBUTION
+                ========================================== -->
+
+                <div class="dashboard-analysis-card">
+
+                    <div class="section-heading">
+
+                        <div>
+
+                            <h2>
+                                🖥 サーバー分布
+                            </h2>
+
+                            <p>
+                                各サーバーに所属するプレイヤー数
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        id="dashboard-server-distribution"
+                        class="dashboard-distribution"
+                    >
+
+                        <div class="loading">
+                            データ読み込み中...
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+
+
+        <!-- =================================================
+             ABOUT
+        ================================================== -->
+
+        <section>
+
+            <div class="information-panel">
+
+                <h2>
+                    ℹ️ このランキングについて
+                </h2>
+
+
+                <p>
+                    本ページでは、HIT : The Worldの公式ランキングデータをもとに、
+                    Eda・VirbaサーバーのTOP100ランキングを日次で集計・分析しています。
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        Eda・VirbaそれぞれのTOP100を分析対象としています。
+                    </li>
+
+
+                    <li>
+                        「総合ランキング」はEda・Virbaを横断した当サイト独自の分析ランキングです。
+                    </li>
+
+
+                    <li>
+                        順位変動は比較可能な前回データとの比較です。
+                    </li>
+
+
+                    <li>
+                        TOP100入り・圏外はEda / Virbaのランキングデータを基準に判定しています。
+                    </li>
+
+
+                    <li>
+                        ランキングデータが存在しない日は、圏外として判定していません。
+                    </li>
+
+
+                    <li>
+                        Worldランキングは現在のランキング判定には使用していません。
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+    </div>
+    <!-- /page-dashboard -->
+
+
+
+    <!-- =====================================================
+         PAGE : RANKING
+    ====================================================== -->
+
+    <div
+        id="page-ranking"
+        class="main-page"
+    >
+
+
+        <!-- TITLE -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        🏆 ランキング
+                    </h2>
+
+
+                    <p>
+                        Eda・Virbaのランキングを比較・分析
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RANKING TABS -->
+
+        <section>
+
+            <div class="ranking-tabs">
+
+                <div class="ranking-tab-row ranking-tab-row-main">
+
+                    <button
+                        class="ranking-tab active"
+                        data-group="Combined"
+                    >
+                        総合
+                    </button>
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Eda"
+                    >
+                        Eda
+                    </button>
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Virba"
+                    >
+                        Virba
+                    </button>
+
+                </div>
+
+
+                <div class="ranking-tab-row">
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Eda1"
+                    >
+                        Eda1
+                    </button>
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Eda2"
+                    >
+                        Eda2
+                    </button>
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Eda3"
+                    >
+                        Eda3
+                    </button>
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Eda4"
+                    >
+                        Eda4
+                    </button>
+
+                </div>
+
+
+                <div class="ranking-tab-row">
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Virba1"
+                    >
+                        Virba1
+                    </button>
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Virba2"
+                    >
+                        Virba2
+                    </button>
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Virba3"
+                    >
+                        Virba3
+                    </button>
+
+                    <button
+                        class="ranking-tab"
+                        data-group="Virba4"
+                    >
+                        Virba4
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- DESCRIPTION -->
+
+        <section>
+
+            <div
+                id="combined-ranking-description"
+                class="ranking-description"
+            >
+
+                <p>
+                    Eda・VirbaのTOP100を合算した、
+                    このサイト独自の分析ランキングです。
+                </p>
+
+
+                <p class="ranking-note">
+                    ※公式ランキングの総合順位ではありません。
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RANKING TABLE -->
+
+        <section>
+
+            <div class="panel ranking-panel">
+
+
+                <div class="ranking-header">
+
+                    <div>
+
+                        <strong id="ranking-group-name">
+                            総合
+                        </strong>
+
+
+                        <span>
+                            TOP200
+                        </span>
+
+                    </div>
+
+
+                    <div id="ranking-total">
+                        200人
+                    </div>
+
+                </div>
+
+
+
+                <div
+                    id="current-ranking-list"
+                    class="ranking-list"
+                >
+
+                    <div class="loading">
+                        データ読み込み中...
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+    </div>
+    <!-- /page-ranking -->
+
+
+
+    <!-- =====================================================
+         PAGE : TODAY
+    ====================================================== -->
+
+    <div
+        id="page-today"
+        class="main-page"
+    >
+
+
+        <!-- TITLE -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        🔥 今日の動き
+                    </h2>
+
+
+                    <p>
+                        前回の比較可能なランキングから変化したプレイヤー
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- TODAY FILTER -->
+
+        <section>
+
+            <div class="ranking-tabs today-filter-section">
+
+
+                <!-- ALL / EDA / VIRBA -->
+
+                <div class="ranking-tab-row today-filter-row">
+
+                    <button
+                        type="button"
+                        class="today-filter active"
+                        data-today-group="All"
+                    >
+                        すべて
+                    </button>
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Eda"
+                    >
+                        Eda
+                    </button>
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Virba"
+                    >
+                        Virba
+                    </button>
+
+                </div>
+
+
+                <!-- EDA1 - EDA4 -->
+
+                <div class="ranking-tab-row today-filter-row">
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Eda1"
+                    >
+                        Eda1
+                    </button>
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Eda2"
+                    >
+                        Eda2
+                    </button>
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Eda3"
+                    >
+                        Eda3
+                    </button>
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Eda4"
+                    >
+                        Eda4
+                    </button>
+
+                </div>
+
+
+                <!-- VIRBA1 - VIRBA4 -->
+
+                <div class="ranking-tab-row today-filter-row">
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Virba1"
+                    >
+                        Virba1
+                    </button>
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Virba2"
+                    >
+                        Virba2
+                    </button>
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Virba3"
+                    >
+                        Virba3
+                    </button>
+
+                    <button
+                        type="button"
+                        class="today-filter"
+                        data-today-group="Virba4"
+                    >
+                        Virba4
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- EVENT SUMMARY -->
+
+        <section>
+
+            <div class="event-cards">
+
+
+                <!-- TOP100 ENTRY -->
+
+                <div class="event-card event-entry">
+
+                    <div class="event-icon">
+                        🆕
+                    </div>
+
+
+                    <div class="event-info">
+
+                        <div class="event-label">
+                            TOP100入り
+                        </div>
+
+
+                        <div
+                            class="event-value"
+                            id="event-entry"
+                        >
+                            -
+                        </div>
+
+
+                        <div class="event-unit">
+                            人
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- TOP100 EXIT -->
+
+                <div class="event-card event-exit">
+
+                    <div class="event-icon">
+                        🚪
+                    </div>
+
+
+                    <div class="event-info">
+
+                        <div class="event-label">
+                            圏外
+                        </div>
+
+
+                        <div
+                            class="event-value"
+                            id="event-exit"
+                        >
+                            -
+                        </div>
+
+
+                        <div class="event-unit">
+                            人
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RANK UP -->
+
+                <div class="event-card event-rank-up">
+
+                    <div class="event-icon">
+                        📈
+                    </div>
+
+
+                    <div class="event-info">
+
+                        <div class="event-label">
+                            順位上昇
+                        </div>
+
+
+                        <div
+                            class="event-value"
+                            id="event-rank-up"
+                        >
+                            -
+                        </div>
+
+
+                        <div class="event-unit">
+                            人
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RANK DOWN -->
+
+                <div class="event-card event-rank-down">
+
+                    <div class="event-icon">
+                        📉
+                    </div>
+
+
+                    <div class="event-info">
+
+                        <div class="event-label">
+                            順位下降
+                        </div>
+
+
+                        <div
+                            class="event-value"
+                            id="event-rank-down"
+                        >
+                            -
+                        </div>
+
+
+                        <div class="event-unit">
+                            人
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- LEVEL UP -->
+
+                <div class="event-card event-level-up">
+
+                    <div class="event-icon">
+                        🆙
+                    </div>
+
+
+                    <div class="event-info">
+
+                        <div class="event-label">
+                            レベルアップ
+                        </div>
+
+
+                        <div
+                            class="event-value"
+                            id="event-level-up"
+                        >
+                            -
+                        </div>
+
+
+                        <div class="event-unit">
+                            人
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- GUILD CHANGE -->
+
+                <div class="event-card event-guild">
+
+                    <div class="event-icon">
+                        ⚔️
+                    </div>
+
+
+                    <div class="event-info">
+
+                        <div class="event-label">
+                            ギルド変更
+                        </div>
+
+
+                        <div
+                            class="event-value"
+                            id="event-guild-change"
+                        >
+                            -
+                        </div>
+
+
+                        <div class="event-unit">
+                            人
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- RANK UP / DOWN -->
+
+        <section>
+
+            <div class="two-column">
+
+
+                <!-- RANK UP -->
+
+                <div>
+
+                    <div class="section-heading section-heading-with-badge">
+
+                        <div>
+
+                            <h2>
+                                📈 急上昇ランキング
+                            </h2>
+
+
+                            <p>
+                                本日の順位上昇幅 TOP10
+                            </p>
+
+                        </div>
+
+
+                        <span class="section-badge badge-up">
+                            RANK UP
+                        </span>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div
+                            id="rank-up-list"
+                            class="change-list"
+                        >
+
+                            <div class="loading">
+                                データ読み込み中...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- RANK DOWN -->
+
+                <div>
+
+                    <div class="section-heading section-heading-with-badge">
+
+                        <div>
+
+                            <h2>
+                                📉 急下降ランキング
+                            </h2>
+
+
+                            <p>
+                                本日の順位下降幅 TOP10
+                            </p>
+
+                        </div>
+
+
+                        <span class="section-badge badge-down">
+                            RANK DOWN
+                        </span>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div
+                            id="rank-down-list"
+                            class="change-list"
+                        >
+
+                            <div class="loading">
+                                データ読み込み中...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ENTRY / EXIT -->
+
+        <section>
+
+            <div class="two-column">
+
+
+                <!-- ENTRY -->
+
+                <div>
+
+                    <div class="section-heading section-heading-with-badge">
+
+                        <div>
+
+                            <h2>
+                                🆕 TOP100入り
+                            </h2>
+
+
+                            <p>
+                                新しくTOP100に入ったプレイヤー
+                            </p>
+
+                        </div>
+
+
+                        <span class="section-badge badge-entry">
+                            ENTRY
+                        </span>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div
+                            id="entry-list"
+                            class="compact-list"
+                        >
+
+                            <div class="loading">
+                                データ読み込み中...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- EXIT -->
+
+                <div>
+
+                    <div class="section-heading section-heading-with-badge">
+
+                        <div>
+
+                            <h2>
+                                🚪 TOP100圏外
+                            </h2>
+
+
+                            <p>
+                                TOP100から圏外になったプレイヤー
+                            </p>
+
+                        </div>
+
+
+                        <span class="section-badge badge-exit">
+                            OUT
+                        </span>
+
+                    </div>
+
+
+                    <div class="panel">
+
+                        <div
+                            id="exit-list"
+                            class="compact-list"
+                        >
+
+                            <div class="loading">
+                                データ読み込み中...
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- LEVEL UP -->
+
+        <section>
+
+            <div class="section-heading section-heading-with-badge">
+
+                <div>
+
+                    <h2>
+                        🆙 本日のLv UP
+                    </h2>
+
+
+                    <p>
+                        TOP100ランキング内でレベルアップしたプレイヤー
+                    </p>
+
+                </div>
+
+
+                <span class="section-badge badge-level">
+                    LEVEL UP
+                </span>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div
+                    id="level-up-list"
+                    class="level-change-list"
+                >
+
+                    <div class="loading">
+                        データ読み込み中...
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </div>
+    <!-- /page-today -->
+
+
+
+    <!-- =====================================================
+         PAGE : PLAYER
+    ====================================================== -->
+
+    <div
+        id="page-player"
+        class="main-page"
+    >
+
+
+        <!-- SEARCH -->
+
+        <section>
+
+            <div class="section-heading">
+
+                <div>
+
+                    <h2>
+                        🔍 プレイヤー検索
+                    </h2>
+
+
+                    <p>
+                        キャラクター名からランキング履歴を検索できます
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="player-search">
+
+
+                <div class="player-search-box">
+
+                    <input
+                        type="text"
+                        id="player-search-input"
+                        placeholder="キャラクター名を入力..."
+                        autocomplete="off"
+                    >
+
+
+                    <button
+                        type="button"
+                        id="player-search-button"
+                    >
+                        検索
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="player-search-results"
+                    class="player-search-results"
+                ></div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- GUIDE -->
+
+        <section>
+
+            <div class="information-panel">
+
+                <h2>
+                    🔎 プレイヤー履歴について
+                </h2>
+
+
+                <p>
+                    検索結果のキャラクター名をクリックすると、
+                    そのプレイヤーのランキング履歴を確認できます。
+                </p>
+
+
+                <ul>
+
+                    <li>
+                        Eda / Virbaそれぞれの順位推移
+                    </li>
+
+
+                    <li>
+                        レベル推移
+                    </li>
+
+
+                    <li>
+                        サーバー推移
+                    </li>
+
+
+                    <li>
+                        ギルド推移
+                    </li>
+
+
+                    <li>
+                        TOP100入り・圏外などのイベント履歴
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+    </div>
+    <!-- /page-player -->
+
+
+</main>
+
+
+
+<!-- =========================================================
+     PLAYER DETAIL MODAL
+========================================================= -->
+
+<div
+    id="player-modal"
+    class="player-modal"
+    aria-hidden="true"
+>
+
+
+    <!-- Overlay -->
+
+    <div
+        id="player-modal-overlay"
+        class="player-modal-overlay"
+    ></div>
+
+
+
+    <!-- Modal -->
+
+    <div class="player-modal-content">
+
+
+        <button
+            type="button"
+            id="player-modal-close"
+            class="player-modal-close"
+            aria-label="閉じる"
+        >
+            ×
+        </button>
+
+
+        <div id="player-detail">
+
+            <div class="loading">
+                データ読み込み中...
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+
+        <p>
+            HIT : The World ランキング分析
+        </p>
+
+
+        <p class="footer-note">
+            ※公式ランキングデータをもとに独自集計しています。
+        </p>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =========================================================
+     SCRIPT
+========================================================= -->
+
+<script src="script.js?v=7"></script>
+
+</body>
+
+</html>
+```

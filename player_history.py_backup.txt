@@ -1,0 +1,837 @@
+import json
+import hashlib
+import pandas as pd
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent
+
+RANKING_DIR = BASE_DIR / "data" / "ranking"
+HISTORY_DIR = BASE_DIR / "data" / "history"
+
+HISTORY_DIR.mkdir(
+    parents=True,
+    exist_ok=True
+)
+
+
+def create_tracking_id(character):
+    """
+    キャラクター名から決定的な追跡IDを作成する。
+
+    現段階ではキャラクター名を基準にした
+    暫定的なtracking_id。
+
+    将来的に名前変更などを検出した場合は、
+    同一人物候補を同じtracking_idへ統合する。
+    """
+
+    hash_value = hashlib.sha256(
+        character.encode("utf-8")
+    ).hexdigest()[:16]
+
+    return f"player_{hash_value}"
+
+
+def load_ranking(file_path):
+    """ランキングCSVを読み込む"""
+
+    df = pd.read_csv(
+        file_path,
+        dtype=str
+    )
+
+    df["rank"] = pd.to_numeric(
+        df["rank"]
+    )
+
+    df["level"] = pd.to_numeric(
+        df["level"]
+    )
+
+    return df
+
+
+def main():
+
+    print("=" * 60)
+    print("HIT : The World")
+    print("キャラクター履歴作成")
+    print("=" * 60)
+
+    # ------------------------------------------
+    # ランキングCSVを取得
+    # ------------------------------------------
+
+    ranking_files = sorted(
+        RANKING_DIR.glob(
+            "ranking_*.csv"
+        )
+    )
+
+    if not ranking_files:
+
+        print()
+        print(
+            "ランキングCSVが見つかりません。"
+        )
+
+        return
+
+    print()
+    print(
+        f"ランキングデータ: "
+        f"{len(ranking_files)}日分"
+    )
+
+    # ------------------------------------------
+    # 最新ランキング日
+    # ------------------------------------------
+
+    latest_file = ranking_files[-1]
+
+    latest_date = (
+        latest_file.stem
+        .replace(
+            "ranking_",
+            ""
+        )
+    )
+
+    print()
+    print(
+        f"最新ランキング: "
+        f"{latest_date}"
+    )
+
+    # ------------------------------------------
+    # キャラクター履歴
+    # ------------------------------------------
+
+    player_history = {}
+
+    # ------------------------------------------
+    # 各ランキングを読み込み
+    # ------------------------------------------
+
+    ranking_data = []
+
+    for file_path in ranking_files:
+
+        date = (
+            file_path.stem
+            .replace(
+                "ranking_",
+                ""
+            )
+        )
+
+        print()
+        print(
+            f"{date} を読み込み中..."
+        )
+
+        df = load_ranking(
+            file_path
+        )
+
+        print(
+            f"  {len(df):,}人"
+        )
+
+        ranking_data.append(
+            {
+                "date": date,
+                "df": df
+            }
+        )
+
+        # --------------------------------------
+        # キャラクター履歴を作成
+        # --------------------------------------
+
+        for _, row in df.iterrows():
+
+            character = str(
+                row["character"]
+            ).strip()
+
+            if not character:
+                continue
+
+            # ----------------------------------
+            # tracking_id作成
+            # ----------------------------------
+
+            tracking_id = create_tracking_id(
+                character
+            )
+
+            # ----------------------------------
+            # 初回登録
+            # ----------------------------------
+
+            if character not in player_history:
+
+                player_history[character] = {
+                    "tracking_id": tracking_id,
+                    "character": character,
+                    "names": [
+                        character
+                    ],
+                    "status": {
+                        "active": True,
+                        "last_seen": date
+                    },
+                    "summary": {},
+                    "events": [],
+                    "history": []
+                }
+
+            # ----------------------------------
+            # 名前履歴
+            # ----------------------------------
+
+            if character not in player_history[character]["names"]:
+
+                player_history[character]["names"].append(
+                    character
+                )
+
+            # ----------------------------------
+            # 最終確認日を更新
+            # ----------------------------------
+
+            player_history[character]["status"]["last_seen"] = date
+
+            # ----------------------------------
+            # 履歴追加
+            # ----------------------------------
+
+            player_history[character][
+                "history"
+            ].append(
+                {
+                    "date": date,
+                    "rank": int(
+                        row["rank"]
+                    ),
+                    "level": int(
+                        row["level"]
+                    ),
+                    "server": (
+                        ""
+                        if pd.isna(row["server"])
+                        else str(row["server"]).strip()
+                    ),
+                    "guild": (
+                        ""
+                        if pd.isna(row["guild"])
+                        else str(row["guild"]).strip()
+                    )
+                }
+            )
+
+    # ------------------------------------------
+    # 最新ランキングに存在するキャラクター
+    # ------------------------------------------
+
+    latest_df = ranking_data[-1]["df"]
+
+    latest_characters = set(
+        latest_df["character"]
+        .astype(str)
+        .str.strip()
+    )
+
+    # ------------------------------------------
+    # status判定
+    # ------------------------------------------
+
+    active_count = 0
+    inactive_count = 0
+
+    for character, player in player_history.items():
+
+        if character in latest_characters:
+
+            player["status"]["active"] = True
+
+            active_count += 1
+
+        else:
+
+            player["status"]["active"] = False
+
+            inactive_count += 1
+
+    # ------------------------------------------
+    # ランキング出入りイベント作成
+    # ------------------------------------------
+
+    ranking_in_count = 0
+    ranking_out_count = 0
+
+    print()
+    print(
+        "ランキング出入りイベントを確認中..."
+    )
+
+    # ------------------------------------------
+    # 連続するランキングを比較
+    # ------------------------------------------
+
+    for old_data, new_data in zip(
+        ranking_data,
+        ranking_data[1:]
+    ):
+
+        old_date = old_data["date"]
+        new_date = new_data["date"]
+
+        old_df = old_data["df"]
+        new_df = new_data["df"]
+
+        # --------------------------------------
+        # キャラクター名 → ランク
+        # --------------------------------------
+
+        old_ranks = dict(
+            zip(
+                old_df["character"]
+                .astype(str)
+                .str.strip(),
+                old_df["rank"]
+            )
+        )
+
+        new_ranks = dict(
+            zip(
+                new_df["character"]
+                .astype(str)
+                .str.strip(),
+                new_df["rank"]
+            )
+        )
+
+        old_characters = set(
+            old_ranks.keys()
+        )
+
+        new_characters = set(
+            new_ranks.keys()
+        )
+
+        # --------------------------------------
+        # ランキングから外れたキャラクター
+        # --------------------------------------
+
+        ranking_out_characters = (
+            old_characters
+            - new_characters
+        )
+
+        for character in ranking_out_characters:
+
+            if character not in player_history:
+                continue
+
+            old_rank = int(
+                old_ranks[character]
+            )
+
+            player_history[character]["events"].append(
+                {
+                    "date": new_date,
+                    "type": "ranking_out",
+                    "from_rank": old_rank,
+                    "to_rank": None
+                }
+            )
+
+            ranking_out_count += 1
+
+        # --------------------------------------
+        # ランキングに再登場したキャラクター
+        # --------------------------------------
+
+        ranking_in_characters = (
+            new_characters
+            - old_characters
+        )
+
+        for character in ranking_in_characters:
+
+            if character not in player_history:
+                continue
+
+            # ----------------------------------
+            # 初回登場の場合は
+            # ranking_inにはしない
+            # ----------------------------------
+
+            history = (
+                player_history[character]["history"]
+            )
+
+            if len(history) <= 1:
+                continue
+
+            new_rank = int(
+                new_ranks[character]
+            )
+
+            player_history[character]["events"].append(
+                {
+                    "date": new_date,
+                    "type": "ranking_in",
+                    "from_rank": None,
+                    "to_rank": new_rank
+                }
+            )
+
+            ranking_in_count += 1
+
+    # ------------------------------------------
+    # キャラクター統計情報・通常イベント作成
+    # ------------------------------------------
+
+    print()
+    print(
+        "キャラクター統計情報・イベントを作成中..."
+    )
+
+    total_events = 0
+
+    for player in player_history.values():
+
+        history = player["history"]
+
+        if not history:
+            continue
+
+        # --------------------------------------
+        # 履歴は日付順
+        # --------------------------------------
+
+        first = history[0]
+        current = history[-1]
+
+        ranks = [
+            record["rank"]
+            for record in history
+        ]
+
+        # --------------------------------------
+        # summary
+        # --------------------------------------
+
+        player["summary"] = {
+
+            "first_seen": first["date"],
+
+            "last_seen": current["date"],
+
+            "current_rank": current["rank"],
+
+            "best_rank": min(ranks),
+
+            "worst_rank": max(ranks),
+
+            "first_level": first["level"],
+
+            "current_level": current["level"],
+
+            "level_change": (
+                current["level"]
+                - first["level"]
+            ),
+
+            "current_server": current["server"],
+
+            "current_guild": current["guild"]
+        }
+
+        # --------------------------------------
+        # 通常イベント
+        # --------------------------------------
+
+        events = []
+
+        for previous, current_record in zip(
+            history,
+            history[1:]
+        ):
+
+            date = current_record["date"]
+
+            # ----------------------------------
+            # 順位変化
+            # ----------------------------------
+
+            if current_record["rank"] < previous["rank"]:
+
+                events.append(
+                    {
+                        "date": date,
+                        "type": "rank_up",
+                        "from": previous["rank"],
+                        "to": current_record["rank"]
+                    }
+                )
+
+            elif current_record["rank"] > previous["rank"]:
+
+                events.append(
+                    {
+                        "date": date,
+                        "type": "rank_down",
+                        "from": previous["rank"],
+                        "to": current_record["rank"]
+                    }
+                )
+
+            # ----------------------------------
+            # レベル変化
+            # ----------------------------------
+
+            if current_record["level"] > previous["level"]:
+
+                events.append(
+                    {
+                        "date": date,
+                        "type": "level_up",
+                        "from": previous["level"],
+                        "to": current_record["level"]
+                    }
+                )
+
+            elif current_record["level"] < previous["level"]:
+
+                events.append(
+                    {
+                        "date": date,
+                        "type": "level_down",
+                        "from": previous["level"],
+                        "to": current_record["level"]
+                    }
+                )
+
+            # ----------------------------------
+            # サーバー変更
+            # ----------------------------------
+
+            if (
+                current_record["server"]
+                != previous["server"]
+            ):
+
+                events.append(
+                    {
+                        "date": date,
+                        "type": "server_change",
+                        "from": previous["server"],
+                        "to": current_record["server"]
+                    }
+                )
+
+            # ----------------------------------
+            # ギルド変更
+            # ----------------------------------
+
+            if (
+                current_record["guild"]
+                != previous["guild"]
+            ):
+
+                events.append(
+                    {
+                        "date": date,
+                        "type": "guild_change",
+                        "from": previous["guild"],
+                        "to": current_record["guild"]
+                    }
+                )
+
+        # --------------------------------------
+        # ランキング出入りイベントを追加
+        # --------------------------------------
+
+        events.extend(
+            [
+                event
+                for event in player["events"]
+                if event["type"]
+                in (
+                    "ranking_in",
+                    "ranking_out"
+                )
+            ]
+        )
+
+        # --------------------------------------
+        # 日付順に並べ直す
+        # --------------------------------------
+
+        events.sort(
+            key=lambda event: event["date"]
+        )
+
+        player["events"] = events
+
+        total_events += len(events)
+
+    # ------------------------------------------
+    # JSON保存
+    # ------------------------------------------
+
+    output_file = (
+        HISTORY_DIR /
+        "player_history.json"
+    )
+
+    with open(
+        output_file,
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        json.dump(
+            player_history,
+            f,
+            ensure_ascii=False,
+            indent=2
+        )
+
+    # ------------------------------------------
+    # 結果表示
+    # ------------------------------------------
+
+    print()
+    print("=" * 60)
+    print("履歴作成完了")
+    print("=" * 60)
+
+    print()
+    print(
+        f"キャラクター数: "
+        f"{len(player_history):,}"
+    )
+
+    print(
+        f"イベント数: "
+        f"{total_events:,}"
+    )
+
+    print(
+        f"ランキングIN: "
+        f"{ranking_in_count:,}件"
+    )
+
+    print(
+        f"ランキングOUT: "
+        f"{ranking_out_count:,}件"
+    )
+
+    print(
+        f"現在ランキング内: "
+        f"{active_count:,}人"
+    )
+
+    print(
+        f"現在ランキング外: "
+        f"{inactive_count:,}人"
+    )
+
+    print(
+        f"保存先: "
+        f"{output_file.resolve()}"
+    )
+
+    # ------------------------------------------
+    # tracking_id / names / status確認
+    # ------------------------------------------
+
+    print()
+    print("【tracking_id / names / status確認】")
+    print("-" * 50)
+
+    sample_players = list(
+        player_history.values()
+    )[:5]
+
+    for player in sample_players:
+
+        print(
+            f"  {player['character']}"
+            f" → "
+            f"{player['tracking_id']}"
+        )
+
+        print(
+            f"    名前履歴: "
+            f"{', '.join(player['names'])}"
+        )
+
+        print(
+            f"    status: "
+            f"{'active' if player['status']['active'] else 'inactive'}"
+        )
+
+        print(
+            f"    last_seen: "
+            f"{player['status']['last_seen']}"
+        )
+
+    # ------------------------------------------
+    # イベント種類別集計
+    # ------------------------------------------
+
+    event_counts = {}
+
+    for player in player_history.values():
+
+        for event in player["events"]:
+
+            event_type = event["type"]
+
+            event_counts[event_type] = (
+                event_counts.get(
+                    event_type,
+                    0
+                ) + 1
+            )
+
+    print()
+    print("【イベント集計】")
+    print("-" * 50)
+
+    event_labels = {
+        "rank_up": "順位上昇",
+        "rank_down": "順位下降",
+        "level_up": "レベルアップ",
+        "level_down": "レベルダウン",
+        "server_change": "サーバー変更",
+        "guild_change": "ギルド変更",
+        "ranking_in": "ランキングIN",
+        "ranking_out": "ランキングOUT"
+    }
+
+    for event_type, label in event_labels.items():
+
+        print(
+            f"  {label}: "
+            f"{event_counts.get(event_type, 0):,}件"
+        )
+
+    # ------------------------------------------
+    # サンプル表示
+    # ------------------------------------------
+
+    print()
+    print("【サンプル】")
+    print("-" * 50)
+
+    for player in sample_players:
+
+        summary = player["summary"]
+
+        print()
+        print(
+            f"キャラクター: "
+            f"{player['character']}"
+        )
+
+        print(
+            f"  tracking_id: "
+            f"{player['tracking_id']}"
+        )
+
+        print(
+            f"  名前履歴: "
+            f"{', '.join(player['names'])}"
+        )
+
+        print(
+            f"  status: "
+            f"{'active' if player['status']['active'] else 'inactive'}"
+        )
+
+        print(
+            f"  last_seen: "
+            f"{player['status']['last_seen']}"
+        )
+
+        print(
+            f"  初回確認: "
+            f"{summary['first_seen']}"
+        )
+
+        print(
+            f"  最終確認: "
+            f"{summary['last_seen']}"
+        )
+
+        print(
+            f"  現在順位: "
+            f"{summary['current_rank']}位"
+        )
+
+        print(
+            f"  最高順位: "
+            f"{summary['best_rank']}位"
+        )
+
+        print(
+            f"  最低順位: "
+            f"{summary['worst_rank']}位"
+        )
+
+        print(
+            f"  レベル: "
+            f"{summary['first_level']}"
+            f" → "
+            f"{summary['current_level']}"
+        )
+
+        print(
+            f"  レベル変化: "
+            f"{summary['level_change']:+d}"
+        )
+
+        print(
+            f"  現在サーバー: "
+            f"{summary['current_server']}"
+        )
+
+        print(
+            f"  現在ギルド: "
+            f"{summary['current_guild'] or '無所属'}"
+        )
+
+        print(
+            f"  イベント数: "
+            f"{len(player['events']):,}件"
+        )
+
+        for event in player["events"]:
+
+            print(
+                f"    {event}"
+            )
+
+        print()
+
+        for record in player["history"]:
+
+            print(
+                f"    {record['date']} "
+                f"Lv{record['level']} "
+                f"{record['rank']}位 "
+                f"{record['server']} "
+                f"{record['guild'] or '無所属'}"
+            )
+
+
+if __name__ == "__main__":
+    main()

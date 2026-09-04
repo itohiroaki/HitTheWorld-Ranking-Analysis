@@ -1,0 +1,159 @@
+{
+  "date": "2026-09-02",
+  "ranking": {
+    "count": 1000
+  },
+  "level": {
+    "max": 102,
+    "min": 92,
+    "average": 94.41,
+    "most_levels": [
+      95
+    ],
+    "most_count": 271,
+    "distribution": {
+      "102": 1,
+      "101": 1,
+      "100": 5,
+      "99": 8,
+      "98": 11,
+      "97": 121,
+      "96": 87,
+      "95": 271,
+      "94": 140,
+      "93": 186,
+      "92": 169
+    },
+    "ranges": {
+      "Lv100～Lv104": 7,
+      "Lv95～Lv99": 498,
+      "Lv90～Lv94": 495
+    },
+    "high_level": {
+      "100": 7,
+      "99": 15,
+      "95": 505,
+      "90": 1000
+    }
+  },
+  "server": {
+    "distribution": {
+      "Eda4": 207,
+      "Virba4": 202,
+      "Eda3": 184,
+      "Eda2": 145,
+      "Virba2": 115,
+      "Virba1": 60,
+      "Eda1": 55,
+      "Virba3": 32
+    },
+    "eda": 591,
+    "virba": 409
+  },
+  "guild": {
+    "member_count": 912,
+    "no_guild_count": 88,
+    "top20": [
+      {
+        "rank": 1,
+        "guild": "なみだふくよ",
+        "count": 48
+      },
+      {
+        "rank": 2,
+        "guild": "Oblivion",
+        "count": 45
+      },
+      {
+        "rank": 3,
+        "guild": "ぱてぃすりーず",
+        "count": 42
+      },
+      {
+        "rank": 4,
+        "guild": "M2O",
+        "count": 39
+      },
+      {
+        "rank": 5,
+        "guild": "なみだしてんし",
+        "count": 38
+      },
+      {
+        "rank": 6,
+        "guild": "わっしょい",
+        "count": 37
+      },
+      {
+        "rank": 7,
+        "guild": "5secret",
+        "count": 35
+      },
+      {
+        "rank": 8,
+        "guild": "サーフィス",
+        "count": 34
+      },
+      {
+        "rank": 9,
+        "guild": "朧桜",
+        "count": 31
+      },
+      {
+        "rank": 10,
+        "guild": "Abyss",
+        "count": 31
+      },
+      {
+        "rank": 11,
+        "guild": "月華",
+        "count": 30
+      },
+      {
+        "rank": 12,
+        "guild": "れくいえむ",
+        "count": 27
+      },
+      {
+        "rank": 13,
+        "guild": "ミーティス",
+        "count": 27
+      },
+      {
+        "rank": 14,
+        "guild": "ぴよぴよ団",
+        "count": 22
+      },
+      {
+        "rank": 15,
+        "guild": "猫部屋",
+        "count": 22
+      },
+      {
+        "rank": 16,
+        "guild": "Lien",
+        "count": 20
+      },
+      {
+        "rank": 17,
+        "guild": "Harmony",
+        "count": 19
+      },
+      {
+        "rank": 18,
+        "guild": "すうぃーてぃす",
+        "count": 19
+      },
+      {
+        "rank": 19,
+        "guild": "猫と愉快な仲間",
+        "count": 19
+      },
+      {
+        "rank": 20,
+        "guild": "どっこいしょ",
+        "count": 19
+      }
+    ]
+  }
+}
