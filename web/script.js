@@ -40,6 +40,7 @@ let playerHistoryData = null;
 let availableDates = [];
 let currentRankingGroup = "Combined";
 let currentTodayGroup = "All";
+let dashboardServerDistributionData = null;
 
 /* =========================================================
    Initialization
@@ -2939,6 +2940,8 @@ function displayDashboardServerDistribution(
     data
 ) {
 
+    dashboardServerDistributionData = data;
+
     const container =
         document.getElementById(
             "dashboard-server-distribution"
@@ -3134,28 +3137,26 @@ function displayDashboardServerDistribution(
                         );
 
 
-                    const guildHtml =
-                        guilds.length
-                            ? guilds
-                                .map(
-                                    ([guild, count]) => `
-
-                                        <span class="dashboard-server-guild">
-
-                                            ${escapeHtml(
-                                                guild
-                                            )}
-
-                                            <span class="dashboard-server-guild-count">
-                                                ${count}人
-                                            </span>
-
-                                        </span>
-
-                                    `
-                                )
-                                .join("")
-                            : "";
+                   const guildHtml =
+    guilds.length
+        ? guilds
+            .map(
+                ([guild, count]) => `
+                    <button
+                        type="button"
+                        class="dashboard-server-guild"
+                        data-server="${escapeHtml(server)}"
+                        data-guild="${escapeHtml(guild)}"
+                    >
+                        ${escapeHtml(guild)}
+                        <span class="dashboard-server-guild-count">
+                            ${count}人
+                        </span>
+                    </button>
+                `
+            )
+            .join("")
+        : "";
 
 
                     return `
@@ -3209,6 +3210,8 @@ function displayDashboardServerDistribution(
                 }
             )
             .join("");
+
+setupDashboardGuildButtons();
 
 }
 
@@ -6116,4 +6119,271 @@ function showError(
         div
     );
 
+}
+
+/* =========================================================
+   Server Distribution Guild Members Modal
+========================================================= */
+
+function setupDashboardGuildButtons() {
+    const buttons =
+        document.querySelectorAll(
+            ".dashboard-server-guild"
+        );
+
+    buttons.forEach(button => {
+        button.addEventListener(
+            "click",
+            () => {
+                const server =
+                    button.dataset.server || "";
+
+                const guild =
+                    button.dataset.guild || "";
+
+                openGuildMembersModal(
+                    server,
+                    guild
+                );
+            }
+        );
+    });
+}
+
+
+function openGuildMembersModal(
+    server,
+    guild
+) {
+    if (
+        !dashboardServerDistributionData
+    ) {
+        return;
+    }
+
+    const players =
+        getUniqueCombinedRanking(
+            dashboardServerDistributionData
+        );
+
+    const members =
+        players
+            .filter(
+                player =>
+                    String(
+                        player.server || ""
+                    ).trim() === server &&
+                    String(
+                        player.guild || ""
+                    ).trim() === guild
+            )
+            .sort(
+                (a, b) => {
+                    const rankA =
+                        Number(a.rank);
+
+                    const rankB =
+                        Number(b.rank);
+
+                    if (
+                        Number.isFinite(rankA) &&
+                        Number.isFinite(rankB)
+                    ) {
+                        return rankA - rankB;
+                    }
+
+                    return String(
+                        a.character || ""
+                    ).localeCompare(
+                        String(
+                            b.character || ""
+                        ),
+                        "ja"
+                    );
+                }
+            );
+
+
+    const existing =
+        document.getElementById(
+            "guild-members-modal"
+        );
+
+    if (existing) {
+        existing.remove();
+    }
+
+
+    const modal =
+        document.createElement("div");
+
+    modal.id =
+        "guild-members-modal";
+
+    modal.className =
+        "guild-members-modal";
+
+
+    const memberRows =
+        members.length
+            ? members
+                .map(
+                    player => {
+                        const rank =
+                            Number(
+                                player.rank
+                            );
+
+                        const level =
+                            getPlayerLevel(
+                                player
+                            );
+
+                        const character =
+                            String(
+                                player.character ||
+                                ""
+                            );
+
+                        return `
+                            <div
+                                class="guild-member-row player-clickable"
+                                data-character="${escapeHtml(
+                                    character
+                                )}"
+                            >
+                                <div class="guild-member-rank">
+                                    ${
+                                        Number.isFinite(
+                                            rank
+                                        )
+                                            ? `${rank}位`
+                                            : "-"
+                                    }
+                                </div>
+
+                                <div class="guild-member-level">
+                                    ${
+                                        level != null
+                                            ? `Lv${escapeHtml(
+                                                String(level)
+                                            )}`
+                                            : "-"
+                                    }
+                                </div>
+
+                                <div class="guild-member-character">
+                                    ${escapeHtml(
+                                        character
+                                    )}
+                                </div>
+                            </div>
+                        `;
+                    }
+                )
+                .join("")
+            : `
+                <div class="guild-members-empty">
+                    メンバーが見つかりません
+                </div>
+            `;
+
+
+    modal.innerHTML = `
+        <div class="guild-members-modal-backdrop"></div>
+
+        <div
+            class="guild-members-modal-dialog"
+            role="dialog"
+            aria-modal="true"
+        >
+            <div class="guild-members-modal-header">
+
+                <div>
+                    <div class="guild-members-modal-title">
+                        🏰 ${escapeHtml(guild)}
+                    </div>
+
+                    <div class="guild-members-modal-subtitle">
+                        ${escapeHtml(server)}
+                        /
+                        ${members.length}人
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    class="guild-members-modal-close"
+                    aria-label="閉じる"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="guild-members-table-header">
+                <div>順位</div>
+                <div>Lv</div>
+                <div>キャラクター</div>
+            </div>
+
+
+            <div class="guild-members-list">
+                ${memberRows}
+            </div>
+
+        </div>
+    `;
+
+
+    document.body.appendChild(
+        modal
+    );
+
+
+    const closeModal =
+        () => {
+            modal.remove();
+        };
+
+
+    modal
+        .querySelector(
+            ".guild-members-modal-close"
+        )
+        .addEventListener(
+            "click",
+            closeModal
+        );
+
+
+    modal
+        .querySelector(
+            ".guild-members-modal-backdrop"
+        )
+        .addEventListener(
+            "click",
+            closeModal
+        );
+
+
+    document.addEventListener(
+        "keydown",
+        function handleEscape(event) {
+            if (
+                event.key === "Escape"
+            ) {
+                closeModal();
+
+                document.removeEventListener(
+                    "keydown",
+                    handleEscape
+                );
+            }
+        }
+    );
+
+
+    setupPlayerClickableElements();
 }
