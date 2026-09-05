@@ -7845,9 +7845,285 @@ function showGuildSearch() {
         ></div>
     `;
 
-    playerSearch.parentNode.insertBefore(
+       playerSearch.parentNode.insertBefore(
         guildSearch,
         playerSearch.nextSibling
     );
+
+    setupGuildSearch();
+
+    function setupGuildSearch() {
+
+    const input =
+        document.getElementById(
+            "guild-search-input"
+        );
+
+    const button =
+        document.getElementById(
+            "guild-search-button"
+        );
+
+    if (!input || !button) {
+        return;
+    }
+
+    button.addEventListener(
+        "click",
+        () => {
+            searchGuilds(
+                input.value
+            );
+        }
+    );
+
+    input.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                searchGuilds(
+                    input.value
+                );
+
+            }
+
+        }
+    );
+
+    input.addEventListener(
+        "input",
+        () => {
+
+            const value =
+                input.value.trim();
+
+            if (!value) {
+
+                const results =
+                    document.getElementById(
+                        "guild-search-results"
+                    );
+
+                if (results) {
+                    results.innerHTML = "";
+                }
+
+                return;
+            }
+
+            searchGuilds(value);
+
+        }
+    );
+
+}
+
+async function searchGuilds(
+    keyword
+) {
+
+    const results =
+        document.getElementById(
+            "guild-search-results"
+        );
+
+    if (!results) {
+        return;
+    }
+
+    keyword =
+        String(
+            keyword || ""
+        ).trim();
+
+    if (!keyword) {
+        results.innerHTML = "";
+        return;
+    }
+
+    results.innerHTML = `
+        <div class="loading">
+            検索中...
+        </div>
+    `;
+
+    try {
+
+        await loadPlayerHistory();
+
+        const players =
+            getPlayerArray();
+
+        const normalizedKeyword =
+            keyword.toLowerCase();
+
+        const guildMap = {};
+
+        players.forEach(
+            player => {
+
+                const guild =
+                    String(
+                        player.current?.guild ??
+                        ""
+                    ).trim();
+
+                if (!guild) {
+                    return;
+                }
+
+                if (
+                    !guild
+                        .toLowerCase()
+                        .includes(
+                            normalizedKeyword
+                        )
+                ) {
+                    return;
+                }
+
+                if (!guildMap[guild]) {
+                    guildMap[guild] = [];
+                }
+
+                guildMap[guild].push(
+                    player
+                );
+
+            }
+        );
+
+        const matchedGuilds =
+            Object.entries(
+                guildMap
+            )
+            .sort(
+                (a, b) =>
+                    b[1].length -
+                    a[1].length ||
+                    a[0].localeCompare(
+                        b[0],
+                        "ja"
+                    )
+            )
+            .slice(0, 20);
+
+        if (!matchedGuilds.length) {
+
+            results.innerHTML = `
+                <div class="player-search-no-result">
+                    「${escapeHtml(
+                        keyword
+                    )}」に一致する
+                    ギルドが見つかりませんでした。
+                </div>
+            `;
+
+            return;
+        }
+
+        results.innerHTML =
+            matchedGuilds
+                .map(
+                    ([guild, members]) => `
+                        <div
+                            class="player-search-result guild-search-result"
+                            data-guild="${escapeHtml(
+                                guild
+                            )}"
+                        >
+
+                            <div>
+                                <div class="player-search-result-name">
+                                    🏰 ${escapeHtml(
+                                        guild
+                                    )}
+                                </div>
+
+                                <div class="player-search-result-info">
+                                    現在所属
+                                </div>
+                            </div>
+
+                            <div class="player-search-result-info">
+                                ${members.length}人
+                            </div>
+
+                        </div>
+                    `
+                )
+                .join("");
+
+        results
+            .querySelectorAll(
+                ".guild-search-result"
+            )
+            .forEach(
+                element => {
+
+                    element.addEventListener(
+                        "click",
+                        () => {
+
+                            const guild =
+                                element.dataset.guild ||
+                                "";
+
+                            const members =
+                                players
+                                    .filter(
+                                        player =>
+                                            String(
+                                                player.current?.guild ??
+                                                ""
+                                            ).trim() ===
+                                            guild
+                                    );
+
+                            openCharacterListModal(
+                                `🏰 ${guild}`,
+                                `${members.length}人`,
+                                members.map(
+                                    player => ({
+                                        rank:
+                                            player.current?.rank,
+
+                                        server:
+                                            player.current?.server,
+
+                                        character:
+                                            player.character,
+
+                                        guild:
+                                            player.current?.guild
+                                    })
+                                )
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+    } catch (error) {
+
+        console.error(
+            error
+        );
+
+        results.innerHTML = `
+            <div class="player-search-no-result">
+                ギルドデータの読み込みに失敗しました。
+            </div>
+        `;
+
+    }
+
+}
 
 }
