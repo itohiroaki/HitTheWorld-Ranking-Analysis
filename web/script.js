@@ -1404,7 +1404,106 @@ if (levelUpCard) {
         };
     }
 
+    /* =====================================================
+   ギルド変更カード
+   クリックで共通キャラ一覧モーダル
+===================================================== */
 
+const guildChangeCard =
+    document.querySelector(
+        ".event-card.event-guild"
+    );
+
+if (guildChangeCard) {
+
+    guildChangeCard.style.cursor =
+        "pointer";
+
+    guildChangeCard.onclick =
+        () => {
+
+            const players =
+                getUniqueCombinedRanking(
+                    data
+                );
+
+            const members =
+                guildChange
+                    .map(
+                        event => {
+
+                            const character =
+                                String(
+                                    event.character ||
+                                    ""
+                                );
+
+                            const currentPlayer =
+                                players.find(
+                                    player =>
+                                        String(
+                                            player.character ||
+                                            ""
+                                        ) === character
+                                );
+
+                            if (!currentPlayer) {
+                                return null;
+                            }
+
+                            return {
+                                rank:
+                                    currentPlayer.rank,
+
+                                server:
+                                    currentPlayer.server,
+
+                                character:
+                                    currentPlayer.character,
+
+                                guild:
+                                    currentPlayer.guild
+                            };
+                        }
+                    )
+                    .filter(
+                        player =>
+                            player !== null
+                    )
+                    .sort(
+                        (a, b) => {
+
+                            const rankA =
+                                Number(a.rank);
+
+                            const rankB =
+                                Number(b.rank);
+
+                            if (
+                                Number.isFinite(rankA) &&
+                                Number.isFinite(rankB)
+                            ) {
+                                return rankA - rankB;
+                            }
+
+                            return String(
+                                a.character || ""
+                            ).localeCompare(
+                                String(
+                                    b.character || ""
+                                ),
+                                "ja"
+                            );
+                        }
+                    );
+
+            openCharacterListModal(
+                "⚔️ ギルド変更",
+                `${members.length}人`,
+                members
+            );
+        };
+    }
 
 }
 
