@@ -1201,6 +1201,9 @@ def create_events(
 
     last_visible_date = None
 
+    # 最後に確認できた「所属ギルド」
+    # 無所属の場合は更新しない。
+    last_visible_guild = None
 
     # --------------------------------------------------------
     # 直前の「判定可能な日」の状態
@@ -1383,6 +1386,18 @@ def create_events(
                     date
                 )
 
+                current_guild = (
+                    current_record.get(
+                        "guild",
+                        ""
+                    )
+                )
+
+                if current_guild:
+                    last_visible_guild = (
+                        current_guild
+                    )
+
             continue
 
 
@@ -1554,10 +1569,7 @@ def create_events(
             # ------------------------------------------------
 
             previous_guild = (
-                previous_record.get(
-                    "guild",
-                    ""
-                )
+                    last_visible_guild or ""
             )
 
             current_guild = (
@@ -1865,6 +1877,71 @@ def create_events(
                     )
                 )
 
+                # ====================================================
+                # 圏外期間を挟んだギルド変更
+                #
+                # 例:
+                #
+                # 9/3  Lien
+                # 9/4  無所属
+                # 9/5  別ギルド
+                #
+                # → Lien → 別ギルド
+                #
+                # 無所属期間が何日続いても、
+                # last_visible_record を基準に比較する。
+                # ====================================================
+
+                previous_guild = (
+                        last_visible_guild or ""
+                )
+
+                current_guild = (
+                    current_record.get(
+                        "guild",
+                        ""
+                    )
+                )
+
+                if (
+                    previous_guild
+                    and
+                    current_guild
+                    and
+                    previous_guild != current_guild
+                ):
+
+                    add_event(
+
+                        date=date,
+
+                        event_type=
+                            "server_ranking_guild_change",
+
+                        group=current_group,
+
+                        old_value=
+                            previous_guild,
+
+                        new_value=
+                            current_guild,
+
+                        details={
+
+                            "from_guild":
+                                previous_guild,
+
+                            "to_guild":
+                                current_guild,
+
+                            "gap":
+                                True,
+
+                            "last_seen_date":
+                                last_visible_date
+                        }
+                    )
+
                 current_server = (
                     current_record.get(
                         "server",
@@ -1938,6 +2015,20 @@ def create_events(
             last_visible_date = (
                 date
             )
+
+            current_guild = (
+                current_record.get(
+                    "guild",
+                    ""
+                )
+            )
+
+            # 無所属の場合は、
+            # 最後に所属していたギルドを保持する。
+            if current_guild:
+                last_visible_guild = (
+                    current_guild
+                )
 
 
     return events
