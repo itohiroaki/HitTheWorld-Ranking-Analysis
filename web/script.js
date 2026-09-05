@@ -8066,46 +8066,18 @@ async function searchGuilds(
                 element => {
 
                     element.addEventListener(
-                        "click",
-                        () => {
+    "click",
+    () => {
 
-                            const guild =
-                                element.dataset.guild ||
-                                "";
+        const guild =
+            element.dataset.guild || "";
 
-                            const members =
-                                players
-                                    .filter(
-                                        player =>
-                                            String(
-                                                player.current?.guild ??
-                                                ""
-                                            ).trim() ===
-                                            guild
-                                    );
+        openGuildSearchDetail(
+            guild
+        );
 
-                            openCharacterListModal(
-                                `🏰 ${guild}`,
-                                `${members.length}人`,
-                                members.map(
-                                    player => ({
-                                        rank:
-                                            player.current?.rank,
-
-                                        server:
-                                            player.current?.server,
-
-                                        character:
-                                            player.character,
-
-                                        guild:
-                                            player.current?.guild
-                                    })
-                                )
-                            );
-
-                        }
-                    );
+    }
+);
 
                 }
             );
@@ -8123,6 +8095,300 @@ async function searchGuilds(
         `;
 
     }
+
+}
+
+function openGuildSearchDetail(
+    guild
+) {
+
+    const players =
+        getPlayerArray();
+
+    const currentMembers =
+        players.filter(
+            player =>
+                String(
+                    player.current?.guild ??
+                    ""
+                ).trim() ===
+                guild
+        );
+
+    const historyMembers =
+        players
+            .map(
+                player => {
+
+                    const history =
+                        getPlayerHistoryRecords(
+                            player
+                        );
+
+                    const records =
+                        history.filter(
+                            record => {
+
+                                const eda =
+                                    record.server_ranking?.Eda;
+
+                                const virba =
+                                    record.server_ranking?.Virba;
+
+                                return (
+                                    (
+                                        eda?.visible &&
+                                        String(
+                                            eda.guild ||
+                                            ""
+                                        ).trim() ===
+                                        guild
+                                    ) ||
+                                    (
+                                        virba?.visible &&
+                                        String(
+                                            virba.guild ||
+                                            ""
+                                        ).trim() ===
+                                        guild
+                                    )
+                                );
+
+                            }
+                        );
+
+                    if (!records.length) {
+                        return null;
+                    }
+
+                    return {
+                        player,
+                        records
+                    };
+
+                }
+            )
+            .filter(
+                item =>
+                    item !== null
+            );
+
+    const existing =
+        document.getElementById(
+            "guild-history-modal"
+        );
+
+    if (existing) {
+        existing.remove();
+    }
+
+    const modal =
+        document.createElement(
+            "div"
+        );
+
+    modal.id =
+        "guild-history-modal";
+
+    modal.className =
+        "guild-members-modal";
+
+    const historyRows =
+        historyMembers
+            .map(
+                item => {
+
+                    const player =
+                        item.player;
+
+                    const records =
+                        item.records;
+
+                    const dates =
+                        records.map(
+                            record =>
+                                record.date
+                        );
+
+                    const firstDate =
+                        dates[0] ||
+                        "";
+
+                    const lastDate =
+                        dates[
+                            dates.length - 1
+                        ] ||
+                        "";
+
+                    const isCurrent =
+                        currentMembers.includes(
+                            player
+                        );
+
+                    return `
+                        <div
+                            class="guild-history-member-row player-clickable"
+                            data-character="${escapeHtml(
+                                String(
+                                    player.character ||
+                                    ""
+                                )
+                            )}"
+                        >
+
+                            <div>
+                                <div class="player-search-result-name">
+                                    ${escapeHtml(
+                                        String(
+                                            player.character ||
+                                            ""
+                                        )
+                                    )}
+                                </div>
+
+                                <div class="player-search-result-info">
+                                    ${formatPlayerDate(
+                                        firstDate
+                                    )}
+                                    ～ 
+                                    ${
+                                        isCurrent
+                                            ? "現在"
+                                            : formatPlayerDate(
+                                                lastDate
+                                            )
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="player-search-result-info">
+                                ${
+                                    isCurrent
+                                        ? "現在所属"
+                                        : "過去所属"
+                                }
+                            </div>
+
+                        </div>
+                    `;
+
+                }
+            )
+            .join("");
+
+    modal.innerHTML = `
+        <div class="guild-members-modal-backdrop"></div>
+
+        <div
+            class="guild-members-modal-dialog"
+            role="dialog"
+            aria-modal="true"
+        >
+
+            <div class="guild-members-modal-header">
+
+                <div>
+
+                    <div class="guild-members-modal-title">
+                        🏰 ${escapeHtml(
+                            guild
+                        )}
+                    </div>
+
+                    <div class="guild-members-modal-subtitle">
+                        現在 ${currentMembers.length}人
+                        ／
+                        履歴 ${historyMembers.length}人
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="guild-members-modal-close"
+                    aria-label="閉じる"
+                >
+                    ×
+                </button>
+
+            </div>
+
+            <div class="guild-members-list">
+
+                ${
+                    historyRows ||
+                    `
+                        <div class="guild-members-empty">
+                            ギルド履歴がありません
+                        </div>
+                    `
+                }
+
+            </div>
+
+        </div>
+    `;
+
+    document.body.appendChild(
+        modal
+    );
+
+    const closeModal =
+        () => {
+            modal.remove();
+        };
+
+    modal
+        .querySelector(
+            ".guild-members-modal-close"
+        )
+        .addEventListener(
+            "click",
+            closeModal
+        );
+
+    modal
+        .querySelector(
+            ".guild-members-modal-backdrop"
+        )
+        .addEventListener(
+            "click",
+            closeModal
+        );
+
+    modal
+        .querySelectorAll(
+            ".guild-history-member-row"
+        )
+        .forEach(
+            row => {
+
+                row.addEventListener(
+                    "click",
+                    () => {
+
+                        const character =
+                            row.dataset.character ||
+                            "";
+
+                        const player =
+                            findPlayerByCharacter(
+                                character
+                            );
+
+                        if (player) {
+                            closeModal();
+
+                            openPlayerDetail(
+                                player
+                            );
+                        }
+
+                    }
+                );
+
+            }
+        );
 
 }
 
