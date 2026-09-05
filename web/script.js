@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupTodayFilters();
     setupLatestButton();
     setupPlayerSearch();
+    setupSearchTypeTabs();
     setupPlayerModal();
     loadData();
 });
@@ -7717,5 +7718,136 @@ function openCharacterListModal(
 
 
     setupPlayerClickableElements();
+
+}
+
+function setupSearchTypeTabs() {
+
+    const tabs =
+        document.querySelectorAll(
+            ".search-type-tab"
+        );
+
+    if (!tabs.length) {
+        return;
+    }
+
+    const playerSearch =
+        document.querySelector(
+            ".player-search"
+        );
+
+    if (!playerSearch) {
+        return;
+    }
+
+    tabs.forEach(tab => {
+
+        tab.addEventListener(
+            "click",
+            () => {
+
+                const type =
+                    tab.dataset.searchType;
+
+                tabs.forEach(
+                    item => {
+                        item.classList.toggle(
+                            "active",
+                            item === tab
+                        );
+                    }
+                );
+
+                if (
+                    type === "guild"
+                ) {
+
+                    playerSearch.style.display =
+                        "none";
+
+                    showGuildSearch();
+
+                } else {
+
+                    playerSearch.style.display =
+                        "";
+
+                    const guildSearch =
+                        document.getElementById(
+                            "guild-search"
+                        );
+
+                    if (guildSearch) {
+                        guildSearch.remove();
+                    }
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+function showGuildSearch() {
+
+    const existing =
+        document.getElementById(
+            "guild-search"
+        );
+
+    if (existing) {
+        return;
+    }
+
+    const playerSearch =
+        document.querySelector(
+            ".player-search"
+        );
+
+    if (!playerSearch) {
+        return;
+    }
+
+    const guildSearch =
+        document.createElement("div");
+
+    guildSearch.id =
+        "guild-search";
+
+    guildSearch.className =
+        "player-search";
+
+    guildSearch.innerHTML = `
+        <div class="player-search-box">
+
+            <input
+                type="text"
+                id="guild-search-input"
+                placeholder="ギルド名を入力..."
+                autocomplete="off"
+            >
+
+            <button
+                type="button"
+                id="guild-search-button"
+            >
+                検索
+            </button>
+
+        </div>
+
+        <div
+            id="guild-search-results"
+            class="player-search-results"
+        ></div>
+    `;
+
+    playerSearch.parentNode.insertBefore(
+        guildSearch,
+        playerSearch.nextSibling
+    );
 
 }
