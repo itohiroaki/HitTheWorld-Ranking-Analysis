@@ -3921,7 +3921,10 @@ function displayDashboardGuildDistribution(data) {
                             : 0;
 
                     return `
-                        <div class="dashboard-bar-row">
+                        <div
+    class="dashboard-bar-row dashboard-guild-distribution-button"
+    data-guild="${escapeHtml(guild)}"
+>
 
                             <div class="dashboard-bar-label">
                                 ${escapeHtml(guild)}
@@ -3946,8 +3949,94 @@ function displayDashboardGuildDistribution(data) {
             )
             .join("");
 
+    setupDashboardGuildDistributionButtons();
+
 }
 
+
+function setupDashboardGuildDistributionButtons() {
+
+    const buttons =
+        document.querySelectorAll(
+            ".dashboard-guild-distribution-button"
+        );
+
+    buttons.forEach(button => {
+
+        button.style.cursor =
+            "pointer";
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const guild =
+                    button.dataset.guild || "";
+
+                if (
+                    !dashboardGuildDistributionData
+                ) {
+                    return;
+                }
+
+                const members =
+                    dashboardGuildDistributionData
+                        .filter(
+                            player => {
+
+                                const playerGuild =
+                                    String(
+                                        player.guild || ""
+                                    ).trim() || "無所属";
+
+                                return (
+                                    playerGuild ===
+                                    guild
+                                );
+                            }
+                        )
+                        .sort(
+                            (a, b) => {
+
+                                const rankA =
+                                    Number(a.rank);
+
+                                const rankB =
+                                    Number(b.rank);
+
+                                if (
+                                    Number.isFinite(rankA) &&
+                                    Number.isFinite(rankB)
+                                ) {
+                                    return (
+                                        rankA -
+                                        rankB
+                                    );
+                                }
+
+                                return String(
+                                    a.character || ""
+                                ).localeCompare(
+                                    String(
+                                        b.character || ""
+                                    ),
+                                    "ja"
+                                );
+                            }
+                        );
+
+                openCharacterListModal(
+                    `🏰 ${guild}`,
+                    `${members.length}人`,
+                    members
+                );
+
+            }
+        );
+
+    });
+
+}
 
 /* =========================================================
    Dashboard Highlights
