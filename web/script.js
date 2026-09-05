@@ -1303,6 +1303,108 @@ if (rankDownCard) {
         };
     }
 
+    /* =====================================================
+   レベルアップカード
+   クリックで共通キャラ一覧モーダル
+===================================================== */
+
+const levelUpCard =
+    document.querySelector(
+        ".event-card.event-level-up"
+    );
+
+if (levelUpCard) {
+
+    levelUpCard.style.cursor =
+        "pointer";
+
+    levelUpCard.onclick =
+        () => {
+
+            const players =
+                getUniqueCombinedRanking(
+                    data
+                );
+
+            const members =
+                levelUp
+                    .map(
+                        event => {
+
+                            const character =
+                                String(
+                                    event.character ||
+                                    ""
+                                );
+
+                            const currentPlayer =
+                                players.find(
+                                    player =>
+                                        String(
+                                            player.character ||
+                                            ""
+                                        ) === character
+                                );
+
+                            if (!currentPlayer) {
+                                return null;
+                            }
+
+                            return {
+                                rank:
+                                    currentPlayer.rank,
+
+                                server:
+                                    currentPlayer.server,
+
+                                character:
+                                    currentPlayer.character,
+
+                                guild:
+                                    currentPlayer.guild
+                            };
+                        }
+                    )
+                    .filter(
+                        player =>
+                            player !== null
+                    )
+                    .sort(
+                        (a, b) => {
+
+                            const rankA =
+                                Number(a.rank);
+
+                            const rankB =
+                                Number(b.rank);
+
+                            if (
+                                Number.isFinite(rankA) &&
+                                Number.isFinite(rankB)
+                            ) {
+                                return rankA - rankB;
+                            }
+
+                            return String(
+                                a.character || ""
+                            ).localeCompare(
+                                String(
+                                    b.character || ""
+                                ),
+                                "ja"
+                            );
+                        }
+                    );
+
+            openCharacterListModal(
+                "🆙 レベルアップ",
+                `${members.length}人`,
+                members
+            );
+        };
+    }
+
+
 
 }
 
