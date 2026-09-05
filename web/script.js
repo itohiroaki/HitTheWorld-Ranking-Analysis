@@ -1005,17 +1005,17 @@ const guildChange =
    /* =====================================================
    圏外カード
    クリックで共通キャラ一覧モーダル
-===================================================== */
+　　===================================================== */
 
-const exitCard =
-    document.querySelector(
+    const exitCard =
+      document.querySelector(
         ".event-card.event-exit"
-    );
+           );
 
 
-if (exitCard) {
+    if (exitCard) {
 
-    exitCard.style.cursor =
+     exitCard.style.cursor =
         "pointer";
 
 
@@ -1099,7 +1099,108 @@ if (exitCard) {
 
         };
 
-} 
+    } 
+
+    /* =====================================================
+   順位上昇カード
+   クリックで共通キャラ一覧モーダル
+===================================================== */
+
+    const rankUpCard =
+    document.querySelector(
+        ".event-card.event-rank-up"
+    );
+
+    if (rankUpCard) {
+
+    rankUpCard.style.cursor =
+        "pointer";
+
+    rankUpCard.onclick =
+        () => {
+
+            const players =
+                getUniqueCombinedRanking(
+                    data
+                );
+
+            const members =
+                rankUp
+                    .map(
+                        event => {
+
+                            const character =
+                                String(
+                                    event.character ||
+                                    ""
+                                );
+
+                            const currentPlayer =
+                                players.find(
+                                    player =>
+                                        String(
+                                            player.character ||
+                                            ""
+                                        ) === character
+                                );
+
+                            if (!currentPlayer) {
+                                return null;
+                            }
+
+                            return {
+                                rank:
+                                    currentPlayer.rank,
+
+                                server:
+                                    currentPlayer.server,
+
+                                character:
+                                    currentPlayer.character,
+
+                                guild:
+                                    currentPlayer.guild
+                            };
+                        }
+                    )
+                    .filter(
+                        player =>
+                            player !== null
+                    )
+                    .sort(
+                        (a, b) => {
+
+                            const rankA =
+                                Number(a.rank);
+
+                            const rankB =
+                                Number(b.rank);
+
+                            if (
+                                Number.isFinite(rankA) &&
+                                Number.isFinite(rankB)
+                            ) {
+                                return rankA - rankB;
+                            }
+
+                            return String(
+                                a.character || ""
+                            ).localeCompare(
+                                String(
+                                    b.character || ""
+                                ),
+                                "ja"
+                            );
+                        }
+                    );
+
+            openCharacterListModal(
+                "📈 順位上昇",
+                `${members.length}人`,
+                members
+            );
+        };
+    }
     
 }
 
