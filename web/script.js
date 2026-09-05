@@ -42,6 +42,7 @@ let currentRankingGroup = "Combined";
 let currentTodayGroup = "All";
 let dashboardServerDistributionData = null;
 let dashboardLevelDistributionData = null;
+let dashboardGuildDistributionData = null;
 
 
 
@@ -3188,6 +3189,8 @@ function displayDashboard(
         data
     );
 
+    displayDashboardGuildDistribution(data);
+
 
     displayDashboardHighlights(
         data
@@ -3849,6 +3852,101 @@ setupDashboardGuildButtons();
 
 }
 
+/* =========================================================
+   Dashboard Guild Distribution
+========================================================= */
+
+function displayDashboardGuildDistribution(data) {
+
+    const container =
+        document.getElementById(
+            "dashboard-guild-distribution"
+        );
+
+    if (!container) {
+        return;
+    }
+
+    const players =
+        getUniqueCombinedRanking(
+            data
+        );
+
+    dashboardGuildDistributionData =
+        players;
+
+    const guildCounts = {};
+
+    players.forEach(player => {
+
+        const guild =
+            String(
+                player.guild || ""
+            ).trim();
+
+        const guildName =
+            guild || "無所属";
+
+        guildCounts[guildName] =
+            (guildCounts[guildName] || 0) + 1;
+
+    });
+
+    const entries =
+        Object.entries(
+            guildCounts
+        )
+        .sort(
+            (a, b) =>
+                b[1] - a[1] ||
+                a[0].localeCompare(
+                    b[0],
+                    "ja"
+                )
+        );
+
+    const maxCount =
+        entries.length
+            ? entries[0][1]
+            : 0;
+
+    container.innerHTML =
+        entries
+            .map(
+                ([guild, count]) => {
+
+                    const width =
+                        maxCount > 0
+                            ? (count / maxCount) * 100
+                            : 0;
+
+                    return `
+                        <div class="dashboard-bar-row">
+
+                            <div class="dashboard-bar-label">
+                                ${escapeHtml(guild)}
+                            </div>
+
+                            <div class="dashboard-bar-track">
+
+                                <div
+                                    class="dashboard-bar-fill"
+                                    style="width:${width}%"
+                                ></div>
+
+                            </div>
+
+                            <div class="dashboard-bar-value">
+                                ${count}人
+                            </div>
+
+                        </div>
+                    `;
+                }
+            )
+            .join("");
+
+}
 
 
 /* =========================================================
