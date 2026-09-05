@@ -1202,6 +1202,108 @@ const guildChange =
         };
     }
     
+    /* =====================================================
+   順位下降カード
+   クリックで共通キャラ一覧モーダル
+===================================================== */
+
+const rankDownCard =
+    document.querySelector(
+        ".event-card.event-rank-down"
+    );
+
+if (rankDownCard) {
+
+    rankDownCard.style.cursor =
+        "pointer";
+
+    rankDownCard.onclick =
+        () => {
+
+            const players =
+                getUniqueCombinedRanking(
+                    data
+                );
+
+            const members =
+                rankDown
+                    .map(
+                        event => {
+
+                            const character =
+                                String(
+                                    event.character ||
+                                    ""
+                                );
+
+                            const currentPlayer =
+                                players.find(
+                                    player =>
+                                        String(
+                                            player.character ||
+                                            ""
+                                        ) === character
+                                );
+
+                            if (!currentPlayer) {
+                                return null;
+                            }
+
+                            return {
+                                rank:
+                                    currentPlayer.rank,
+
+                                server:
+                                    currentPlayer.server,
+
+                                character:
+                                    currentPlayer.character,
+
+                                guild:
+                                    currentPlayer.guild
+                            };
+                        }
+                    )
+                    .filter(
+                        player =>
+                            player !== null
+                    )
+                    .sort(
+                        (a, b) => {
+
+                            const rankA =
+                                Number(a.rank);
+
+                            const rankB =
+                                Number(b.rank);
+
+                            if (
+                                Number.isFinite(rankA) &&
+                                Number.isFinite(rankB)
+                            ) {
+                                return rankA - rankB;
+                            }
+
+                            return String(
+                                a.character || ""
+                            ).localeCompare(
+                                String(
+                                    b.character || ""
+                                ),
+                                "ja"
+                            );
+                        }
+                    );
+
+            openCharacterListModal(
+                "📉 順位下降",
+                `${members.length}人`,
+                members
+            );
+        };
+    }
+
+
 }
 
 /* =========================================================
