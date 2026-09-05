@@ -1353,6 +1353,42 @@ select {
 
 }
 
+/* =========================================
+   SEARCH TYPE TABS
+========================================== */
+
+.search-type-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.search-type-tab {
+    padding: 10px 20px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #4b5563;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition:
+        background-color 0.15s ease,
+        color 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.search-type-tab:hover {
+    background: #f3f4f6;
+}
+
+.search-type-tab.active {
+    background: #111827;
+    border-color: #111827;
+    color: #ffffff;
+}
+
+
 /* =========================================================
    Ver.5 プレイヤー検索
 ========================================================= */
@@ -2366,6 +2402,16 @@ select {
         padding-left: 14px;
         padding-right: 14px;
     }
+
+    .search-type-tabs {
+        gap: 6px;
+    }
+
+    .search-type-tab {
+        flex: 1;
+        padding: 9px 12px;
+        font-size: 0.9rem;
+    }   
 
 }
 
