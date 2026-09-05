@@ -1002,7 +1002,104 @@ const guildChange =
 
     }
 
-    
+   /* =====================================================
+   圏外カード
+   クリックで共通キャラ一覧モーダル
+===================================================== */
+
+const exitCard =
+    document.querySelector(
+        ".event-card.event-exit"
+    );
+
+
+if (exitCard) {
+
+    exitCard.style.cursor =
+        "pointer";
+
+
+    exitCard.onclick =
+        () => {
+
+            const players =
+                getUniqueCombinedRanking(
+                    data
+                );
+
+
+            const members =
+                exit
+                    .map(
+                        event => {
+
+                            const character =
+                                String(
+                                    event.character ||
+                                    ""
+                                );
+
+
+                            return {
+    rank:
+        event.old_rank,
+
+    server:
+        event.group,
+
+    character:
+        event.character,
+
+    guild:
+        ""
+};
+
+                        }
+                    )
+                    .filter(
+                        player =>
+                            player !== null
+                    )
+                    .sort(
+                        (a, b) => {
+
+                            const rankA =
+                                Number(a.rank);
+
+                            const rankB =
+                                Number(b.rank);
+
+
+                            if (
+                                Number.isFinite(rankA) &&
+                                Number.isFinite(rankB)
+                            ) {
+                                return rankA - rankB;
+                            }
+
+
+                            return String(
+                                a.character || ""
+                            ).localeCompare(
+                                String(
+                                    b.character || ""
+                                ),
+                                "ja"
+                            );
+
+                        }
+                    );
+
+
+            openCharacterListModal(
+                "🚪 圏外",
+                `${members.length}人`,
+                members
+            );
+
+        };
+
+} 
     
 }
 
