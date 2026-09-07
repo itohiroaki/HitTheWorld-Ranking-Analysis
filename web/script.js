@@ -5370,6 +5370,63 @@ function createPlayerDetailHtml(
         current.guild ||
         "";
 
+    const guildHistory =
+    getPlayerHistoryRecords(
+        player
+    );
+
+const lastMemberGuild =
+    [...guildHistory]
+        .sort(
+            (a, b) =>
+                String(
+                    b.date
+                ).localeCompare(
+                    String(
+                        a.date
+                    )
+                )
+        )
+        .map(
+            record => {
+
+                const eda =
+                    record.server_ranking?.Eda;
+
+                const virba =
+                    record.server_ranking?.Virba;
+
+                const edaGuild =
+                    eda?.visible
+                        ? String(
+                            eda.guild ||
+                            ""
+                        ).trim()
+                        : "";
+
+                const virbaGuild =
+                    virba?.visible
+                        ? String(
+                            virba.guild ||
+                            ""
+                        ).trim()
+                        : "";
+
+                return (
+                    edaGuild ||
+                    virbaGuild ||
+                    ""
+                );
+
+            }
+        )
+        .find(
+            guild =>
+                guild &&
+                guild !== "無所属"
+        ) ||
+        "";
+
 
     return `
 
@@ -5572,11 +5629,11 @@ function createPlayerDetailHtml(
                             </th>
 
                             <td>
-                                ${escapeHtml(
-                                    lastKnown.guild ||
-                                    "-"
-                                )}
-                            </td>
+    ${escapeHtml(
+        lastMemberGuild ||
+        "-"
+    )}
+</td>
 
                         </tr>
 
