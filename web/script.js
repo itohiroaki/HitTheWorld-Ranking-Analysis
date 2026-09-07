@@ -5501,29 +5501,6 @@ function createPlayerDetailHtml(
             </div>
 
 
-            <div class="player-current-groups">
-
-                ${
-                    edaVisible
-                        ? createCurrentGroupCard(
-                            "Eda",
-                            eda
-                        )
-                        : ""
-                }
-
-
-                ${
-                    virbaVisible
-                        ? createCurrentGroupCard(
-                            "Virba",
-                            virba
-                        )
-                        : ""
-                }
-
-            </div>
-
 
             <div class="player-detail-section">
 
