@@ -6105,77 +6105,175 @@ function createLevelHistoryHtml(
         );
 
 
-    const isExpanded =
-        expandedPlayerHistory.level === true;
-
-
-    const validHistory =
-        history.filter(
-            record => {
-
-                const eda =
-                    record.server_ranking?.Eda;
-
-                const virba =
-                    record.server_ranking?.Virba;
-
-                return (
-                    (
-                        eda?.visible &&
-                        eda.level != null
-                    ) ||
-                    (
-                        virba?.visible &&
-                        virba.level != null
-                    )
-                );
-
-            }
-        );
-
-
-    if (!validHistory.length) {
+    if (!history.length) {
         return "";
     }
 
 
-    const displayHistory =
-        isExpanded
-            ? [...validHistory].reverse()
-            : [...validHistory].slice(-4).reverse();
-
-
-    const rows =
-        displayHistory
-            .map(
+    const sortedHistory =
+        [...history]
+            .filter(
                 record => {
 
                     const eda =
                         record.server_ranking?.Eda;
 
-
                     const virba =
                         record.server_ranking?.Virba;
 
+                    return (
+                        (
+                            eda?.visible &&
+                            eda.level != null
+                        ) ||
+                        (
+                            virba?.visible &&
+                            virba.level != null
+                        )
+                    );
+
+                }
+            )
+            .sort(
+                (a, b) =>
+                    String(
+                        a.date
+                    ).localeCompare(
+                        String(
+                            b.date
+                        )
+                    )
+            );
+
+
+    if (!sortedHistory.length) {
+        return "";
+    }
+
+
+    const periods = [];
+
+
+    sortedHistory.forEach(
+        record => {
+
+            const eda =
+                record.server_ranking?.Eda;
+
+            const virba =
+                record.server_ranking?.Virba;
+
+
+            const edaLevel =
+                eda?.visible &&
+                eda.level != null
+                    ? String(
+                        eda.level
+                    )
+                    : "-";
+
+
+            const virbaLevel =
+                virba?.visible &&
+                virba.level != null
+                    ? String(
+                        virba.level
+                    )
+                    : "-";
+
+
+            const key =
+                `${edaLevel}|${virbaLevel}`;
+
+
+            const lastPeriod =
+                periods[
+                    periods.length - 1
+                ];
+
+
+            if (
+                lastPeriod &&
+                lastPeriod.key === key
+            ) {
+
+                lastPeriod.endDate =
+                    record.date;
+
+            } else {
+
+                periods.push({
+
+                    key:
+                        key,
+
+                    startDate:
+                        record.date,
+
+                    endDate:
+                        record.date,
+
+                    edaLevel:
+                        edaLevel,
+
+                    virbaLevel:
+                        virbaLevel
+
+                });
+
+            }
+
+        }
+    );
+
+
+    const isExpanded =
+        expandedPlayerHistory.level === true;
+
+
+    const displayPeriods =
+        isExpanded
+            ? [...periods].reverse()
+            : [...periods]
+                .slice(-4)
+                .reverse();
+
+
+    const rows =
+        displayPeriods
+            .map(
+                period => {
+
+                    const date =
+                        period.startDate ===
+                        period.endDate
+
+                            ? formatPlayerDate(
+                                period.startDate
+                            )
+
+                            : `
+                                ${formatPlayerDate(
+                                    period.startDate
+                                )}
+                                ～ ${formatPlayerDate(
+                                    period.endDate
+                                )}
+                              `;
+
 
                     const edaValue =
-                        eda?.visible &&
-                        eda.level != null
+                        period.edaLevel !== "-"
                             ? `Lv${escapeHtml(
-                                String(
-                                    eda.level
-                                )
+                                period.edaLevel
                             )}`
                             : "-";
 
 
                     const virbaValue =
-                        virba?.visible &&
-                        virba.level != null
+                        period.virbaLevel !== "-"
                             ? `Lv${escapeHtml(
-                                String(
-                                    virba.level
-                                )
+                                period.virbaLevel
                             )}`
                             : "-";
 
@@ -6185,16 +6283,12 @@ function createLevelHistoryHtml(
                         <tr>
 
                             <td>
-                                ${formatPlayerDate(
-                                    record.date
-                                )}
+                                ${date}
                             </td>
-
 
                             <td>
                                 ${edaValue}
                             </td>
-
 
                             <td>
                                 ${virbaValue}
@@ -6210,7 +6304,7 @@ function createLevelHistoryHtml(
 
 
     const moreButton =
-        validHistory.length > 4
+        periods.length > 4
             ? `
                 <button
                     type="button"
@@ -6243,7 +6337,7 @@ function createLevelHistoryHtml(
 
                         <tr>
 
-                            <th>日付</th>
+                            <th>期間</th>
 
                             <th>Eda</th>
 
