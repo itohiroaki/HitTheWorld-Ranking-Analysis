@@ -5825,14 +5825,17 @@ function createRankHistoryHtml(
     }
 
 
+    const displayHistory =
+        history.slice(-5);
+
+
     const rows =
-        history
+        displayHistory
             .map(
                 record => {
 
                     const eda =
                         record.server_ranking?.Eda;
-
 
                     const virba =
                         record.server_ranking?.Virba;
@@ -5889,6 +5892,20 @@ function createRankHistoryHtml(
             .join("");
 
 
+    const moreButton =
+        history.length > 5
+            ? `
+                <button
+                    type="button"
+                    class="player-history-more-button"
+                    data-history-type="rank"
+                >
+                    すべて見る
+                </button>
+            `
+            : "";
+
+
     return `
 
         <div class="player-detail-section">
@@ -5922,6 +5939,9 @@ function createRankHistoryHtml(
                 </table>
 
             </div>
+
+
+            ${moreButton}
 
         </div>
 
