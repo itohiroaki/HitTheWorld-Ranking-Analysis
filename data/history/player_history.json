@@ -467,7 +467,8 @@
         "old_value": 101,
         "new_value": 102,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -3913,7 +3914,8 @@
         "old_value": 99,
         "new_value": 100,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -5967,7 +5969,8 @@
         "old_value": 98,
         "new_value": 99,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -7030,7 +7033,8 @@
         "old_value": 98,
         "new_value": 99,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -10935,7 +10939,8 @@
         "old_value": 97,
         "new_value": 98,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -11987,7 +11992,8 @@
         "old_value": 97,
         "new_value": 98,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       },
       {
@@ -13059,7 +13065,8 @@
         "old_value": 97,
         "new_value": 98,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -15263,7 +15270,8 @@
         "old_value": 97,
         "new_value": 98,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -16001,7 +16009,8 @@
         "old_value": 97,
         "new_value": 98,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -53150,7 +53159,8 @@
         "old_value": 96,
         "new_value": 97,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       },
       {
@@ -104827,7 +104837,8 @@
         "old_value": 96,
         "new_value": 97,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       }
     ],
@@ -109473,7 +109484,8 @@
         "old_value": 96,
         "new_value": 97,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       },
       {
@@ -117337,7 +117349,8 @@
         "old_value": 96,
         "new_value": 97,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       },
       {
@@ -122563,7 +122576,8 @@
         "old_value": 96,
         "new_value": 97,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       },
       {
@@ -137076,7 +137090,8 @@
         "old_value": 96,
         "new_value": 97,
         "details": {
-          "change": 1
+          "change": 1,
+          "confirmed": true
         }
       },
       {
