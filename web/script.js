@@ -5832,26 +5832,145 @@ function createRankHistoryHtml(
     }
 
 
-const isExpanded =
-    expandedPlayerHistory.rank === true;
+    const sortedHistory =
+        [...history]
+            .sort(
+                (a, b) =>
+                    String(
+                        a.date
+                    ).localeCompare(
+                        String(
+                            b.date
+                        )
+                    )
+            );
 
 
-const displayHistory =
-    isExpanded
-        ? [...history].reverse()
-        : [...history].slice(-4).reverse();
+    const periods = [];
+
+
+    sortedHistory.forEach(
+        record => {
+
+            const eda =
+                record.server_ranking?.Eda;
+
+            const virba =
+                record.server_ranking?.Virba;
+
+
+            const edaRank =
+                eda?.visible &&
+                eda.rank != null
+                    ? String(
+                        eda.rank
+                    )
+                    : "-";
+
+
+            const virbaRank =
+                virba?.visible &&
+                virba.rank != null
+                    ? String(
+                        virba.rank
+                    )
+                    : "-";
+
+
+            const key =
+                `${edaRank}|${virbaRank}`;
+
+
+            const lastPeriod =
+                periods[
+                    periods.length - 1
+                ];
+
+
+            if (
+                lastPeriod &&
+                lastPeriod.key === key
+            ) {
+
+                lastPeriod.endDate =
+                    record.date;
+
+            } else {
+
+                periods.push({
+
+                    key:
+                        key,
+
+                    startDate:
+                        record.date,
+
+                    endDate:
+                        record.date,
+
+                    edaRank:
+                        edaRank,
+
+                    virbaRank:
+                        virbaRank
+
+                });
+
+            }
+
+        }
+    );
+
+
+    const isExpanded =
+        expandedPlayerHistory.rank === true;
+
+
+    const displayPeriods =
+        isExpanded
+            ? [...periods].reverse()
+            : [...periods]
+                .slice(-4)
+                .reverse();
 
 
     const rows =
-        displayHistory
+        displayPeriods
             .map(
-                record => {
+                period => {
 
-                    const eda =
-                        record.server_ranking?.Eda;
+                    const date =
+                        period.startDate ===
+                        period.endDate
 
-                    const virba =
-                        record.server_ranking?.Virba;
+                            ? formatPlayerDate(
+                                period.startDate
+                            )
+
+                            : `
+                                ${formatPlayerDate(
+                                    period.startDate
+                                )}
+                                ～ ${formatPlayerDate(
+                                    period.endDate
+                                )}
+                              `;
+
+
+                    const edaValue =
+                        period.edaRank !== "-"
+                            ? `Eda ${escapeHtml(
+                                period.edaRank
+                            )}位`
+                            : "-";
+
+
+                    const virbaValue =
+                        period.virbaRank !== "-"
+                            ? `Virba ${escapeHtml(
+                                period.virbaRank
+                            )}位`
+                            : "-";
 
 
                     return `
@@ -5859,41 +5978,15 @@ const displayHistory =
                         <tr>
 
                             <td>
-                                ${formatPlayerDate(
-                                    record.date
-                                )}
+                                ${date}
                             </td>
 
-
                             <td>
-
-                                ${
-                                    eda?.visible &&
-                                    eda.rank != null
-                                        ? `Eda ${escapeHtml(
-                                            String(
-                                                eda.rank
-                                            )
-                                        )}位`
-                                        : "-"
-                                }
-
+                                ${edaValue}
                             </td>
 
-
                             <td>
-
-                                ${
-                                    virba?.visible &&
-                                    virba.rank != null
-                                        ? `Virba ${escapeHtml(
-                                            String(
-                                                virba.rank
-                                            )
-                                        )}位`
-                                        : "-"
-                                }
-
+                                ${virbaValue}
                             </td>
 
                         </tr>
@@ -5906,22 +5999,22 @@ const displayHistory =
 
 
     const moreButton =
-    history.length > 5
-        ? `
-            <button
-                type="button"
-                class="player-history-more-button"
-                data-history-type="rank"
-                onclick="togglePlayerHistory('rank')"
-            >
-                ${
-                    isExpanded
-                        ? "折りたたむ"
-                        : "すべて見る"
-                }
-            </button>
-        `
-        : "";
+        periods.length > 4
+            ? `
+                <button
+                    type="button"
+                    class="player-history-more-button"
+                    data-history-type="rank"
+                    onclick="togglePlayerHistory('rank')"
+                >
+                    ${
+                        isExpanded
+                            ? "折りたたむ"
+                            : "すべて見る"
+                    }
+                </button>
+            `
+            : "";
 
 
     return `
@@ -5939,7 +6032,7 @@ const displayHistory =
 
                         <tr>
 
-                            <th>日付</th>
+                            <th>期間</th>
 
                             <th>Eda</th>
 
