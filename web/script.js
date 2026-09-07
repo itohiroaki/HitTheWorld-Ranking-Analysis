@@ -756,12 +756,7 @@ function displayData(
      * 共通参照
      */
     currentData =
-        data;
-
-
-    window.latestRankingData =
-        data;
-
+    data;
 
     /*
      * Header
