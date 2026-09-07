@@ -5838,8 +5838,8 @@ const isExpanded =
 
 const displayHistory =
     isExpanded
-        ? history
-        : history.slice(-5);
+        ? [...history].reverse()
+        : [...history].slice(-4).reverse();
 
 
     const rows =
