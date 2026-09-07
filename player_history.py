@@ -206,11 +206,15 @@ def get_server_group_from_filename(file_path):
 # ============================================================
 
 def create_player(character):
+    tracking_id = create_tracking_id(character)
 
     return {
 
         "tracking_id":
-            create_tracking_id(character),
+            tracking_id,
+
+        "canonical_tracking_id":
+            tracking_id,
 
         "character":
             character,
@@ -2894,6 +2898,11 @@ def main():
 
     player_history = {}
 
+    links = load_player_links()
+    print(
+        f"同一人物リンク: {len(links)}件"
+    )
+
 
     # ========================================================
     # World処理
@@ -2955,6 +2964,17 @@ def main():
                     )
 
                 )
+
+            player = player_history[
+                character
+            ]
+
+            player["canonical_tracking_id"] = (
+                resolve_tracking_id(
+                    player["tracking_id"],
+                    links
+                )
+            )
 
 
             player = player_history[
@@ -3063,9 +3083,7 @@ def main():
             if not character:
                 continue
 
-
             if character not in player_history:
-
                 player_history[character] = (
 
                     create_player(
@@ -3074,10 +3092,16 @@ def main():
 
                 )
 
-
             player = player_history[
                 character
             ]
+
+            player["canonical_tracking_id"] = (
+                resolve_tracking_id(
+                    player["tracking_id"],
+                    links
+                )
+            )
 
 
             if character not in player["names"]:
