@@ -6380,73 +6380,175 @@ function createServerHistoryHtml(
         );
 
 
-    const validHistory =
-        history.filter(
-            record => {
-
-                const eda =
-                    record.server_ranking?.Eda;
-
-                const virba =
-                    record.server_ranking?.Virba;
-
-                return (
-                    (
-                        eda?.visible &&
-                        eda.server
-                    ) ||
-                    (
-                        virba?.visible &&
-                        virba.server
-                    )
-                );
-
-            }
-        );
-
-
-    if (!validHistory.length) {
+    if (!history.length) {
         return "";
     }
+
+
+    const sortedHistory =
+        [...history]
+            .filter(
+                record => {
+
+                    const eda =
+                        record.server_ranking?.Eda;
+
+                    const virba =
+                        record.server_ranking?.Virba;
+
+                    return (
+                        (
+                            eda?.visible &&
+                            eda.server
+                        ) ||
+                        (
+                            virba?.visible &&
+                            virba.server
+                        )
+                    );
+
+                }
+            )
+            .sort(
+                (a, b) =>
+                    String(
+                        a.date
+                    ).localeCompare(
+                        String(
+                            b.date
+                        )
+                    )
+            );
+
+
+    if (!sortedHistory.length) {
+        return "";
+    }
+
+
+    const periods = [];
+
+
+    sortedHistory.forEach(
+        record => {
+
+            const eda =
+                record.server_ranking?.Eda;
+
+            const virba =
+                record.server_ranking?.Virba;
+
+
+            const edaServer =
+                eda?.visible &&
+                eda.server
+                    ? String(
+                        eda.server
+                    )
+                    : "-";
+
+
+            const virbaServer =
+                virba?.visible &&
+                virba.server
+                    ? String(
+                        virba.server
+                    )
+                    : "-";
+
+
+            const key =
+                `${edaServer}|${virbaServer}`;
+
+
+            const lastPeriod =
+                periods[
+                    periods.length - 1
+                ];
+
+
+            if (
+                lastPeriod &&
+                lastPeriod.key === key
+            ) {
+
+                lastPeriod.endDate =
+                    record.date;
+
+            } else {
+
+                periods.push({
+
+                    key:
+                        key,
+
+                    startDate:
+                        record.date,
+
+                    endDate:
+                        record.date,
+
+                    edaServer:
+                        edaServer,
+
+                    virbaServer:
+                        virbaServer
+
+                });
+
+            }
+
+        }
+    );
 
 
     const isExpanded =
         expandedPlayerHistory.server === true;
 
 
-    const displayHistory =
+    const displayPeriods =
         isExpanded
-            ? [...validHistory].reverse()
-            : [...validHistory].slice(-4).reverse();
+            ? [...periods].reverse()
+            : [...periods]
+                .slice(-4)
+                .reverse();
 
 
     const rows =
-        displayHistory
+        displayPeriods
             .map(
-                record => {
+                period => {
 
-                    const eda =
-                        record.server_ranking?.Eda;
+                    const date =
+                        period.startDate ===
+                        period.endDate
 
+                            ? formatPlayerDate(
+                                period.startDate
+                            )
 
-                    const virba =
-                        record.server_ranking?.Virba;
+                            : `
+                                ${formatPlayerDate(
+                                    period.startDate
+                                )}
+                                ～ ${formatPlayerDate(
+                                    period.endDate
+                                )}
+                              `;
 
 
                     const edaValue =
-                        eda?.visible &&
-                        eda.server
+                        period.edaServer !== "-"
                             ? escapeHtml(
-                                eda.server
+                                period.edaServer
                             )
                             : "-";
 
 
                     const virbaValue =
-                        virba?.visible &&
-                        virba.server
+                        period.virbaServer !== "-"
                             ? escapeHtml(
-                                virba.server
+                                period.virbaServer
                             )
                             : "-";
 
@@ -6456,16 +6558,12 @@ function createServerHistoryHtml(
                         <tr>
 
                             <td>
-                                ${formatPlayerDate(
-                                    record.date
-                                )}
+                                ${date}
                             </td>
-
 
                             <td>
                                 ${edaValue}
                             </td>
-
 
                             <td>
                                 ${virbaValue}
@@ -6481,7 +6579,7 @@ function createServerHistoryHtml(
 
 
     const moreButton =
-        validHistory.length > 4
+        periods.length > 4
             ? `
                 <button
                     type="button"
@@ -6514,7 +6612,7 @@ function createServerHistoryHtml(
 
                         <tr>
 
-                            <th>日付</th>
+                            <th>期間</th>
 
                             <th>Eda</th>
 
