@@ -43,6 +43,8 @@ let currentTodayGroup = "All";
 let dashboardServerDistributionData = null;
 let dashboardLevelDistributionData = null;
 let dashboardGuildDistributionData = null;
+let expandedPlayerHistory = {};
+let currentDetailPlayer = null;
 
 
 
@@ -5208,6 +5210,11 @@ function openPlayerDetail(
     player
 ) {
 
+    currentDetailPlayer =
+        player;
+
+    expandedPlayerHistory = {};
+
     const modal =
         document.getElementById(
             "player-modal"
@@ -5825,8 +5832,14 @@ function createRankHistoryHtml(
     }
 
 
-    const displayHistory =
-        history.slice(-5);
+const isExpanded =
+    expandedPlayerHistory.rank === true;
+
+
+const displayHistory =
+    isExpanded
+        ? history
+        : history.slice(-5);
 
 
     const rows =
@@ -5896,12 +5909,13 @@ function createRankHistoryHtml(
         history.length > 5
             ? `
                 <button
-                    type="button"
-                    class="player-history-more-button"
-                    data-history-type="rank"
-                >
-                    すべて見る
-                </button>
+    type="button"
+    class="player-history-more-button"
+    data-history-type="rank"
+    onclick="expandPlayerHistory('rank')"
+>
+    すべて見る
+</button>
             `
             : "";
 
@@ -5949,6 +5963,36 @@ function createRankHistoryHtml(
 
 }
 
+function expandPlayerHistory(
+    type
+) {
+
+    expandedPlayerHistory[type] =
+        true;
+
+
+    const detail =
+        document.getElementById(
+            "player-detail"
+        );
+
+
+    if (
+        !detail ||
+        !currentDetailPlayer
+    ) {
+
+        return;
+
+    }
+
+
+    detail.innerHTML =
+        createPlayerDetailHtml(
+            currentDetailPlayer
+        );
+
+}
 
 /* =========================================================
    Level History

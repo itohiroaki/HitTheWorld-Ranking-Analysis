@@ -1,0 +1,972 @@
+{
+  "world": {
+    "old_date": "20260905",
+    "new_date": "20260906",
+    "source": "world_ranking",
+    "daily_change_reliability": "reference_only",
+    "summary": {
+      "old_count": 1000,
+      "new_count": 1000,
+      "common_count": 1000,
+      "not_visible_count": 0,
+      "new_visible_count": 0
+    },
+    "rank_changes": [],
+    "level_changes": [],
+    "guild_changes": [],
+    "server_changes": [],
+    "not_visible": [],
+    "new_visible": [],
+    "csv_identical": true
+  },
+  "server_ranking": {
+    "Virba": {
+      "old_date": "20260905",
+      "new_date": "20260906",
+      "summary": {
+        "old_count": 100,
+        "new_count": 100,
+        "common_count": 95,
+        "not_visible_count": 5,
+        "new_visible_count": 5
+      },
+      "rank_changes": [
+        {
+          "character": "Ehekatl",
+          "old_rank": 58,
+          "new_rank": 47,
+          "change": 11
+        },
+        {
+          "character": "赤頭巾",
+          "old_rank": 52,
+          "new_rank": 44,
+          "change": 8
+        },
+        {
+          "character": "床calmato",
+          "old_rank": 44,
+          "new_rank": 38,
+          "change": 6
+        },
+        {
+          "character": "ピコ417",
+          "old_rank": 62,
+          "new_rank": 56,
+          "change": 6
+        },
+        {
+          "character": "ムーミン改",
+          "old_rank": 94,
+          "new_rank": 88,
+          "change": 6
+        },
+        {
+          "character": "カサンドラ",
+          "old_rank": 77,
+          "new_rank": 73,
+          "change": 4
+        },
+        {
+          "character": "鴉鬼",
+          "old_rank": 19,
+          "new_rank": 16,
+          "change": 3
+        },
+        {
+          "character": "へっぽこ牧太郎",
+          "old_rank": 30,
+          "new_rank": 27,
+          "change": 3
+        },
+        {
+          "character": "ーArroWー",
+          "old_rank": 46,
+          "new_rank": 43,
+          "change": 3
+        },
+        {
+          "character": "エルフスキー",
+          "old_rank": 21,
+          "new_rank": 19,
+          "change": 2
+        },
+        {
+          "character": "プトティラ",
+          "old_rank": 24,
+          "new_rank": 22,
+          "change": 2
+        },
+        {
+          "character": "RONTAMA",
+          "old_rank": 34,
+          "new_rank": 32,
+          "change": 2
+        },
+        {
+          "character": "hiroちあん",
+          "old_rank": 72,
+          "new_rank": 70,
+          "change": 2
+        },
+        {
+          "character": "指宿",
+          "old_rank": 12,
+          "new_rank": 11,
+          "change": 1
+        },
+        {
+          "character": "ミケーレ",
+          "old_rank": 27,
+          "new_rank": 26,
+          "change": 1
+        },
+        {
+          "character": "Bye",
+          "old_rank": 32,
+          "new_rank": 31,
+          "change": 1
+        },
+        {
+          "character": "ぷちにゃんこ",
+          "old_rank": 43,
+          "new_rank": 42,
+          "change": 1
+        },
+        {
+          "character": "魔天ノ人",
+          "old_rank": 47,
+          "new_rank": 46,
+          "change": 1
+        },
+        {
+          "character": "T4Y",
+          "old_rank": 59,
+          "new_rank": 58,
+          "change": 1
+        },
+        {
+          "character": "ほんみょんぼ",
+          "old_rank": 64,
+          "new_rank": 63,
+          "change": 1
+        },
+        {
+          "character": "ロックネット",
+          "old_rank": 69,
+          "new_rank": 68,
+          "change": 1
+        },
+        {
+          "character": "ノクシス",
+          "old_rank": 73,
+          "new_rank": 72,
+          "change": 1
+        },
+        {
+          "character": "Litz",
+          "old_rank": 78,
+          "new_rank": 77,
+          "change": 1
+        },
+        {
+          "character": "o鮫o",
+          "old_rank": 81,
+          "new_rank": 80,
+          "change": 1
+        },
+        {
+          "character": "o鰒o",
+          "old_rank": 83,
+          "new_rank": 82,
+          "change": 1
+        },
+        {
+          "character": "桐ケ谷和人",
+          "old_rank": 11,
+          "new_rank": 12,
+          "change": -1
+        },
+        {
+          "character": "Quixotic",
+          "old_rank": 20,
+          "new_rank": 21,
+          "change": -1
+        },
+        {
+          "character": "ーブロニキー",
+          "old_rank": 22,
+          "new_rank": 23,
+          "change": -1
+        },
+        {
+          "character": "ーBambiー",
+          "old_rank": 23,
+          "new_rank": 24,
+          "change": -1
+        },
+        {
+          "character": "RaitaN",
+          "old_rank": 29,
+          "new_rank": 30,
+          "change": -1
+        },
+        {
+          "character": "じぇけ",
+          "old_rank": 33,
+          "new_rank": 34,
+          "change": -1
+        },
+        {
+          "character": "邪夢JAM",
+          "old_rank": 40,
+          "new_rank": 41,
+          "change": -1
+        },
+        {
+          "character": "狂ちゃん",
+          "old_rank": 51,
+          "new_rank": 52,
+          "change": -1
+        },
+        {
+          "character": "あおみとり",
+          "old_rank": 60,
+          "new_rank": 61,
+          "change": -1
+        },
+        {
+          "character": "Posaune",
+          "old_rank": 61,
+          "new_rank": 62,
+          "change": -1
+        },
+        {
+          "character": "メンへラおぢさん",
+          "old_rank": 63,
+          "new_rank": 64,
+          "change": -1
+        },
+        {
+          "character": "チーチー",
+          "old_rank": 68,
+          "new_rank": 69,
+          "change": -1
+        },
+        {
+          "character": "ヴィオラo",
+          "old_rank": 70,
+          "new_rank": 71,
+          "change": -1
+        },
+        {
+          "character": "糸色女子言周",
+          "old_rank": 80,
+          "new_rank": 81,
+          "change": -1
+        },
+        {
+          "character": "だうにー",
+          "old_rank": 82,
+          "new_rank": 83,
+          "change": -1
+        },
+        {
+          "character": "ZioZio",
+          "old_rank": 91,
+          "new_rank": 92,
+          "change": -1
+        },
+        {
+          "character": "駄馬頭琴",
+          "old_rank": 16,
+          "new_rank": 18,
+          "change": -2
+        },
+        {
+          "character": "牡羊座のシオン",
+          "old_rank": 18,
+          "new_rank": 20,
+          "change": -2
+        },
+        {
+          "character": "いずみ",
+          "old_rank": 31,
+          "new_rank": 33,
+          "change": -2
+        },
+        {
+          "character": "おすぎとぴーこ",
+          "old_rank": 38,
+          "new_rank": 40,
+          "change": -2
+        },
+        {
+          "character": "あられみっくす",
+          "old_rank": 48,
+          "new_rank": 50,
+          "change": -2
+        },
+        {
+          "character": "UKA",
+          "old_rank": 49,
+          "new_rank": 51,
+          "change": -2
+        },
+        {
+          "character": "メルラン",
+          "old_rank": 87,
+          "new_rank": 89,
+          "change": -2
+        },
+        {
+          "character": "おれかふぇ",
+          "old_rank": 88,
+          "new_rank": 90,
+          "change": -2
+        },
+        {
+          "character": "玖磨",
+          "old_rank": 89,
+          "new_rank": 91,
+          "change": -2
+        },
+        {
+          "character": "きよきよしい",
+          "old_rank": 26,
+          "new_rank": 29,
+          "change": -3
+        },
+        {
+          "character": "れもちゃん",
+          "old_rank": 56,
+          "new_rank": 59,
+          "change": -3
+        },
+        {
+          "character": "o聖華o",
+          "old_rank": 92,
+          "new_rank": 95,
+          "change": -3
+        },
+        {
+          "character": "UEPOM",
+          "old_rank": 41,
+          "new_rank": 45,
+          "change": -4
+        },
+        {
+          "character": "oニケo",
+          "old_rank": 45,
+          "new_rank": 49,
+          "change": -4
+        },
+        {
+          "character": "張遼",
+          "old_rank": 50,
+          "new_rank": 54,
+          "change": -4
+        },
+        {
+          "character": "シグルト",
+          "old_rank": 90,
+          "new_rank": 94,
+          "change": -4
+        },
+        {
+          "character": "ジゼルタ",
+          "old_rank": 42,
+          "new_rank": 48,
+          "change": -6
+        },
+        {
+          "character": "原田マハラジャ",
+          "old_rank": 54,
+          "new_rank": 60,
+          "change": -6
+        },
+        {
+          "character": "ライムの助",
+          "old_rank": 71,
+          "new_rank": 78,
+          "change": -7
+        }
+      ],
+      "level_changes": [
+        {
+          "character": "えるむ",
+          "old_level": 98,
+          "new_level": 99,
+          "change": 1
+        },
+        {
+          "character": "のりちん",
+          "old_level": 97,
+          "new_level": 98,
+          "change": 1
+        }
+      ],
+      "guild_changes": [
+        {
+          "character": "メルラン",
+          "old_guild": "どすこい酒造",
+          "new_guild": "月花町の安らげ荘"
+        },
+        {
+          "character": "ムーミン改",
+          "old_guild": "",
+          "new_guild": "Harmony"
+        }
+      ],
+      "server_changes": [],
+      "not_visible": [
+        {
+          "character": "せっけんパンダ",
+          "old_rank": 95
+        },
+        {
+          "character": "ナイスネイチャ",
+          "old_rank": 93
+        },
+        {
+          "character": "ナブディス",
+          "old_rank": 99
+        },
+        {
+          "character": "バーサス",
+          "old_rank": 86
+        },
+        {
+          "character": "超フェンリル",
+          "old_rank": 100
+        }
+      ],
+      "new_visible": [
+        {
+          "character": "Icoring",
+          "new_rank": 87
+        },
+        {
+          "character": "Shiina",
+          "new_rank": 99
+        },
+        {
+          "character": "とってもポー",
+          "new_rank": 86
+        },
+        {
+          "character": "ト琴",
+          "new_rank": 100
+        },
+        {
+          "character": "ハル蔵",
+          "new_rank": 93
+        }
+      ],
+      "csv_identical": false
+    },
+    "Eda": {
+      "old_date": "20260905",
+      "new_date": "20260906",
+      "summary": {
+        "old_count": 100,
+        "new_count": 100,
+        "common_count": 98,
+        "not_visible_count": 2,
+        "new_visible_count": 2
+      },
+      "rank_changes": [
+        {
+          "character": "魔法少女JPN",
+          "old_rank": 70,
+          "new_rank": 56,
+          "change": 14
+        },
+        {
+          "character": "魔法少女丼",
+          "old_rank": 68,
+          "new_rank": 57,
+          "change": 11
+        },
+        {
+          "character": "暴食の生ゴミ",
+          "old_rank": 94,
+          "new_rank": 84,
+          "change": 10
+        },
+        {
+          "character": "爆発した生ゴミ",
+          "old_rank": 45,
+          "new_rank": 39,
+          "change": 6
+        },
+        {
+          "character": "魔法少女天使",
+          "old_rank": 52,
+          "new_rank": 47,
+          "change": 5
+        },
+        {
+          "character": "げんめた",
+          "old_rank": 58,
+          "new_rank": 53,
+          "change": 5
+        },
+        {
+          "character": "鯖婆婆婆",
+          "old_rank": 91,
+          "new_rank": 86,
+          "change": 5
+        },
+        {
+          "character": "堕賭苦一",
+          "old_rank": 80,
+          "new_rank": 76,
+          "change": 4
+        },
+        {
+          "character": "技術",
+          "old_rank": 44,
+          "new_rank": 41,
+          "change": 3
+        },
+        {
+          "character": "ロクデ梨",
+          "old_rank": 81,
+          "new_rank": 78,
+          "change": 3
+        },
+        {
+          "character": "まじかるえいだ",
+          "old_rank": 83,
+          "new_rank": 80,
+          "change": 3
+        },
+        {
+          "character": "羽知古",
+          "old_rank": 88,
+          "new_rank": 85,
+          "change": 3
+        },
+        {
+          "character": "食い逃げするゴミ",
+          "old_rank": 33,
+          "new_rank": 31,
+          "change": 2
+        },
+        {
+          "character": "百々",
+          "old_rank": 38,
+          "new_rank": 36,
+          "change": 2
+        },
+        {
+          "character": "テクマクまやちん",
+          "old_rank": 57,
+          "new_rank": 55,
+          "change": 2
+        },
+        {
+          "character": "魔少女ふぉっくす",
+          "old_rank": 73,
+          "new_rank": 71,
+          "change": 2
+        },
+        {
+          "character": "シェラ",
+          "old_rank": 99,
+          "new_rank": 97,
+          "change": 2
+        },
+        {
+          "character": "激辛Sugar",
+          "old_rank": 5,
+          "new_rank": 4,
+          "change": 1
+        },
+        {
+          "character": "嶽ちゃんマン",
+          "old_rank": 25,
+          "new_rank": 24,
+          "change": 1
+        },
+        {
+          "character": "十らら十",
+          "old_rank": 27,
+          "new_rank": 26,
+          "change": 1
+        },
+        {
+          "character": "煌茶燦",
+          "old_rank": 39,
+          "new_rank": 38,
+          "change": 1
+        },
+        {
+          "character": "魔法少女月読命",
+          "old_rank": 43,
+          "new_rank": 42,
+          "change": 1
+        },
+        {
+          "character": "バステトリュフ",
+          "old_rank": 74,
+          "new_rank": 73,
+          "change": 1
+        },
+        {
+          "character": "国宝級イケメン",
+          "old_rank": 82,
+          "new_rank": 81,
+          "change": 1
+        },
+        {
+          "character": "チョコボ大魔王",
+          "old_rank": 84,
+          "new_rank": 83,
+          "change": 1
+        },
+        {
+          "character": "syousei",
+          "old_rank": 90,
+          "new_rank": 89,
+          "change": 1
+        },
+        {
+          "character": "ぽめまる一",
+          "old_rank": 4,
+          "new_rank": 5,
+          "change": -1
+        },
+        {
+          "character": "sumibi",
+          "old_rank": 24,
+          "new_rank": 25,
+          "change": -1
+        },
+        {
+          "character": "二罰",
+          "old_rank": 26,
+          "new_rank": 27,
+          "change": -1
+        },
+        {
+          "character": "きない",
+          "old_rank": 31,
+          "new_rank": 32,
+          "change": -1
+        },
+        {
+          "character": "ぎんぴー",
+          "old_rank": 32,
+          "new_rank": 33,
+          "change": -1
+        },
+        {
+          "character": "強欲の生ゴミ",
+          "old_rank": 51,
+          "new_rank": 52,
+          "change": -1
+        },
+        {
+          "character": "CHUMP",
+          "old_rank": 53,
+          "new_rank": 54,
+          "change": -1
+        },
+        {
+          "character": "普通の生ゴミ",
+          "old_rank": 66,
+          "new_rank": 67,
+          "change": -1
+        },
+        {
+          "character": "chisama",
+          "old_rank": 67,
+          "new_rank": 68,
+          "change": -1
+        },
+        {
+          "character": "炬鉄人",
+          "old_rank": 69,
+          "new_rank": 70,
+          "change": -1
+        },
+        {
+          "character": "お嬢ですがなにか",
+          "old_rank": 71,
+          "new_rank": 72,
+          "change": -1
+        },
+        {
+          "character": "まいる",
+          "old_rank": 76,
+          "new_rank": 77,
+          "change": -1
+        },
+        {
+          "character": "五十",
+          "old_rank": 78,
+          "new_rank": 79,
+          "change": -1
+        },
+        {
+          "character": "魔法少女珍夕ロ",
+          "old_rank": 89,
+          "new_rank": 90,
+          "change": -1
+        },
+        {
+          "character": "ゆんゆんぽむ",
+          "old_rank": 93,
+          "new_rank": 94,
+          "change": -1
+        },
+        {
+          "character": "亜狐依茶茉",
+          "old_rank": 42,
+          "new_rank": 44,
+          "change": -2
+        },
+        {
+          "character": "魔法少女ろべりあ",
+          "old_rank": 61,
+          "new_rank": 63,
+          "change": -2
+        },
+        {
+          "character": "はにゃくま",
+          "old_rank": 63,
+          "new_rank": 65,
+          "change": -2
+        },
+        {
+          "character": "魔法少女りりぃ",
+          "old_rank": 72,
+          "new_rank": 74,
+          "change": -2
+        },
+        {
+          "character": "徘徊する生ゴミ",
+          "old_rank": 85,
+          "new_rank": 87,
+          "change": -2
+        },
+        {
+          "character": "クロドン真打ち",
+          "old_rank": 86,
+          "new_rank": 88,
+          "change": -2
+        },
+        {
+          "character": "dobby",
+          "old_rank": 40,
+          "new_rank": 43,
+          "change": -3
+        },
+        {
+          "character": "恋した苺パフェ",
+          "old_rank": 59,
+          "new_rank": 62,
+          "change": -3
+        },
+        {
+          "character": "魔法少女羌かい",
+          "old_rank": 79,
+          "new_rank": 82,
+          "change": -3
+        },
+        {
+          "character": "ワンタロウ",
+          "old_rank": 97,
+          "new_rank": 100,
+          "change": -3
+        },
+        {
+          "character": "魔法少女ゴリラ",
+          "old_rank": 36,
+          "new_rank": 40,
+          "change": -4
+        },
+        {
+          "character": "蝶歩六爺",
+          "old_rank": 41,
+          "new_rank": 45,
+          "change": -4
+        },
+        {
+          "character": "ももちん",
+          "old_rank": 47,
+          "new_rank": 51,
+          "change": -4
+        },
+        {
+          "character": "キャメリーゼ",
+          "old_rank": 54,
+          "new_rank": 58,
+          "change": -4
+        },
+        {
+          "character": "Eiru",
+          "old_rank": 55,
+          "new_rank": 59,
+          "change": -4
+        },
+        {
+          "character": "魔法少女珍夕オ",
+          "old_rank": 62,
+          "new_rank": 66,
+          "change": -4
+        },
+        {
+          "character": "あおたろ",
+          "old_rank": 65,
+          "new_rank": 69,
+          "change": -4
+        },
+        {
+          "character": "甘美な生ゴミ",
+          "old_rank": 87,
+          "new_rank": 91,
+          "change": -4
+        },
+        {
+          "character": "浬哩",
+          "old_rank": 56,
+          "new_rank": 61,
+          "change": -5
+        },
+        {
+          "character": "かいりマギカ",
+          "old_rank": 77,
+          "new_rank": 93,
+          "change": -16
+        }
+      ],
+      "level_changes": [
+        {
+          "character": "悪迦那奈",
+          "old_level": 99,
+          "new_level": 100,
+          "change": 1
+        },
+        {
+          "character": "二罰",
+          "old_level": 97,
+          "new_level": 98,
+          "change": 1
+        },
+        {
+          "character": "十らら十",
+          "old_level": 97,
+          "new_level": 98,
+          "change": 1
+        }
+      ],
+      "guild_changes": [
+        {
+          "character": "三不粘さん",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "発酵する生ゴミ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "パンニャコッタ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "ひろぽん",
+          "old_guild": "",
+          "new_guild": "Lien"
+        },
+        {
+          "character": "生ごみコンポスタ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "爆発した生ゴミ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "強欲の生ゴミ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "キャメリーゼ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "魔法少女ろべりあ",
+          "old_guild": "",
+          "new_guild": "わっしょい"
+        },
+        {
+          "character": "魔法少女りりぃ",
+          "old_guild": "",
+          "new_guild": "わっしょい"
+        },
+        {
+          "character": "魔少女ふぉっくす",
+          "old_guild": "",
+          "new_guild": "どっこいしょ"
+        },
+        {
+          "character": "まじかるえいだ",
+          "old_guild": "",
+          "new_guild": "わっしょい"
+        },
+        {
+          "character": "チョコボ大魔王",
+          "old_guild": "",
+          "new_guild": "わっしょい"
+        },
+        {
+          "character": "徘徊する生ゴミ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "甘美な生ゴミ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        },
+        {
+          "character": "暴食の生ゴミ",
+          "old_guild": "ぱてぃすりーず",
+          "new_guild": ""
+        }
+      ],
+      "server_changes": [],
+      "not_visible": [
+        {
+          "character": "きづなマギカ",
+          "old_rank": 100
+        },
+        {
+          "character": "マンディ",
+          "old_rank": 98
+        }
+      ],
+      "new_visible": [
+        {
+          "character": "Momonga",
+          "new_rank": 98
+        },
+        {
+          "character": "魔法少女弩すけ兵",
+          "new_rank": 99
+        }
+      ],
+      "csv_identical": false
+    }
+  }
+}
