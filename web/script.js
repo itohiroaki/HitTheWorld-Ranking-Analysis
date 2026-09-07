@@ -6370,8 +6370,48 @@ function createGuildHistoryHtml(
         );
 
 
+    const validHistory =
+        history.filter(
+            record => {
+
+                const eda =
+                    record.server_ranking?.Eda;
+
+                const virba =
+                    record.server_ranking?.Virba;
+
+                return (
+                    (
+                        eda?.visible &&
+                        eda.guild
+                    ) ||
+                    (
+                        virba?.visible &&
+                        virba.guild
+                    )
+                );
+
+            }
+        );
+
+
+    if (!validHistory.length) {
+        return "";
+    }
+
+
+    const isExpanded =
+        expandedPlayerHistory.guild === true;
+
+
+    const displayHistory =
+        isExpanded
+            ? [...validHistory].reverse()
+            : [...validHistory].slice(-4).reverse();
+
+
     const rows =
-        history
+        displayHistory
             .map(
                 record => {
 
@@ -6401,16 +6441,6 @@ function createGuildHistoryHtml(
                             : "-";
 
 
-                    if (
-                        edaValue === "-" &&
-                        virbaValue === "-"
-                    ) {
-
-                        return "";
-
-                    }
-
-
                     return `
 
                         <tr>
@@ -6437,13 +6467,26 @@ function createGuildHistoryHtml(
 
                 }
             )
-            .filter(Boolean)
             .join("");
 
 
-    if (!rows) {
-        return "";
-    }
+    const moreButton =
+        validHistory.length > 4
+            ? `
+                <button
+                    type="button"
+                    class="player-history-more-button"
+                    data-history-type="guild"
+                    onclick="togglePlayerHistory('guild')"
+                >
+                    ${
+                        isExpanded
+                            ? "折りたたむ"
+                            : "すべて見る"
+                    }
+                </button>
+            `
+            : "";
 
 
     return `
@@ -6479,6 +6522,9 @@ function createGuildHistoryHtml(
                 </table>
 
             </div>
+
+
+            ${moreButton}
 
         </div>
 
