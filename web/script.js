@@ -6012,8 +6012,48 @@ function createLevelHistoryHtml(
         );
 
 
+    const isExpanded =
+        expandedPlayerHistory.level === true;
+
+
+    const validHistory =
+        history.filter(
+            record => {
+
+                const eda =
+                    record.server_ranking?.Eda;
+
+                const virba =
+                    record.server_ranking?.Virba;
+
+                return (
+                    (
+                        eda?.visible &&
+                        eda.level != null
+                    ) ||
+                    (
+                        virba?.visible &&
+                        virba.level != null
+                    )
+                );
+
+            }
+        );
+
+
+    if (!validHistory.length) {
+        return "";
+    }
+
+
+    const displayHistory =
+        isExpanded
+            ? [...validHistory].reverse()
+            : [...validHistory].slice(-4).reverse();
+
+
     const rows =
-        history
+        displayHistory
             .map(
                 record => {
 
@@ -6047,16 +6087,6 @@ function createLevelHistoryHtml(
                             : "-";
 
 
-                    if (
-                        edaValue === "-" &&
-                        virbaValue === "-"
-                    ) {
-
-                        return "";
-
-                    }
-
-
                     return `
 
                         <tr>
@@ -6083,13 +6113,26 @@ function createLevelHistoryHtml(
 
                 }
             )
-            .filter(Boolean)
             .join("");
 
 
-    if (!rows) {
-        return "";
-    }
+    const moreButton =
+        validHistory.length > 4
+            ? `
+                <button
+                    type="button"
+                    class="player-history-more-button"
+                    data-history-type="level"
+                    onclick="togglePlayerHistory('level')"
+                >
+                    ${
+                        isExpanded
+                            ? "折りたたむ"
+                            : "すべて見る"
+                    }
+                </button>
+            `
+            : "";
 
 
     return `
@@ -6125,6 +6168,9 @@ function createLevelHistoryHtml(
                 </table>
 
             </div>
+
+
+            ${moreButton}
 
         </div>
 
