@@ -6356,10 +6356,6 @@ function createServerHistoryHtml(
 }
 
 
-/* =========================================================
-   Guild History
-========================================================= */
-
 function createGuildHistoryHtml(
     player
 ) {
@@ -6381,14 +6377,8 @@ function createGuildHistoryHtml(
                     record.server_ranking?.Virba;
 
                 return (
-                    (
-                        eda?.visible &&
-                        eda.guild
-                    ) ||
-                    (
-                        virba?.visible &&
-                        virba.guild
-                    )
+                    eda?.visible ||
+                    virba?.visible
                 );
 
             }
@@ -6400,45 +6390,147 @@ function createGuildHistoryHtml(
     }
 
 
+    /*
+       同じギルドが連続している期間をまとめる
+    */
+
+    const periods = [];
+
+    let currentPeriod = null;
+
+
+    [...validHistory]
+        .sort(
+            (a, b) =>
+                String(
+                    a.date
+                ).localeCompare(
+                    String(
+                        b.date
+                    )
+                )
+        )
+        .forEach(
+            record => {
+
+                const eda =
+                    record.server_ranking?.Eda;
+
+                const virba =
+                    record.server_ranking?.Virba;
+
+
+                const edaGuild =
+                    eda?.visible
+                        ? String(
+                            eda.guild || ""
+                        ).trim()
+                        : "-";
+
+
+                const virbaGuild =
+                    virba?.visible
+                        ? String(
+                            virba.guild || ""
+                        ).trim()
+                        : "-";
+
+
+                const edaDisplay =
+                    eda?.visible
+                        ? (
+                            edaGuild
+                                ? edaGuild
+                                : "無所属"
+                        )
+                        : "-";
+
+
+                const virbaDisplay =
+                    virba?.visible
+                        ? (
+                            virbaGuild
+                                ? virbaGuild
+                                : "無所属"
+                        )
+                        : "-";
+
+
+                const key =
+                    `${edaDisplay}|${virbaDisplay}`;
+
+
+                if (
+                    currentPeriod &&
+                    currentPeriod.key === key
+                ) {
+
+                    currentPeriod.endDate =
+                        record.date;
+
+                } else {
+
+                    currentPeriod = {
+
+                        key:
+                            key,
+
+                        startDate:
+                            record.date,
+
+                        endDate:
+                            record.date,
+
+                        eda:
+                            edaDisplay,
+
+                        virba:
+                            virbaDisplay
+
+                    };
+
+
+                    periods.push(
+                        currentPeriod
+                    );
+
+                }
+
+            }
+        );
+
+
     const isExpanded =
         expandedPlayerHistory.guild === true;
 
 
-    const displayHistory =
+    const displayPeriods =
         isExpanded
-            ? [...validHistory].reverse()
-            : [...validHistory].slice(-4).reverse();
+            ? [...periods].reverse()
+            : [...periods].slice(-4).reverse();
 
 
     const rows =
-        displayHistory
+        displayPeriods
             .map(
-                record => {
+                period => {
 
-                    const eda =
-                        record.server_ranking?.Eda;
+                    const date =
+                        period.startDate ===
+                        period.endDate
 
-
-                    const virba =
-                        record.server_ranking?.Virba;
-
-
-                    const edaValue =
-                        eda?.visible &&
-                        eda.guild
-                            ? escapeHtml(
-                                eda.guild
+                            ? formatPlayerDate(
+                                period.startDate
                             )
-                            : "-";
 
-
-                    const virbaValue =
-                        virba?.visible &&
-                        virba.guild
-                            ? escapeHtml(
-                                virba.guild
-                            )
-                            : "-";
+                            : `
+                                ${formatPlayerDate(
+                                    period.startDate
+                                )}
+                                ～ ${formatPlayerDate(
+                                    period.endDate
+                                )}
+                              `;
 
 
                     return `
@@ -6446,19 +6538,21 @@ function createGuildHistoryHtml(
                         <tr>
 
                             <td>
-                                ${formatPlayerDate(
-                                    record.date
+                                ${date}
+                            </td>
+
+
+                            <td>
+                                ${escapeHtml(
+                                    period.eda
                                 )}
                             </td>
 
 
                             <td>
-                                ${edaValue}
-                            </td>
-
-
-                            <td>
-                                ${virbaValue}
+                                ${escapeHtml(
+                                    period.virba
+                                )}
                             </td>
 
                         </tr>
@@ -6471,7 +6565,7 @@ function createGuildHistoryHtml(
 
 
     const moreButton =
-        validHistory.length > 4
+        periods.length > 4
             ? `
                 <button
                     type="button"
@@ -6504,7 +6598,7 @@ function createGuildHistoryHtml(
 
                         <tr>
 
-                            <th>日付</th>
+                            <th>期間</th>
 
                             <th>Eda</th>
 
