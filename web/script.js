@@ -8098,6 +8098,107 @@ async function searchGuilds(
 
 }
 
+
+function getGuildMembershipPeriods(
+    player,
+    targetGuild
+) {
+
+    const records =
+        getPlayerHistoryRecords(
+            player
+        );
+
+    const periods = [];
+
+    const guild =
+        String(
+            targetGuild || ""
+        ).trim();
+
+    let startDate = null;
+    let lastDate = null;
+
+    records.forEach(
+        record => {
+
+            const eda =
+                record.server_ranking?.Eda;
+
+            const virba =
+                record.server_ranking?.Virba;
+
+            const edaGuild =
+                eda?.visible
+                    ? String(
+                        eda.guild || ""
+                    ).trim()
+                    : "";
+
+            const virbaGuild =
+                virba?.visible
+                    ? String(
+                        virba.guild || ""
+                    ).trim()
+                    : "";
+
+            const isMember =
+                edaGuild === guild ||
+                virbaGuild === guild;
+
+            if (isMember) {
+
+                if (!startDate) {
+                    startDate =
+                        record.date;
+                }
+
+                lastDate =
+                    record.date;
+
+            } else {
+
+                if (startDate) {
+
+                    periods.push({
+                        startDate:
+                            startDate,
+
+                        endDate:
+                            lastDate,
+
+                        current:
+                            false
+                    });
+
+                    startDate = null;
+                    lastDate = null;
+
+                }
+
+            }
+
+        }
+    );
+
+    if (startDate) {
+
+        periods.push({
+            startDate:
+                startDate,
+
+            endDate:
+                lastDate,
+
+            current:
+                true
+        });
+
+    }
+
+    return periods;
+}
+
 function openGuildSearchDetail(
     guild
 ) {
@@ -8210,19 +8311,15 @@ function openGuildSearchDetail(
                                 record.date
                         );
 
-                    const firstDate =
-                        dates[0] ||
-                        "";
-
-                    const lastDate =
-                        dates[
-                            dates.length - 1
-                        ] ||
-                        "";
+                    const periods =
+                        getGuildMembershipPeriods(
+                        player,
+                        guild
+                        );
 
                     const isCurrent =
                         currentMembers.includes(
-                            player
+                        player
                         );
 
                     return `
@@ -8247,18 +8344,30 @@ function openGuildSearchDetail(
                                 </div>
 
                                 <div class="player-search-result-info">
-                                    ${formatPlayerDate(
-                                        firstDate
-                                    )}
-                                    ～ 
-                                    ${
-                                        isCurrent
-                                            ? "現在"
-                                            : formatPlayerDate(
-                                                lastDate
-                                            )
-                                    }
-                                </div>
+    ${
+        periods.length
+            ? periods
+                .map(
+                    period => `
+                        <div>
+                            ${formatPlayerDate(
+                                period.startDate
+                            )}
+                            ～
+                            ${
+                                period.current
+                                    ? "現在"
+                                    : formatPlayerDate(
+                                        period.endDate
+                                    )
+                            }
+                        </div>
+                    `
+                )
+                .join("")
+            : "-"
+    }
+</div>
                             </div>
 
                             <div class="player-search-result-info">
