@@ -5906,18 +5906,22 @@ const displayHistory =
 
 
     const moreButton =
-        history.length > 5
-            ? `
-                <button
-    type="button"
-    class="player-history-more-button"
-    data-history-type="rank"
-    onclick="expandPlayerHistory('rank')"
->
-    すべて見る
-</button>
-            `
-            : "";
+    history.length > 5
+        ? `
+            <button
+                type="button"
+                class="player-history-more-button"
+                data-history-type="rank"
+                onclick="togglePlayerHistory('rank')"
+            >
+                ${
+                    isExpanded
+                        ? "折りたたむ"
+                        : "すべて見る"
+                }
+            </button>
+        `
+        : "";
 
 
     return `
@@ -5963,12 +5967,12 @@ const displayHistory =
 
 }
 
-function expandPlayerHistory(
+function togglePlayerHistory(
     type
 ) {
 
     expandedPlayerHistory[type] =
-        true;
+        !expandedPlayerHistory[type];
 
 
     const detail =

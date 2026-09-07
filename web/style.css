@@ -2482,3 +2482,8 @@ select {
 #dashboard-guild-distribution .dashboard-bar-row {
     grid-template-columns: 100px 1fr 55px;
 }
+
+.player-history-scroll {
+    max-height: 220px;
+    overflow-y: auto;
+}
