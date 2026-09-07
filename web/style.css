@@ -2638,3 +2638,10 @@ select {
 .date-calendar-empty {
     padding: 7px 0;
 }
+
+.level-duration {
+    margin-top: 6px;
+    font-size: 12px;
+    color: #666;
+    white-space: nowrap;
+}

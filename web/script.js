@@ -2250,9 +2250,15 @@ const list =
             .map(
                 (item, index) =>
                     createLevelChangeRow(
-                        item,
-                        index + 1
-                    )
+    item,
+    index + 1,
+    getLevelUpDuration(
+        item.character,
+        toNumber(item.old_level),
+        data?.date,
+        item.group
+    )
+)
             )
             .join("");
 
@@ -2262,13 +2268,166 @@ const list =
 }
 
 
+function getLevelUpDuration(
+    character,
+    oldLevel,
+    currentDate,
+    group
+) {
+
+    const player =
+        findPlayerByCharacter(
+            character
+        );
+
+    if (!player) {
+        return null;
+    }
+
+    const records =
+        getPlayerHistoryRecords(
+            player
+        );
+
+    if (!records?.length) {
+        return null;
+    }
+
+    const targetDate =
+        String(
+            currentDate || ""
+        ).replace(/-/g, "");
+
+    const server =
+        String(
+            group || ""
+        ).trim();
+
+    if (
+        server !== "Eda" &&
+        server !== "Virba"
+    ) {
+        return null;
+    }
+
+    const history =
+        records
+            .map(record => {
+
+                const date =
+                    String(
+                        record.date || ""
+                    ).replace(/-/g, "");
+
+                const ranking =
+                    record.server_ranking?.[server];
+
+                const level =
+                    ranking?.visible
+                        ? toNumber(
+                            ranking.level
+                        )
+                        : null;
+
+                return {
+                    date,
+                    level
+                };
+
+            })
+            .filter(
+                record =>
+                    record.date &&
+                    record.date < targetDate
+            )
+            .sort(
+                (a, b) =>
+                    a.date.localeCompare(
+                        b.date
+                    )
+            );
+
+    if (!history.length) {
+        return null;
+    }
+
+    /*
+     * 今回のレベルアップ直前に存在した
+     * oldLevelの連続期間を探す
+     */
+    let startDate = null;
+    let lastOldLevelDate = null;
+
+    for (
+        let i = history.length - 1;
+        i >= 0;
+        i--
+    ) {
+
+        const record =
+            history[i];
+
+        if (
+            record.level === oldLevel
+        ) {
+
+            lastOldLevelDate =
+                record.date;
+
+            startDate =
+                record.date;
+
+            continue;
+
+        }
+
+        /*
+         * oldLevelではない日が出たら、
+         * 今回のLvUP直前の期間は終了
+         */
+        break;
+
+    }
+
+    if (
+        !startDate ||
+        !lastOldLevelDate
+    ) {
+        return null;
+    }
+
+    const start =
+        new Date(
+            `${startDate.slice(0, 4)}-${startDate.slice(4, 6)}-${startDate.slice(6, 8)}`
+        );
+
+    const end =
+        new Date(
+            `${targetDate.slice(0, 4)}-${targetDate.slice(4, 6)}-${targetDate.slice(6, 8)}`
+        );
+
+    return Math.round(
+        (
+            end - start
+        ) /
+        (
+            1000 *
+            60 *
+            60 *
+            24
+        )
+    );
+
+}
+
 /* =========================================================
    Level Change Row
 ========================================================= */
 
 function createLevelChangeRow(
     item,
-    number
+    number,
+    duration
 ) {
 
     const character =
@@ -2357,6 +2516,16 @@ function createLevelChangeRow(
                           `
                         : ""
                 }
+
+                ${
+    duration !== null
+        ? `
+            <div class="level-duration">
+                所要日数：${duration}日
+            </div>
+          `
+        : ""
+}
 
             </div>
 
