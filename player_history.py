@@ -1515,27 +1515,115 @@ def create_events(
 
                 if current_level > previous_level:
 
+                    # --------------------------------------------------------
+                    # レベルアップそのものは、
+                    # 前回Lv → 今回Lvという実測結果があるため確定。
+                    # --------------------------------------------------------
+
+                    details = {
+
+                        "change":
+                            current_level
+                            - previous_level,
+
+                        "confirmed":
+                            True
+                    }
+
+                    # --------------------------------------------------------
+                    # 直前のレベルアップイベントを探す
+                    #
+                    # 例:
+                    #
+                    # 9/3 Lv97 → Lv98
+                    # 9/5 Lv98 → Lv99
+                    #
+                    # → Lv98になった9/3を開始日として、
+                    #    9/5までの2日間を算出。
+                    #
+                    # --------------------------------------------------------
+
+                    previous_level_up = None
+
+                    for event in reversed(events):
+
+                        if (
+                                event.get("type")
+                                == "server_ranking_level_up"
+                                and
+                                event.get("group")
+                                == current_group
+                                and
+                                event.get("new_value")
+                                == previous_level
+                        ):
+                            previous_level_up = event
+
+                            break
+
+                    # --------------------------------------------------------
+                    # 前回のレベルアップが確認できている場合
+                    # --------------------------------------------------------
+
+                    if previous_level_up:
+                        start_date = (
+                            previous_level_up["date"]
+                        )
+
+                        start_dt = pd.to_datetime(
+
+                            start_date,
+
+                            format="%Y%m%d"
+
+                        )
+
+                        current_dt = pd.to_datetime(
+
+                            date,
+
+                            format="%Y%m%d"
+
+                        )
+
+                        duration_days = (
+
+                                current_dt - start_dt
+
+                        ).days
+
+                        details.update({
+
+                            "duration_confirmed":
+                                True,
+
+                            "duration_days":
+                                duration_days,
+
+                            "level_start_date":
+                                start_date
+                        })
+
+                    # --------------------------------------------------------
+                    # レベルアップイベントを保存
+                    # --------------------------------------------------------
+
                     add_event(
 
                         date=date,
 
                         event_type=
-                            "server_ranking_level_up",
+                        "server_ranking_level_up",
 
                         group=current_group,
 
                         old_value=
-                            previous_level,
+                        previous_level,
 
                         new_value=
-                            current_level,
+                        current_level,
 
-                        details={
-
-                            "change":
-                                current_level
-                                - previous_level
-                        }
+                        details=details
                     )
 
                 elif current_level < previous_level:
@@ -2029,6 +2117,164 @@ def create_events(
                 last_visible_guild = (
                     current_guild
                 )
+
+    # ========================================================
+    # デスペナ回復判定
+    # ========================================================
+    #
+    # 例:
+    #
+    # 9/5 Lv99 → Lv98
+    # 9/6 Lv98 → Lv99
+    #
+    # この場合、9/6のLv99復帰は
+    # 通常の成長ではなく、
+    # デスペナからの回復とみなす。
+    #
+    # 成長速度統計からは除外する。
+    # ========================================================
+
+    for i in range(1, len(events)):
+
+        previous_event = events[i - 1]
+
+        current_event = events[i]
+
+        # ----------------------------------------------------
+        # 前のイベントがレベルダウン
+        # ----------------------------------------------------
+
+        if (
+            previous_event.get("type")
+            != "server_ranking_level_down"
+        ):
+            continue
+
+        # ----------------------------------------------------
+        # 今回がレベルアップ
+        # ----------------------------------------------------
+
+        if (
+            current_event.get("type")
+            != "server_ranking_level_up"
+        ):
+            continue
+
+        # ----------------------------------------------------
+        # 同じサーバー
+        # ----------------------------------------------------
+
+        if (
+            previous_event.get("group")
+            != current_event.get("group")
+        ):
+            continue
+
+        # ----------------------------------------------------
+        # デスペナによる1Lvダウン→元レベル復帰
+        #
+        # 例:
+        #
+        # Lv99 → Lv98
+        # Lv98 → Lv99
+        # ----------------------------------------------------
+
+        old_level = (
+            previous_event.get(
+                "old_value"
+            )
+        )
+
+        down_level = (
+            previous_event.get(
+                "new_value"
+            )
+        )
+
+        recovery_old_level = (
+            current_event.get(
+                "old_value"
+            )
+        )
+
+        recovery_new_level = (
+            current_event.get(
+                "new_value"
+            )
+        )
+
+        if (
+            old_level is None
+            or down_level is None
+            or recovery_old_level is None
+            or recovery_new_level is None
+        ):
+            continue
+
+        if (
+            down_level != old_level - 1
+        ):
+            continue
+
+        if (
+            recovery_old_level != down_level
+        ):
+            continue
+
+        if (
+            recovery_new_level != old_level
+        ):
+            continue
+
+        # ----------------------------------------------------
+        # デスペナ回復として記録
+        # ----------------------------------------------------
+
+        if "details" not in current_event:
+
+            current_event["details"] = {}
+
+        current_event["details"].update({
+
+            "death_penalty_recovery":
+                True,
+
+            "excluded_from_growth_speed":
+                True,
+
+            "recovery_from_level":
+                down_level,
+
+            "recovery_to_level":
+                old_level,
+
+            "death_penalty_date":
+                previous_event.get(
+                    "date"
+                )
+        })
+
+        # ----------------------------------------------------
+        # Lvダウン側にも情報を付加
+        # ----------------------------------------------------
+
+        if "details" not in previous_event:
+
+            previous_event["details"] = {}
+
+        previous_event["details"].update({
+
+            "possible_death_penalty":
+                True,
+
+            "recovered":
+                True,
+
+            "recovery_date":
+                current_event.get(
+                    "date"
+                )
+        })
 
 
     return events
