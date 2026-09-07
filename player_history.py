@@ -75,6 +75,56 @@ def create_tracking_id(character):
 
     return f"player_{hash_value}"
 
+def load_player_links():
+    """
+    キャラクター同一人物リンク情報を読み込む。
+    """
+
+    link_file = (
+        HISTORY_DIR
+        / "player_links.json"
+    )
+
+    if not link_file.exists():
+        return []
+
+    with open(
+        link_file,
+        "r",
+        encoding="utf-8"
+    ) as f:
+        data = json.load(f)
+
+    return data.get(
+        "links",
+        []
+    )
+
+
+def resolve_tracking_id(
+    tracking_id,
+    links
+):
+    """
+    tracking_idを同一人物リンクの
+    canonical_tracking_idへ変換する。
+    """
+
+    for link in links:
+
+        tracking_ids = link.get(
+            "tracking_ids",
+            []
+        )
+
+        if tracking_id in tracking_ids:
+
+            return link.get(
+                "canonical_tracking_id",
+                tracking_id
+            )
+
+    return tracking_id
 
 def load_ranking(file_path):
 
