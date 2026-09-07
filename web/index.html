@@ -105,20 +105,26 @@
 
         <div class="date-selector">
 
-            <label for="history-date">
-                分析日
-            </label>
+            <label for="history-date-button">
+    分析日
+</label>
 
 
-            <select
-                id="history-date"
-            >
+<button
+    id="history-date-button"
+    type="button"
+    class="date-picker-button"
+>
+    読み込み中...
+</button>
 
-                <option value="">
-                    読み込み中...
-                </option>
 
-            </select>
+<div
+    id="date-calendar"
+    class="date-calendar"
+    hidden
+>
+</div>
 
 
             <button

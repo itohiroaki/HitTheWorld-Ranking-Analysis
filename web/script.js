@@ -204,155 +204,388 @@ async function loadDateIndex() {
 
 function setupDateSelector() {
 
-    const select =
+    const button =
         document.getElementById(
-            "history-date"
+            "history-date-button"
+        );
+
+    const calendar =
+        document.getElementById(
+            "date-calendar"
         );
 
 
-    if (!select) {
+    if (
+        !button ||
+        !calendar
+    ) {
         return;
     }
 
 
-    select.innerHTML = "";
-
-
     const dates =
-        [
-            ...new Set(
-                availableDates
-                    .map(item => {
+    [
+        ...new Set(
+            availableDates
+                .map(item => {
 
-                        if (
-                            typeof item ===
-                            "string"
-                        ) {
+                    let date =
+                        typeof item === "string"
+                            ? item
+                            : item?.date;
 
-                            return item;
-
-                        }
-
-
-                        if (
-                            item &&
-                            item.date
-                        ) {
-
-                            return String(
-                                item.date
-                            );
-
-                        }
-
-
+                    if (!date) {
                         return null;
+                    }
 
-                    })
-                    .filter(Boolean)
-            )
-        ];
+                    date =
+                        String(
+                            date
+                        );
 
+                    // YYYYMMDD → YYYY-MM-DD
+                    if (
+                        /^\d{8}$/.test(date)
+                    ) {
+                        date =
+                            `${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`;
+                    }
 
-    dates.sort(
-        (a, b) =>
-            String(b).localeCompare(
-                String(a)
-            )
-    );
+                    return date;
+
+                })
+                .filter(Boolean)
+        )
+    ];
 
 
     if (
         currentData &&
         currentData.date &&
         !dates.includes(
-            String(currentData.date)
+            String(
+                currentData.date
+            )
         )
     ) {
 
-        dates.unshift(
-            String(currentData.date)
-        );
-
-    }
-
-
-    if (!dates.length) {
-
-        const option =
-            document.createElement(
-                "option"
-            );
-
-
-        option.value = "";
-
-        option.textContent =
-            "データなし";
-
-
-        select.appendChild(
-            option
-        );
-
-
-        return;
-
-    }
-
-
-    dates.forEach(date => {
-
-        const option =
-            document.createElement(
-                "option"
-            );
-
-
-        option.value =
-            date;
-
-
-        option.textContent =
-            formatDate(date);
-
-
-        select.appendChild(
-            option
-        );
-
-    });
-
-
-    if (
-        currentData &&
-        currentData.date
-    ) {
-
-        select.value =
+        dates.push(
             String(
                 currentData.date
-            );
+            )
+        );
 
     }
 
 
-    select.onchange = () => {
+    dates.sort(
+        (a, b) =>
+            String(a).localeCompare(
+                String(b)
+            )
+    );
 
-        const date =
-            select.value;
+
+    const dateSet =
+        new Set(
+            dates
+        );
 
 
-        if (!date) {
-            return;
+    button.textContent =
+        currentData?.date
+            ? formatDate(
+                currentData.date
+            )
+            : "日付を選択";
+
+
+    let calendarDate =
+    currentData?.date
+        ? new Date(
+            String(
+                currentData.date
+            ).replace(
+                /^(\d{4})(\d{2})(\d{2})$/,
+                "$1-$2-$3"
+            ) + "T00:00:00"
+        )
+        : new Date();
+
+
+    function renderCalendar() {
+
+        const year =
+            calendarDate.getFullYear();
+
+        const month =
+            calendarDate.getMonth();
+
+
+        const firstDay =
+            new Date(
+                year,
+                month,
+                1
+            ).getDay();
+
+
+        const lastDate =
+            new Date(
+                year,
+                month + 1,
+                0
+            ).getDate();
+
+
+        let html = `
+
+            <div class="date-calendar-header">
+
+                <button
+                    type="button"
+                    class="date-calendar-nav"
+                    data-calendar-prev
+                >
+                    ‹
+                </button>
+
+                <strong>
+                    ${year}年${month + 1}月
+                </strong>
+
+                <button
+                    type="button"
+                    class="date-calendar-nav"
+                    data-calendar-next
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="date-calendar-week">
+
+                <span>日</span>
+                <span>月</span>
+                <span>火</span>
+                <span>水</span>
+                <span>木</span>
+                <span>金</span>
+                <span>土</span>
+
+            </div>
+
+
+            <div class="date-calendar-days">
+        `;
+
+
+        for (
+            let i = 0;
+            i < firstDay;
+            i++
+        ) {
+
+            html += `
+                <span class="date-calendar-empty"></span>
+            `;
+
         }
 
 
-        loadDailyAnalysis(
-            date
-        );
+        for (
+            let day = 1;
+            day <= lastDate;
+            day++
+        ) {
 
-    };
+            const date =
+                `${year}-${String(
+                    month + 1
+                ).padStart(2, "0")}-${String(
+                    day
+                ).padStart(2, "0")}`;
+
+
+            const available =
+                dateSet.has(
+                    date
+                );
+
+
+            const currentDate =
+    currentData?.date
+        ? String(
+            currentData.date
+        ).replace(
+            /^(\d{4})(\d{2})(\d{2})$/,
+            "$1-$2-$3"
+        )
+        : "";
+
+const selected =
+    currentDate === date;
+
+
+            html += `
+
+                <button
+                    type="button"
+                    class="date-calendar-day${
+                        selected
+                            ? " selected"
+                            : ""
+                    }"
+                    data-date="${date}"
+                    ${
+                        available
+                            ? ""
+                            : "disabled"
+                    }
+                >
+                    ${day}
+                </button>
+
+            `;
+
+        }
+
+
+        html += `
+            </div>
+        `;
+
+
+        calendar.innerHTML =
+            html;
+
+
+        calendar
+            .querySelector(
+                "[data-calendar-prev]"
+            )
+            ?.addEventListener(
+                "click",
+                () => {
+
+                    calendarDate =
+                        new Date(
+                            year,
+                            month - 1,
+                            1
+                        );
+
+                    renderCalendar();
+
+                }
+            );
+
+
+        calendar
+            .querySelector(
+                "[data-calendar-next]"
+            )
+            ?.addEventListener(
+                "click",
+                () => {
+
+                    calendarDate =
+                        new Date(
+                            year,
+                            month + 1,
+                            1
+                        );
+
+                    renderCalendar();
+
+                }
+            );
+
+
+        calendar
+            .querySelectorAll(
+                "[data-date]"
+            )
+            .forEach(
+                dayButton => {
+
+                    dayButton.addEventListener(
+                        "click",
+                        () => {
+
+                            const date =
+                                dayButton.dataset.date;
+
+                            if (!dateSet.has(date)) {
+                                return;
+                            }
+
+
+                            button.textContent =
+                                formatDate(
+                                    date
+                                );
+
+
+                            calendar.hidden =
+                                true;
+
+
+                            loadDailyAnalysis(
+                                date
+                            );
+
+                        }
+                    );
+
+                }
+            );
+
+    }
+
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            calendar.hidden =
+                !calendar.hidden;
+
+
+            if (
+                !calendar.hidden
+            ) {
+
+                renderCalendar();
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            if (
+                !calendar.contains(
+                    event.target
+                ) &&
+                !button.contains(
+                    event.target
+                )
+            ) {
+
+                calendar.hidden =
+                    true;
+
+            }
+
+        }
+    );
 
 }
 
@@ -363,106 +596,51 @@ function setupDateSelector() {
 
 function setupLatestButton() {
 
-    const button =
+    const latestButton =
         document.getElementById(
             "latest-button"
         );
 
+    const dateButton =
+        document.getElementById(
+            "history-date-button"
+        );
 
-    if (!button) {
+    if (
+        !latestButton ||
+        !dateButton
+    ) {
         return;
     }
 
-
-    button.addEventListener(
+    latestButton.addEventListener(
         "click",
-        async () => {
+        () => {
 
-            try {
-
-                button.disabled =
-                    true;
-
-
-                button.textContent =
-                    "読み込み中...";
-
-
-                const response =
-                    await fetch(
-                        `${LATEST_DATA_URL}?t=${Date.now()}`
-                    );
-
-
-                if (!response.ok) {
-
-                    throw new Error(
-                        "最新データを読み込めませんでした"
-                    );
-
-                }
-
-
-                currentData =
-                    await response.json();
-
-
-                window.latestRankingData =
-                    currentData;
-
-
-                const select =
-                    document.getElementById(
-                        "history-date"
-                    );
-
-
-                if (
-                    select &&
-                    currentData.date
-                ) {
-
-                    select.value =
-                        String(
-                            currentData.date
-                        );
-
-                }
-
-
-                displayData(
-                    currentData
-                );
-
-
-            } catch (error) {
-
-                console.error(
-                    error
-                );
-
-
-                alert(
-                    "最新データの読み込みに失敗しました。\n" +
-                    error.message
-                );
-
-
-            } finally {
-
-                button.disabled =
-                    false;
-
-
-                button.textContent =
-                    "最新データ";
-
+            if (
+                !window.latestRankingData ||
+                !window.latestRankingData.date
+            ) {
+                return;
             }
+
+            currentData =
+                window.latestRankingData;
+
+            dateButton.textContent =
+                formatDate(
+                    currentData.date
+                );
+
+            loadDailyAnalysis(
+                currentData.date
+            );
 
         }
     );
 
 }
+
 
 
 /* =========================================================
@@ -475,10 +653,30 @@ async function loadDailyAnalysis(
 
     try {
 
+        const normalizedDate =
+            String(
+                date
+            ).replace(
+                /-/g,
+                ""
+            );
+
+
+        const currentDate =
+            currentData?.date
+                ? String(
+                    currentData.date
+                ).replace(
+                    /-/g,
+                    ""
+                )
+                : "";
+
+
         if (
             currentData &&
-            String(currentData.date) ===
-            String(date)
+            currentDate ===
+            normalizedDate
         ) {
 
             displayData(
@@ -492,7 +690,7 @@ async function loadDailyAnalysis(
 
         const response =
             await fetch(
-                `${DAILY_ANALYSIS_DIR}/${date}.json?t=${Date.now()}`
+                `${DAILY_ANALYSIS_DIR}/${normalizedDate}.json?t=${Date.now()}`
             );
 
 
@@ -514,6 +712,7 @@ async function loadDailyAnalysis(
 
 
         window.latestRankingData =
+            window.latestRankingData ||
             data;
 
 
@@ -537,6 +736,7 @@ async function loadDailyAnalysis(
     }
 
 }
+
 
 
 /* =========================================================
