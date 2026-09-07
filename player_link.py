@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from player_history import resolve_tracking_id
+
 
 BASE_DIR = Path(__file__).resolve().parent
 
@@ -129,6 +131,151 @@ def get_link_group(
 
     return None
 
+
+def test_resolve_tracking_id():
+    """
+    同一人物リンク解決機能の簡易テスト。
+    実ファイルは変更しない。
+    """
+
+    test_links = [
+        {
+            "canonical_tracking_id":
+                "player_main",
+
+            "tracking_ids": [
+                "player_old",
+                "player_middle",
+                "player_main"
+            ],
+
+            "confirmed":
+                True
+        }
+    ]
+
+    test_cases = [
+        (
+            "player_old",
+            "player_main"
+        ),
+        (
+            "player_middle",
+            "player_main"
+        ),
+        (
+            "player_main",
+            "player_main"
+        ),
+        (
+            "player_unknown",
+            "player_unknown"
+        ),
+    ]
+
+    print()
+    print("=" * 60)
+    print("同一人物リンク解決テスト")
+    print("=" * 60)
+
+    success = True
+
+    for tracking_id, expected in test_cases:
+
+        result = resolve_tracking_id(
+            tracking_id,
+            test_links
+        )
+
+        ok = result == expected
+
+        print(
+            f"{tracking_id} -> "
+            f"{result} "
+            f"{'OK' if ok else 'NG'}"
+        )
+
+        if not ok:
+            success = False
+
+    print()
+
+    if success:
+        print("テスト結果: 全てOK")
+    else:
+        print("テスト結果: NGあり")
+
+    print("=" * 60)
+
+    return success
+
+def test_real_player_links():
+    """
+    実際の player_links.json を読み込み、
+    登録されている tracking_id が
+    canonical_tracking_id に解決できるか確認する。
+    """
+
+    links = load_json(
+        PLAYER_LINKS_FILE
+    )
+
+    print()
+    print("=" * 60)
+    print("実データによる同一人物リンク解決テスト")
+    print("=" * 60)
+
+    if not links.get("links"):
+        print("リンク情報がありません。")
+        print("=" * 60)
+        return True
+
+    success = True
+
+    for link in links["links"]:
+
+        canonical_id = link.get(
+            "canonical_tracking_id"
+        )
+
+        tracking_ids = link.get(
+            "tracking_ids",
+            []
+        )
+
+        print()
+        print(
+            f"canonical: {canonical_id}"
+        )
+
+        for tracking_id in tracking_ids:
+
+            result = resolve_tracking_id(
+                tracking_id,
+                links["links"]
+            )
+
+            ok = result == canonical_id
+
+            print(
+                f"  {tracking_id} -> "
+                f"{result} "
+                f"{'OK' if ok else 'NG'}"
+            )
+
+            if not ok:
+                success = False
+
+    print()
+
+    if success:
+        print("テスト結果: 全てOK")
+    else:
+        print("テスト結果: NGあり")
+
+    print("=" * 60)
+
+    return success
 
 def merge_links(
     links,
