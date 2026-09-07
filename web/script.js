@@ -6193,8 +6193,48 @@ function createServerHistoryHtml(
         );
 
 
+    const validHistory =
+        history.filter(
+            record => {
+
+                const eda =
+                    record.server_ranking?.Eda;
+
+                const virba =
+                    record.server_ranking?.Virba;
+
+                return (
+                    (
+                        eda?.visible &&
+                        eda.server
+                    ) ||
+                    (
+                        virba?.visible &&
+                        virba.server
+                    )
+                );
+
+            }
+        );
+
+
+    if (!validHistory.length) {
+        return "";
+    }
+
+
+    const isExpanded =
+        expandedPlayerHistory.server === true;
+
+
+    const displayHistory =
+        isExpanded
+            ? [...validHistory].reverse()
+            : [...validHistory].slice(-4).reverse();
+
+
     const rows =
-        history
+        displayHistory
             .map(
                 record => {
 
@@ -6224,16 +6264,6 @@ function createServerHistoryHtml(
                             : "-";
 
 
-                    if (
-                        edaValue === "-" &&
-                        virbaValue === "-"
-                    ) {
-
-                        return "";
-
-                    }
-
-
                     return `
 
                         <tr>
@@ -6260,13 +6290,26 @@ function createServerHistoryHtml(
 
                 }
             )
-            .filter(Boolean)
             .join("");
 
 
-    if (!rows) {
-        return "";
-    }
+    const moreButton =
+        validHistory.length > 4
+            ? `
+                <button
+                    type="button"
+                    class="player-history-more-button"
+                    data-history-type="server"
+                    onclick="togglePlayerHistory('server')"
+                >
+                    ${
+                        isExpanded
+                            ? "折りたたむ"
+                            : "すべて見る"
+                    }
+                </button>
+            `
+            : "";
 
 
     return `
@@ -6302,6 +6345,9 @@ function createServerHistoryHtml(
                 </table>
 
             </div>
+
+
+            ${moreButton}
 
         </div>
 
