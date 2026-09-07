@@ -6577,8 +6577,18 @@ function createPlayerEventsHtml(
         );
 
 
+    const isExpanded =
+        expandedPlayerHistory.events === true;
+
+
+    const displayEvents =
+        isExpanded
+            ? events
+            : events.slice(0, 4);
+
+
     const rows =
-        events
+        displayEvents
             .map(
                 event => {
 
@@ -6724,6 +6734,25 @@ function createPlayerEventsHtml(
             .join("");
 
 
+    const moreButton =
+        events.length > 4
+            ? `
+                <button
+                    type="button"
+                    class="player-history-more-button"
+                    data-history-type="events"
+                    onclick="togglePlayerHistory('events')"
+                >
+                    ${
+                        isExpanded
+                            ? "折りたたむ"
+                            : "すべて見る"
+                    }
+                </button>
+            `
+            : "";
+
+
     return `
 
         <div class="player-detail-section">
@@ -6736,6 +6765,9 @@ function createPlayerEventsHtml(
                 ${rows}
 
             </div>
+
+
+            ${moreButton}
 
         </div>
 
