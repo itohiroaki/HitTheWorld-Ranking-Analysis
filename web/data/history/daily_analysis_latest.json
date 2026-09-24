@@ -1,7 +1,7 @@
 {
   "date": "20260924",
   "previous_date": "20260923",
-  "player_count": 1089,
+  "player_count": 1069,
   "event_summary": {
     "entry": 3,
     "exit": 3,
@@ -184,15 +184,15 @@
         "change": 2
       },
       {
-        "character": "こんそめぱんち",
-        "group": "Virba",
+        "character": "羌かーい",
+        "group": "Eda",
         "old_rank": 86,
         "new_rank": 84,
         "change": 2
       },
       {
-        "character": "羌かーい",
-        "group": "Eda",
+        "character": "こんそめぱんち",
+        "group": "Virba",
         "old_rank": 86,
         "new_rank": 84,
         "change": 2
@@ -929,7 +929,7 @@
         "level": 103,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_435cdded2b9ab440"
+        "tracking_id": "player_81b4159d0fa9e32b"
       },
       {
         "rank": 2,
@@ -937,7 +937,7 @@
         "level": 102,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_f59d64d3eef7b0db"
+        "tracking_id": "player_b11fa10d65542c6a"
       },
       {
         "rank": 3,
@@ -945,7 +945,7 @@
         "level": 102,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_6da60c5b099a34fb"
+        "tracking_id": "player_54de16b67564b898"
       },
       {
         "rank": 4,
@@ -1073,7 +1073,7 @@
         "level": 98,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_a0b786a425b986a8"
+        "tracking_id": "player_ffdc425b43356196"
       },
       {
         "rank": 18,
@@ -1137,7 +1137,7 @@
         "level": 98,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_7922c011fa5e44dc"
+        "tracking_id": "player_f93e02fe6fc9fb32"
       },
       {
         "rank": 25,
@@ -1169,7 +1169,7 @@
         "level": 98,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_be9bce90974e3077"
+        "tracking_id": "player_28489245e829f916"
       },
       {
         "rank": 29,
@@ -1193,7 +1193,7 @@
         "level": 98,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_ef133ae2a4cf5946"
+        "tracking_id": "player_3abb9c795c7bc5a8"
       },
       {
         "rank": 32,
@@ -1201,7 +1201,7 @@
         "level": 98,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_0d18bf0288564509"
+        "tracking_id": "player_2379fa09256c35e7"
       },
       {
         "rank": 33,
@@ -1209,7 +1209,7 @@
         "level": 98,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_33a13efedcbc5d84"
+        "tracking_id": "player_1c17be6106ef419e"
       },
       {
         "rank": 34,
@@ -1337,7 +1337,7 @@
         "level": 97,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_afcddd463ed12b0e"
+        "tracking_id": "player_a64e14e1b7e3a527"
       },
       {
         "rank": 50,
@@ -1569,7 +1569,7 @@
         "level": 97,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_93a3b649906b2a61"
+        "tracking_id": "player_49e12c6b27b78d3a"
       },
       {
         "rank": 77,
@@ -1633,7 +1633,7 @@
         "level": 97,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_56a73969d1f0ebfe"
+        "tracking_id": "player_efb0e2840acf08ab"
       },
       {
         "rank": 85,
@@ -1795,7 +1795,7 @@
         "level": 101,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_ba96a93d15600936"
+        "tracking_id": "player_e20bb91bcf228010"
       },
       {
         "rank": 2,
@@ -1803,7 +1803,7 @@
         "level": 100,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_4fb747dd15f72d8b"
+        "tracking_id": "player_2eb47ff6e9d01199"
       },
       {
         "rank": 3,
@@ -1851,7 +1851,7 @@
         "level": 99,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_09c2ac4e76fedfd8"
+        "tracking_id": "player_4bc5587a54777193"
       },
       {
         "rank": 9,
@@ -1859,7 +1859,7 @@
         "level": 99,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_bad35d12aca63845"
+        "tracking_id": "player_48e046ce8281dfca"
       },
       {
         "rank": 10,
@@ -1867,7 +1867,7 @@
         "level": 99,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_eda609e2e234092e"
+        "tracking_id": "player_333285e13a0ea115"
       },
       {
         "rank": 11,
@@ -1883,7 +1883,7 @@
         "level": 98,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_bc6f39b1757e491e"
+        "tracking_id": "player_c284be88bf98f94b"
       },
       {
         "rank": 13,
@@ -1891,7 +1891,7 @@
         "level": 98,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_1e3cd5b10e6fb22a"
+        "tracking_id": "player_b00f0d9902ddcb1a"
       },
       {
         "rank": 14,
@@ -2347,7 +2347,7 @@
         "level": 97,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_aa86505e696f2cf1"
+        "tracking_id": "player_e9c9e22f77fb1175"
       },
       {
         "rank": 69,
