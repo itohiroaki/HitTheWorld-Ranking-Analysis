@@ -126,6 +126,285 @@ def resolve_tracking_id(
 
     return tracking_id
 
+def merge_linked_players(
+    player_history,
+    links
+):
+    """
+    player_links.json の確認済みリンクに基づいて、
+    同一人物のプレイヤー履歴を1つに統合する。
+
+    ・historyは日付単位で統合
+    ・namesは全て保持
+    ・canonical_tracking_idはcanonicalを維持
+    ・characterは最新の確認名を採用
+    """
+
+    if not player_history or not links:
+        return player_history
+
+    groups = {}
+
+    # --------------------------------------------------------
+    # canonical_tracking_id ごとにプレイヤーをまとめる
+    # --------------------------------------------------------
+
+    for player in player_history.values():
+
+        tracking_id = player.get(
+            "tracking_id",
+            ""
+        )
+
+        canonical_id = resolve_tracking_id(
+            tracking_id,
+            links
+        )
+
+        groups.setdefault(
+            canonical_id,
+            []
+        ).append(
+            player
+        )
+
+    merged_history = {}
+
+    # --------------------------------------------------------
+    # グループごとに統合
+    # --------------------------------------------------------
+
+    for canonical_id, players in groups.items():
+
+        # ----------------------------------------------------
+        # canonical ID本人のレコードを優先
+        # ----------------------------------------------------
+
+        canonical_player = next(
+            (
+                player
+                for player in players
+                if player.get("tracking_id") == canonical_id
+            ),
+            players[0]
+        )
+
+        # ----------------------------------------------------
+        # 名前を統合
+        # ----------------------------------------------------
+
+        all_names = []
+
+        for player in players:
+
+            for name in player.get(
+                "names",
+                []
+            ):
+
+                if name not in all_names:
+
+                    all_names.append(
+                        name
+                    )
+
+        # ----------------------------------------------------
+        # historyを日付単位で統合
+        # ----------------------------------------------------
+
+        history_by_date = {}
+
+        for player in players:
+
+            for record in player.get(
+                "history",
+                []
+            ):
+
+                date = record.get(
+                    "date",
+                    ""
+                )
+
+                if not date:
+                    continue
+
+                if date not in history_by_date:
+
+                    history_by_date[date] = record
+
+                else:
+
+                    existing = history_by_date[date]
+
+                    # ----------------------------------------
+                    # World
+                    # ----------------------------------------
+
+                    if record.get(
+                        "world",
+                        {}
+                    ).get(
+                        "visible",
+                        False
+                    ):
+
+                        existing["world"] = (
+                            record["world"]
+                        )
+
+                    # ----------------------------------------
+                    # Eda
+                    # ----------------------------------------
+
+                    if record.get(
+                        "server_ranking",
+                        {}
+                    ).get(
+                        "Eda",
+                        {}
+                    ).get(
+                        "visible",
+                        False
+                    ):
+
+                        existing[
+                            "server_ranking"
+                        ]["Eda"] = (
+                            record[
+                                "server_ranking"
+                            ]["Eda"]
+                        )
+
+                    # ----------------------------------------
+                    # Virba
+                    # ----------------------------------------
+
+                    if record.get(
+                        "server_ranking",
+                        {}
+                    ).get(
+                        "Virba",
+                        {}
+                    ).get(
+                        "visible",
+                        False
+                    ):
+
+                        existing[
+                            "server_ranking"
+                        ]["Virba"] = (
+                            record[
+                                "server_ranking"
+                            ]["Virba"]
+                        )
+
+        all_history = list(
+            history_by_date.values()
+        )
+
+        all_history.sort(
+            key=lambda record: record["date"]
+        )
+
+        # ----------------------------------------------------
+        # 最新の確認名を取得
+        # ----------------------------------------------------
+
+        latest_character = (
+            canonical_player.get(
+                "character",
+                ""
+            )
+        )
+
+        latest_date = ""
+
+        for player in players:
+
+            for record in player.get(
+                "history",
+                []
+            ):
+
+                date = record.get(
+                    "date",
+                    ""
+                )
+
+                if date >= latest_date:
+
+                    # Eda/Virbaで確認できた名前を採用
+                    server_ranking = record.get(
+                        "server_ranking",
+                        {}
+                    )
+
+                    if (
+                        server_ranking.get(
+                            "Eda",
+                            {}
+                        ).get(
+                            "visible",
+                            False
+                        )
+                        or
+                        server_ranking.get(
+                            "Virba",
+                            {}
+                        ).get(
+                            "visible",
+                            False
+                        )
+                    ):
+
+                        latest_date = date
+
+                        # playerのcharacterは
+                        # その履歴を持つ名前
+                        latest_character = (
+                            player.get(
+                                "character",
+                                latest_character
+                            )
+                        )
+
+        # ----------------------------------------------------
+        # 統合結果
+        # ----------------------------------------------------
+
+        canonical_player["tracking_id"] = (
+            canonical_id
+        )
+
+        canonical_player["canonical_tracking_id"] = (
+            canonical_id
+        )
+
+        canonical_player["character"] = (
+            latest_character
+        )
+
+        canonical_player["names"] = (
+            all_names
+        )
+
+        canonical_player["history"] = (
+            all_history
+        )
+
+        # current / last_known は後で再生成されるため、
+        # ここでは既存値をそのまま使わない。
+
+        merged_history[
+            canonical_player.get(
+                "character",
+                ""
+            )
+        ] = canonical_player
+
+    return merged_history
+
 def load_ranking(file_path):
 
     df = pd.read_csv(
@@ -3123,6 +3402,14 @@ def main():
 
             )
 
+    # ========================================================
+    # リンク済みプレイヤー統合
+    # ========================================================
+
+    player_history = merge_linked_players(
+        player_history,
+        links
+    )
 
     # ========================================================
     # 整理
