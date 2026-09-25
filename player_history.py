@@ -645,6 +645,8 @@ def ensure_history_record(player, date):
 
                     "visible": False,
 
+                    "character": "",
+
                     "rank": None,
 
                     "level": None,
@@ -660,6 +662,8 @@ def ensure_history_record(player, date):
                 "Virba": {
 
                     "visible": False,
+
+                    "character": "",
 
                     "rank": None,
 
@@ -741,6 +745,9 @@ def update_server_record(
     record["server_ranking"][group] = {
 
         "visible": True,
+
+        "character":
+            player["character"],
 
         "rank": int(row["rank"]),
 
@@ -864,7 +871,7 @@ def create_world_snapshot(player):
 # 9/2の情報はlast_knownに残す。
 # ============================================================
 
-def create_current(player):
+def create_current(player, latest_date):
 
     history = player["history"]
 
@@ -900,19 +907,6 @@ def create_current(player):
                 "rank": None
             }
         }
-
-
-    # --------------------------------------------------------
-    # 全体の最新日
-    # --------------------------------------------------------
-
-    latest_date = max(
-
-        record["date"]
-
-        for record in history
-
-    )
 
 
     latest_record = find_history_record(
@@ -1539,6 +1533,12 @@ def create_events(
     last_visible_guild = None
 
     # --------------------------------------------------------
+    # 最後に確認したキャラクター名
+    # --------------------------------------------------------
+    last_visible_name = None
+    last_visible_name_date = None
+
+    # --------------------------------------------------------
     # 直前の「判定可能な日」の状態
     #
     # True  = TOP100に存在
@@ -1607,6 +1607,69 @@ def create_events(
         current_group, current_record = (
             get_server_record(record)
         )
+
+        # ====================================================
+        # 名前変更
+        # ====================================================
+        #
+        # player_links.jsonで統合された履歴では、
+        # 各日のEda / Virbaレコードに
+        # 実際に取得されたキャラクター名を保持する。
+        #
+        # その名前が前回確認時と変わっていれば、
+        # 名前変更イベントとして記録する。
+        # ====================================================
+
+        current_name = None
+
+        if current_record is not None:
+
+            current_name = (
+                current_record.get(
+                    "character",
+                    ""
+                )
+                or ""
+            )
+
+        if (
+            current_name
+            and
+            last_visible_name
+            and
+            current_name != last_visible_name
+        ):
+
+            add_event(
+
+                date=date,
+
+                event_type=
+                    "server_ranking_name_change",
+
+                group=current_group,
+
+                old_value=
+                    last_visible_name,
+
+                new_value=
+                    current_name,
+
+                details={
+
+                    "from_name":
+                        last_visible_name,
+
+                    "to_name":
+                        current_name,
+
+                    "last_seen_date":
+                        last_visible_name_date,
+
+                    "confirmed":
+                        True
+                }
+            )
 
 
         current_visible = (
@@ -2408,7 +2471,6 @@ def create_events(
                         }
                     )
 
-
         # ====================================================
         # 判定可能な日の状態を更新
         # ====================================================
@@ -2416,7 +2478,6 @@ def create_events(
         previous_visible = (
             current_visible
         )
-
 
         # ----------------------------------------------------
         # TOP100に存在していた場合だけ
@@ -2436,6 +2497,27 @@ def create_events(
             last_visible_date = (
                 date
             )
+
+            # ------------------------------------------------
+            # 最後に確認したキャラクター名を保存
+            # ------------------------------------------------
+
+            current_name = (
+                    current_record.get(
+                        "character",
+                        ""
+                    )
+                    or ""
+            )
+
+            if current_name:
+                last_visible_name = (
+                    current_name
+                )
+
+                last_visible_name_date = (
+                    date
+                )
 
             current_guild = (
                 current_record.get(
@@ -3432,6 +3514,39 @@ def main():
     )
 
 
+    # --------------------------------------------------------
+    # Eda / Virba両方のランキングが存在する
+    # 最新日を取得
+    # --------------------------------------------------------
+
+    latest_server_ranking_date = max(
+
+        (
+
+            date
+
+            for date, availability
+            in server_data_available.items()
+
+            if (
+                availability.get("Eda", False)
+                and
+                availability.get("Virba", False)
+            )
+
+        ),
+
+        default=""
+
+    )
+
+
+    print(
+        f"  最新サーバーランキング日: "
+        f"{latest_server_ranking_date or '-'}"
+    )
+
+
     for player in player_history.values():
 
         # ----------------------------------------------------
@@ -3454,7 +3569,8 @@ def main():
         player["current"] = (
 
             create_current(
-                player
+                player,
+                latest_server_ranking_date
             )
 
         )
@@ -3732,6 +3848,13 @@ def main():
 
         "server_ranking_level_down":
             "サーバーランキングレベルダウン",
+
+        # --------------------------------------------------------
+        # 名前変更
+        # --------------------------------------------------------
+
+        "server_ranking_name_change":
+            "名前変更",
 
         # --------------------------------------------------------
         # 所属
