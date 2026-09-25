@@ -218,15 +218,6 @@
       "reason": "ユーザー確認"
     },
     {
-      "canonical_tracking_id": "player_dc09ce2d57794401",
-      "tracking_ids": [
-        "player_dc09ce2d57794401",
-        "player_03e87e6459788e6d"
-      ],
-      "confirmed": true,
-      "reason": "ユーザー確認"
-    },
-    {
       "canonical_tracking_id": "player_b42af5ca1c91d6d9",
       "tracking_ids": [
         "player_b42af5ca1c91d6d9",
@@ -448,6 +439,16 @@
       "tracking_ids": [
         "player_874e3ac9c2407d9b",
         "player_91a131e5835f1357"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_dc09ce2d57794401",
+      "tracking_ids": [
+        "player_03e87e6459788e6d",
+        "player_8a7db4668e466f73",
+        "player_dc09ce2d57794401"
       ],
       "confirmed": true,
       "reason": "ユーザー確認"
