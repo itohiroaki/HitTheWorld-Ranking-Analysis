@@ -1,7 +1,7 @@
 {
   "date": "20260925",
   "previous_date": "20260924",
-  "player_count": 1070,
+  "player_count": 1064,
   "event_summary": {
     "entry": 2,
     "exit": 1,
@@ -987,19 +987,11 @@
       },
       {
         "rank": 6,
-        "character": "悪華那汝茶魔",
-        "level": 100,
-        "server": "Eda4",
-        "guild": "",
-        "tracking_id": "player_e659c547bfadba0d"
-      },
-      {
-        "rank": 6,
         "character": "あか茶魔なな",
         "level": 101,
         "server": "Eda4",
         "guild": "なみだふくよ",
-        "tracking_id": "player_42931a76b8d029ee"
+        "tracking_id": "player_60e3fdacd55fbc9e"
       },
       {
         "rank": 7,
@@ -1383,7 +1375,7 @@
         "level": 97,
         "server": "Eda2",
         "guild": "Lien",
-        "tracking_id": "player_03e87e6459788e6d"
+        "tracking_id": "player_dc09ce2d57794401"
       },
       {
         "rank": 53,
@@ -1535,7 +1527,7 @@
         "level": 97,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_a621a1627e2ce115"
+        "tracking_id": "player_3583c34e5051edad"
       },
       {
         "rank": 70,
@@ -1655,7 +1647,7 @@
         "level": 97,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_0422d9590e552317"
+        "tracking_id": "player_b4b69d2fdafaf2b2"
       },
       {
         "rank": 85,
@@ -1897,7 +1889,7 @@
         "level": 99,
         "server": "Virba2",
         "guild": "Oblivion",
-        "tracking_id": "player_137f15d054012b8a"
+        "tracking_id": "player_de66d3ec3779b7bc"
       },
       {
         "rank": 12,
@@ -2651,7 +2643,7 @@
         "103": 1,
         "102": 2,
         "101": 3,
-        "100": 5,
+        "100": 4,
         "99": 4,
         "98": 34,
         "97": 59
@@ -2667,7 +2659,7 @@
     "server_distribution": {
       "Eda": {
         "Eda1": 49,
-        "Eda4": 37,
+        "Eda4": 36,
         "Eda2": 16,
         "Eda3": 6
       },
