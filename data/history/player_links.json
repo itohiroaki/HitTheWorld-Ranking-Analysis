@@ -179,6 +179,43 @@
       ],
       "confirmed": true,
       "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_60e3fdacd55fbc9e",
+      "tracking_ids": [
+        "player_60e3fdacd55fbc9e",
+        "player_e659c547bfadba0d",
+        "player_42931a76b8d029ee"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_de66d3ec3779b7bc",
+      "tracking_ids": [
+        "player_de66d3ec3779b7bc",
+        "player_137f15d054012b8a"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_3583c34e5051edad",
+      "tracking_ids": [
+        "player_3583c34e5051edad",
+        "player_a621a1627e2ce115"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_b4b69d2fdafaf2b2",
+      "tracking_ids": [
+        "player_b4b69d2fdafaf2b2",
+        "player_0422d9590e552317"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
     }
   ]
 }
