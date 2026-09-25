@@ -225,6 +225,51 @@
       ],
       "confirmed": true,
       "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_b42af5ca1c91d6d9",
+      "tracking_ids": [
+        "player_b42af5ca1c91d6d9",
+        "player_f075bf36f4c055cd"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_c281d27f4ee36749",
+      "tracking_ids": [
+        "player_c281d27f4ee36749",
+        "player_ba3b188769a4b6ec"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_b50698d6fd08ccb3",
+      "tracking_ids": [
+        "player_b50698d6fd08ccb3",
+        "player_a96a1a424371cd0c"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_4e57c9da1e524fd4",
+      "tracking_ids": [
+        "player_4e57c9da1e524fd4",
+        "player_37e43e98e7284ff5"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_817a9b128fb32b2f",
+      "tracking_ids": [
+        "player_817a9b128fb32b2f",
+        "player_0669bdae358420c4"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
     }
   ]
 }
