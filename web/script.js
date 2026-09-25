@@ -7581,6 +7581,9 @@ function getPlayerEventLabel(
         server_ranking_level_down:
             "レベルダウン",
 
+        server_ranking_name_change:
+            "名前変更",
+
         server_ranking_guild_change:
             "ギルド変更",
 
