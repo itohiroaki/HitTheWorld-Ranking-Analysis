@@ -761,6 +761,122 @@ def manual_link_by_names(
     )
 
 
+def build_tracking_map(players):
+
+    tracking_map = {}
+
+    for character_name, player in players.items():
+
+        tracking_id = player.get(
+            "tracking_id",
+            ""
+        )
+
+        if tracking_id:
+
+            tracking_map[tracking_id] = player
+
+    return tracking_map
+
+
+def get_display_name(
+    tracking_map,
+    tracking_id
+):
+
+    player = tracking_map.get(
+        tracking_id
+    )
+
+    if player:
+
+        return player.get(
+            "character",
+            ""
+        )
+
+    return ""
+
+
+def print_link_group(
+    index,
+    link,
+    tracking_map
+):
+
+    tracking_ids = link.get(
+        "tracking_ids",
+        []
+    )
+
+    canonical_id = link.get(
+        "canonical_tracking_id",
+        ""
+    )
+
+    print()
+    print(
+        f"[{index}]"
+    )
+
+    current_name = get_display_name(
+        tracking_map,
+        canonical_id
+    )
+
+    if current_name:
+
+        print(
+            f"    現在名: {current_name}"
+        )
+
+    else:
+
+        print(
+            "    現在名: 不明"
+        )
+
+    print(
+        f"    canonical_tracking_id: "
+        f"{canonical_id}"
+    )
+
+    print(
+        f"    紐づけ人数: "
+        f"{len(tracking_ids)}人"
+    )
+
+    for tracking_id in tracking_ids:
+
+        name = get_display_name(
+            tracking_map,
+            tracking_id
+        )
+
+        if tracking_id == canonical_id:
+
+            label = "現在名"
+
+        else:
+
+            label = "過去名"
+
+        if name:
+
+            print(
+                f"      - {label}: "
+                f"{name} "
+                f"({tracking_id})"
+            )
+
+        else:
+
+            print(
+                f"      - {label}: "
+                f"{tracking_id}"
+            )
+
+
 def show_links(
     players,
     links
@@ -779,114 +895,452 @@ def show_links(
 
         return
 
-    # tracking_id → プレイヤー情報
-    tracking_map = {}
-
-    for character_name, player in players.items():
-
-        tracking_id = player.get(
-            "tracking_id",
-            ""
-        )
-
-        if tracking_id:
-
-            tracking_map[tracking_id] = player
+    tracking_map = build_tracking_map(
+        players
+    )
 
     for index, link in enumerate(
         links,
         start=1
     ):
 
+        print_link_group(
+            index,
+            link,
+            tracking_map
+        )
+
+
+def edit_links(
+    players,
+    links_data,
+    links
+):
+
+    print()
+    print("=" * 60)
+    print("紐づけの修正・解除")
+    print("=" * 60)
+
+    if not links:
+
+        print(
+            "登録されている紐づけはありません。"
+        )
+
+        return
+
+    tracking_map = build_tracking_map(
+        players
+    )
+
+    for index, link in enumerate(
+        links,
+        start=1
+    ):
+
+        print_link_group(
+            index,
+            link,
+            tracking_map
+        )
+
+    print()
+
+    selection = input(
+        "修正・解除する紐づけ番号を入力してください: "
+    ).strip()
+
+    try:
+
+        group_index = (
+            int(selection) - 1
+        )
+
+    except ValueError:
+
+        print(
+            "\n入力が正しくありません。"
+        )
+
+        return
+
+    if (
+        group_index < 0
+        or group_index >= len(links)
+    ):
+
+        print(
+            "\n番号が不正です。"
+        )
+
+        return
+
+    link = links[group_index]
+
+    print()
+    print("=" * 60)
+    print("選択した紐づけ")
+    print("=" * 60)
+
+    print_link_group(
+        group_index + 1,
+        link,
+        tracking_map
+    )
+
+    print()
+    print("1. この紐づけを完全に削除")
+    print("2. このグループから特定のキャラクターを外す")
+    print("3. 現在名（canonical）を変更")
+    print("4. キャンセル")
+
+    action = input(
+        "\n番号を選択してください: "
+    ).strip()
+
+    # --------------------------------------------------
+    # 1. グループ全体を削除
+    # --------------------------------------------------
+
+    if action == "1":
+
+        print()
+        print(
+            "この紐づけグループを完全に削除します。"
+        )
+
+        confirm = input(
+            "本当に削除しますか？ [y/N]: "
+        ).strip().lower()
+
+        if confirm != "y":
+
+            print(
+                "\nキャンセルしました。"
+            )
+
+            return
+
+        del links[group_index]
+
+        links_data["links"] = links
+
+        save_json(
+            PLAYER_LINKS_FILE,
+            links_data
+        )
+
+        print()
+        print(
+            "紐づけを削除しました。"
+        )
+
+        return
+
+    # --------------------------------------------------
+    # 2. 特定キャラクターをグループから外す
+    # --------------------------------------------------
+
+    if action == "2":
+
         tracking_ids = link.get(
             "tracking_ids",
             []
         )
 
-        canonical_id = link.get(
-            "canonical_tracking_id",
-            ""
-        )
+        if len(tracking_ids) <= 2:
 
-        current = tracking_map.get(
-            canonical_id
-        )
+            print()
+            print(
+                "2人の紐づけから1人だけを外すと、"
+                "紐づけ自体が成立しなくなるため、"
+                "このグループは完全削除してください。"
+            )
 
-        old_names = []
+            return
 
-        for tracking_id in tracking_ids:
+        print()
+        print("グループ内のキャラクター")
 
-            if tracking_id == canonical_id:
-                continue
+        for index, tracking_id in enumerate(
+            tracking_ids,
+            start=1
+        ):
 
-            player = tracking_map.get(
+            name = get_display_name(
+                tracking_map,
                 tracking_id
             )
 
-            if not player:
-                continue
+            if tracking_id == link.get(
+                "canonical_tracking_id"
+            ):
 
-            old_names.extend(
-                get_player_names(
-                    player
-                )
+                label = "現在名"
+
+            else:
+
+                label = "過去名"
+
+            print(
+                f"[{index}] {label}: "
+                f"{name or '不明'} "
+                f"({tracking_id})"
             )
+
+        remove_selection = input(
+            "\n外す番号を入力してください: "
+        ).strip()
+
+        try:
+
+            remove_index = (
+                int(remove_selection) - 1
+            )
+
+        except ValueError:
+
+            print(
+                "\n入力が正しくありません。"
+            )
+
+            return
+
+        if (
+            remove_index < 0
+            or remove_index >= len(
+                tracking_ids
+            )
+        ):
+
+            print(
+                "\n番号が不正です。"
+            )
+
+            return
+
+        remove_id = tracking_ids[
+            remove_index
+        ]
+
+        remove_name = get_display_name(
+            tracking_map,
+            remove_id
+        )
 
         print()
         print(
-            f"[{index}]"
+            f"「{remove_name or remove_id}」を"
+            "このグループから外します。"
         )
 
-        if current:
+        confirm = input(
+            "確定しますか？ [y/N]: "
+        ).strip().lower()
+
+        if confirm != "y":
 
             print(
-                f"    現在名: "
-                f"{current.get('character', '')}"
+                "\nキャンセルしました。"
             )
 
-            print(
-                f"    tracking_id: "
-                f"{canonical_id}"
+            return
+
+        new_tracking_ids = [
+            tracking_id
+            for tracking_id in tracking_ids
+            if tracking_id != remove_id
+        ]
+
+        # canonicalを外した場合は、
+        # 残ったtracking_idの先頭をcanonicalにする
+        canonical_id = link.get(
+            "canonical_tracking_id"
+        )
+
+        if canonical_id == remove_id:
+
+            canonical_id = (
+                new_tracking_ids[0]
+                if new_tracking_ids
+                else ""
             )
+
+        if len(new_tracking_ids) < 2:
+
+            print()
+            print(
+                "残り1人になるため、"
+                "紐づけグループ自体を削除します。"
+            )
+
+            del links[group_index]
 
         else:
 
-            print(
-                f"    現在名: 不明"
-            )
+            links[group_index] = {
+                "canonical_tracking_id":
+                    canonical_id,
 
-            print(
-                f"    canonical_tracking_id: "
-                f"{canonical_id}"
-            )
+                "tracking_ids":
+                    sorted(
+                        new_tracking_ids
+                    ),
 
-        current_name = (
-            current.get("character", "")
-            if current
-            else ""
+                "confirmed":
+                    True,
+
+                "reason":
+                    "ユーザー確認"
+            }
+
+        links_data["links"] = links
+
+        save_json(
+            PLAYER_LINKS_FILE,
+            links_data
         )
 
-        old_names = sorted(
-            set(
-                name
-                for name in old_names
-                if name != current_name
-            )
+        print()
+        print(
+            "紐づけを修正しました。"
         )
 
-        if old_names:
+        return
+
+    # --------------------------------------------------
+    # 3. canonical変更
+    # --------------------------------------------------
+
+    if action == "3":
+
+        tracking_ids = link.get(
+            "tracking_ids",
+            []
+        )
+
+        print()
+        print(
+            "現在名として表示するキャラクターを"
+            "選択してください。"
+        )
+
+        for index, tracking_id in enumerate(
+            tracking_ids,
+            start=1
+        ):
+
+            name = get_display_name(
+                tracking_map,
+                tracking_id
+            )
 
             print(
-                "    過去名: "
-                + " / ".join(
-                    old_names
-                )
+                f"[{index}] "
+                f"{name or '不明'} "
+                f"({tracking_id})"
             )
+
+        canonical_selection = input(
+            "\n番号を入力してください: "
+        ).strip()
+
+        try:
+
+            canonical_index = (
+                int(canonical_selection) - 1
+            )
+
+        except ValueError:
+
+            print(
+                "\n入力が正しくありません。"
+            )
+
+            return
+
+        if (
+            canonical_index < 0
+            or canonical_index >= len(
+                tracking_ids
+            )
+        ):
+
+            print(
+                "\n番号が不正です。"
+            )
+
+            return
+
+        new_canonical = tracking_ids[
+            canonical_index
+        ]
+
+        new_name = get_display_name(
+            tracking_map,
+            new_canonical
+        )
+
+        print()
+        print(
+            f"現在名を「{new_name or new_canonical}」"
+            "に変更します。"
+        )
+
+        confirm = input(
+            "確定しますか？ [y/N]: "
+        ).strip().lower()
+
+        if confirm != "y":
+
+            print(
+                "\nキャンセルしました。"
+            )
+
+            return
+
+        links[group_index] = {
+            "canonical_tracking_id":
+                new_canonical,
+
+            "tracking_ids":
+                sorted(
+                    tracking_ids
+                ),
+
+            "confirmed":
+                True,
+
+            "reason":
+                "ユーザー確認"
+        }
+
+        links_data["links"] = links
+
+        save_json(
+            PLAYER_LINKS_FILE,
+            links_data
+        )
+
+        print()
+        print(
+            "現在名（canonical）を変更しました。"
+        )
+
+        return
+
+    if action == "4":
 
         print(
-            f"    紐づけ人数: "
-            f"{len(tracking_ids)}人"
+            "\nキャンセルしました。"
         )
+
+        return
+
+    print(
+        "\n1～4の番号を入力してください。"
+    )
 
 
 def test_resolve_tracking_id():
@@ -1091,11 +1545,15 @@ def main():
         )
 
         print(
-            "4. 実データのリンクテスト"
+            "4. 紐づけの修正・解除"
         )
 
         print(
-            "5. 終了"
+            "5. 実データのリンクテスト"
+        )
+
+        print(
+            "6. 終了"
         )
 
         choice = input(
@@ -1127,9 +1585,17 @@ def main():
 
         elif choice == "4":
 
-            test_real_player_links()
+            edit_links(
+                players,
+                links_data,
+                links
+            )
 
         elif choice == "5":
+
+            test_real_player_links()
+
+        elif choice == "6":
 
             print(
                 "\n終了します。"
@@ -1140,7 +1606,7 @@ def main():
         else:
 
             print(
-                "\n1～5の番号を入力してください。"
+                "\n1～6の番号を入力してください。"
             )
 
 
