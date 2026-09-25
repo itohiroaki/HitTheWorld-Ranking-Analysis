@@ -216,6 +216,15 @@
       ],
       "confirmed": true,
       "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_dc09ce2d57794401",
+      "tracking_ids": [
+        "player_dc09ce2d57794401",
+        "player_03e87e6459788e6d"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
     }
   ]
 }
