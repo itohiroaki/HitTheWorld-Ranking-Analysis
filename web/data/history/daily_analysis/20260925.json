@@ -1,7 +1,7 @@
 {
   "date": "20260925",
   "previous_date": "20260924",
-  "player_count": 1064,
+  "player_count": 1059,
   "event_summary": {
     "entry": 2,
     "exit": 1,
@@ -1255,7 +1255,7 @@
         "level": 98,
         "server": "Eda1",
         "guild": "わっしょい",
-        "tracking_id": "player_f075bf36f4c055cd"
+        "tracking_id": "player_b42af5ca1c91d6d9"
       },
       {
         "rank": 38,
@@ -1559,7 +1559,7 @@
         "level": 97,
         "server": "Eda1",
         "guild": "どっこいしょ",
-        "tracking_id": "player_ba3b188769a4b6ec"
+        "tracking_id": "player_c281d27f4ee36749"
       },
       {
         "rank": 74,
@@ -1945,7 +1945,7 @@
         "level": 98,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_0669bdae358420c4"
+        "tracking_id": "player_817a9b128fb32b2f"
       },
       {
         "rank": 19,
@@ -2097,7 +2097,7 @@
         "level": 97,
         "server": "Virba3",
         "guild": "ねこはら帝国",
-        "tracking_id": "player_37e43e98e7284ff5"
+        "tracking_id": "player_4e57c9da1e524fd4"
       },
       {
         "rank": 37,
@@ -2613,19 +2613,19 @@
       },
       {
         "rank": 99,
+        "character": "oどきんちゃんo",
+        "level": 97,
+        "server": "Virba3",
+        "guild": "ねこはら帝国",
+        "tracking_id": "player_b50698d6fd08ccb3"
+      },
+      {
+        "rank": 99,
         "character": "Mamypoko",
         "level": 97,
         "server": "Virba3",
         "guild": "すうぃーてぃす",
         "tracking_id": "player_58532df9c07c7c28"
-      },
-      {
-        "rank": 99,
-        "character": "oどきんちゃんo",
-        "level": 97,
-        "server": "Virba3",
-        "guild": "ねこはら帝国",
-        "tracking_id": "player_a96a1a424371cd0c"
       },
       {
         "rank": 100,
