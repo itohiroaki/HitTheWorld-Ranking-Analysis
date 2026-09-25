@@ -1058,14 +1058,6 @@
         "tracking_id": "player_1ba63644d851c3e4"
       },
       {
-        "rank": 14,
-        "character": "隠居です",
-        "level": 98,
-        "server": "Eda4",
-        "guild": "",
-        "tracking_id": "player_03c405d97d0d2eb3"
-      },
-      {
         "rank": 15,
         "character": "放置キャラ",
         "level": 98,
@@ -1120,14 +1112,6 @@
         "server": "Eda4",
         "guild": "なみだふくよ",
         "tracking_id": "player_d2a06b55610f8934"
-      },
-      {
-        "rank": 21,
-        "character": "たらまはたな",
-        "level": 98,
-        "server": "Eda2",
-        "guild": "",
-        "tracking_id": "player_bbafbe69b5bb8507"
       },
       {
         "rank": 22,
@@ -1379,14 +1363,6 @@
       },
       {
         "rank": 53,
-        "character": "草尾",
-        "level": 97,
-        "server": "Eda2",
-        "guild": "",
-        "tracking_id": "player_8a7db4668e466f73"
-      },
-      {
-        "rank": 53,
         "character": "れいしす",
         "level": 97,
         "server": "Eda1",
@@ -1464,14 +1440,6 @@
         "server": "Eda1",
         "guild": "M2O",
         "tracking_id": "player_d68ecce7c93d9b37"
-      },
-      {
-        "rank": 62,
-        "character": "藤原寄通",
-        "level": 97,
-        "server": "Eda2",
-        "guild": "",
-        "tracking_id": "player_8a2572a996a56c96"
       },
       {
         "rank": 63,
@@ -1747,14 +1715,6 @@
       },
       {
         "rank": 97,
-        "character": "おいなり軍曹",
-        "level": 97,
-        "server": "Eda1",
-        "guild": "",
-        "tracking_id": "player_d60c7089b551d6a9"
-      },
-      {
-        "rank": 97,
         "character": "ブレーメンへら",
         "level": 97,
         "server": "Eda1",
@@ -1768,14 +1728,6 @@
         "server": "Eda4",
         "guild": "なみだふくよ",
         "tracking_id": "player_afb4402fb3dd16c8"
-      },
-      {
-        "rank": 98,
-        "character": "アンチョビエンデ",
-        "level": 97,
-        "server": "Eda3",
-        "guild": "",
-        "tracking_id": "player_9ac99757230f8b50"
       },
       {
         "rank": 99,
@@ -1792,14 +1744,6 @@
         "server": "Eda3",
         "guild": "ぴよぴよ団",
         "tracking_id": "player_b066feaca35e7d7f"
-      },
-      {
-        "rank": 100,
-        "character": "ぶんぶくんしあ",
-        "level": 97,
-        "server": "Eda1",
-        "guild": "どっこいしょ",
-        "tracking_id": "player_d6b06844c6ed916a"
       }
     ],
     "Virba": [
@@ -1996,14 +1940,6 @@
         "tracking_id": "player_cbb05f7ad9b10318"
       },
       {
-        "rank": 24,
-        "character": "鱒賈逵鰤",
-        "level": 97,
-        "server": "Virba2",
-        "guild": "",
-        "tracking_id": "player_adc1e4fbb1b979c5"
-      },
-      {
         "rank": 25,
         "character": "THYANA",
         "level": 98,
@@ -2106,14 +2042,6 @@
         "server": "Virba4",
         "guild": "月華",
         "tracking_id": "player_9755df5fd7f871ca"
-      },
-      {
-        "rank": 37,
-        "character": "でぃふぃーじょん",
-        "level": 97,
-        "server": "Virba3",
-        "guild": "",
-        "tracking_id": "player_12c56f3acec523ff"
       },
       {
         "rank": 38,
@@ -2388,14 +2316,6 @@
         "tracking_id": "player_ee8d10ece47fdf74"
       },
       {
-        "rank": 71,
-        "character": "のらのーら",
-        "level": 97,
-        "server": "Virba1",
-        "guild": "ネバーランド",
-        "tracking_id": "player_1309c4bd625f0052"
-      },
-      {
         "rank": 72,
         "character": "Posaune",
         "level": 97,
@@ -2620,14 +2540,6 @@
         "tracking_id": "player_b50698d6fd08ccb3"
       },
       {
-        "rank": 99,
-        "character": "Mamypoko",
-        "level": 97,
-        "server": "Virba3",
-        "guild": "すうぃーてぃす",
-        "tracking_id": "player_58532df9c07c7c28"
-      },
-      {
         "rank": 100,
         "character": "れもちゃん",
         "level": 97,
@@ -2645,29 +2557,29 @@
         "101": 3,
         "100": 4,
         "99": 4,
-        "98": 34,
-        "97": 59
+        "98": 32,
+        "97": 54
       },
       "Virba": {
         "101": 2,
         "100": 4,
         "99": 5,
         "98": 22,
-        "97": 71
+        "97": 67
       }
     },
     "server_distribution": {
       "Eda": {
-        "Eda1": 49,
-        "Eda4": 36,
-        "Eda2": 16,
-        "Eda3": 6
+        "Eda1": 47,
+        "Eda4": 35,
+        "Eda2": 13,
+        "Eda3": 5
       },
       "Virba": {
-        "Virba3": 37,
+        "Virba3": 35,
         "Virba4": 31,
-        "Virba2": 19,
-        "Virba1": 17
+        "Virba2": 18,
+        "Virba1": 16
       }
     },
     "guild_distribution": {
@@ -2683,9 +2595,9 @@
       "なみだしてんし": 6,
       "月花町の安らげ荘": 5,
       "Lien": 4,
-      "どっこいしょ": 4,
       "猫と愉快な仲間": 4,
       "ぴよぴよ団": 3,
+      "どっこいしょ": 3,
       "ミーティス": 3,
       "れくいえむ": 3,
       "ブーメランパンツ": 2,
