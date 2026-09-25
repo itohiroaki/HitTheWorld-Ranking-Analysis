@@ -1,7 +1,7 @@
 {
   "date": "20260925",
   "previous_date": "20260924",
-  "player_count": 1044,
+  "player_count": 1038,
   "event_summary": {
     "entry": 2,
     "exit": 1,
@@ -697,15 +697,15 @@
         "change": 1
       },
       {
-        "character": "いぼぢん",
-        "group": "Virba",
+        "character": "浦島銀太郎",
+        "group": "Eda",
         "old_rank": 29,
         "new_rank": 30,
         "change": 1
       },
       {
-        "character": "浦島銀太郎",
-        "group": "Eda",
+        "character": "いぼぢん",
+        "group": "Virba",
         "old_rank": 29,
         "new_rank": 30,
         "change": 1
