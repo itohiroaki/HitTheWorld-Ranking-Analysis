@@ -772,28 +772,115 @@ def build_tracking_map(players):
             ""
         )
 
-        if tracking_id:
+        if not tracking_id:
+            continue
 
-            tracking_map[tracking_id] = player
+        # プレイヤー情報をそのまま登録
+        tracking_map[tracking_id] = player
+
+        # character が空の場合でも、
+        # players のキーにキャラクター名が入っている場合がある
+        if not player.get("character") and character_name:
+            player["character"] = character_name
 
     return tracking_map
 
 
 def get_display_name(
     tracking_map,
-    tracking_id
+    tracking_id,
+    link=None
 ):
 
     player = tracking_map.get(
         tracking_id
     )
 
+    # 通常のプレイヤー履歴から取得
     if player:
 
-        return player.get(
+        current_name = player.get(
             "character",
             ""
         )
+
+        if current_name:
+            return current_name
+
+        names = player.get(
+            "names",
+            []
+        )
+
+        if names:
+            return " / ".join(names)
+
+    # player_history.json に存在しない過去IDの場合
+    # canonical側の名前履歴から過去名を補完
+    if link:
+
+        canonical_id = link.get(
+            "canonical_tracking_id",
+            ""
+        )
+
+        canonical_player = tracking_map.get(
+            canonical_id
+        )
+
+        if canonical_player:
+
+            names = canonical_player.get(
+                "names",
+                []
+            )
+
+            current_name = canonical_player.get(
+                "character",
+                ""
+            )
+
+            old_names = [
+                name
+                for name in names
+                if name != current_name
+            ]
+
+            if old_names:
+
+                # 過去名が複数ある場合でも、
+                # 表示対象のtracking_idに対応する名前を
+                # 順番に返す
+                tracking_ids = link.get(
+                    "tracking_ids",
+                    []
+                )
+
+                old_tracking_ids = [
+                    tid
+                    for tid in tracking_ids
+                    if tid != canonical_id
+                ]
+
+                try:
+
+                    old_index = old_tracking_ids.index(
+                        tracking_id
+                    )
+
+                    if old_index < len(old_names):
+
+                        return old_names[
+                            old_index
+                        ]
+
+                except ValueError:
+
+                    pass
+
+                # 対応する名前が特定できない場合は
+                # とりあえず最初の過去名を表示
+                return old_names[0]
 
     return ""
 
@@ -819,6 +906,7 @@ def print_link_group(
         f"[{index}]"
     )
 
+    # canonical側の現在名を取得
     current_name = get_display_name(
         tracking_map,
         canonical_id
@@ -848,9 +936,12 @@ def print_link_group(
 
     for tracking_id in tracking_ids:
 
+        # canonical以外のIDについては、
+        # link情報を渡して過去名を補完する
         name = get_display_name(
             tracking_map,
-            tracking_id
+            tracking_id,
+            link
         )
 
         if tracking_id == canonical_id:

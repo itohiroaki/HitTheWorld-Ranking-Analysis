@@ -27,8 +27,8 @@ const DAILY_ANALYSIS_DIR =
 const DAILY_INDEX_URL =
     `${DAILY_ANALYSIS_DIR}/index.json`;
 
-const PLAYER_HISTORY_URL =
-    "/data/history/player_history.json";
+const PLAYER_HISTORY_DIR =
+    "/data/history/player_history";
 
 
 /* =========================================================
@@ -4915,16 +4915,34 @@ async function loadPlayerHistory() {
     }
 
 
+    const now =
+        new Date();
+
+    const year =
+        now.getFullYear();
+
+    const month =
+        String(
+            now.getMonth() + 1
+        ).padStart(
+            2,
+            "0"
+        );
+
+    const playerHistoryUrl =
+        `${PLAYER_HISTORY_DIR}/${year}-${month}.json`;
+
+
     const response =
         await fetch(
-            `${PLAYER_HISTORY_URL}?t=${Date.now()}`
+            `${playerHistoryUrl}?t=${Date.now()}`
         );
 
 
     if (!response.ok) {
 
         throw new Error(
-            `player_history.json の読み込みに失敗しました (${response.status})`
+            `player_history/${year}-${month}.json の読み込みに失敗しました (${response.status})`
         );
 
     }
@@ -4937,7 +4955,6 @@ async function loadPlayerHistory() {
     return playerHistoryData;
 
 }
-
 
 /* =========================================================
    Player Array

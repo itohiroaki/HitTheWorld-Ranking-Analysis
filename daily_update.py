@@ -198,11 +198,21 @@ def sync_web_data():
         / "daily_analysis"
     )
 
+    web_player_history = (
+        web_history
+        / "player_history"
+    )
+
     # --------------------------------------------------------
     # 保存先フォルダ作成
     # --------------------------------------------------------
 
     web_daily_analysis.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    web_player_history.mkdir(
         parents=True,
         exist_ok=True,
     )
@@ -289,7 +299,7 @@ def sync_web_data():
         return False
 
     # --------------------------------------------------------
-    # index.json
+    # daily_analysis/index.json
     # --------------------------------------------------------
 
     index_source = (
@@ -325,7 +335,15 @@ def sync_web_data():
         return False
 
     # --------------------------------------------------------
-    # player_history.json
+    # player_history 月別Webデータ
+    #
+    # 元データ:
+    #   data/history/player_history.json
+    #
+    # Web公開:
+    #   web/data/history/player_history/YYYY-MM.json
+    #
+    # Web用ファイルはminifyして容量を削減する。
     # --------------------------------------------------------
 
     player_history_source = (
@@ -333,23 +351,77 @@ def sync_web_data():
         / "player_history.json"
     )
 
-    player_history_destination = (
-        web_history
-        / "player_history.json"
-    )
-
     if player_history_source.exists():
 
-        shutil.copy2(
-            player_history_source,
-            player_history_destination,
-        )
+        try:
 
-        print(
-            "  ✅ player_history.json"
-        )
+            import json
 
-        copied_count += 1
+            with open(
+                player_history_source,
+                "r",
+                encoding="utf-8",
+            ) as f:
+
+                player_history = json.load(f)
+
+            current_month = datetime.now().strftime(
+                "%Y-%m"
+            )
+
+            player_history_destination = (
+                web_player_history
+                / f"{current_month}.json"
+            )
+
+            with open(
+                player_history_destination,
+                "w",
+                encoding="utf-8",
+            ) as f:
+
+                json.dump(
+                    player_history,
+                    f,
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                )
+
+            file_size = (
+                player_history_destination.stat().st_size
+            )
+
+            file_size_mib = (
+                file_size
+                / 1024
+                / 1024
+            )
+
+            print(
+                f"  ✅ player_history/"
+                f"{current_month}.json"
+            )
+
+            print(
+                f"     Web用minify: "
+                f"{file_size:,} bytes "
+                f"({file_size_mib:.2f} MiB)"
+            )
+
+            copied_count += 1
+
+        except Exception as e:
+
+            print(
+                "  ❌ player_historyの"
+                "Web用変換に失敗しました。"
+            )
+
+            print(
+                f"     エラー: {e}"
+            )
+
+            return False
 
     else:
 
@@ -359,6 +431,38 @@ def sync_web_data():
         )
 
         return False
+
+    # --------------------------------------------------------
+    # 旧 player_history.json を削除
+    # --------------------------------------------------------
+
+    old_player_history = (
+        web_history
+        / "player_history.json"
+    )
+
+    if old_player_history.exists():
+
+        try:
+
+            old_player_history.unlink()
+
+            print(
+                "  🗑️ 旧 player_history.json を削除"
+            )
+
+        except Exception as e:
+
+            print(
+                "  ❌ 旧 player_history.json の"
+                "削除に失敗しました。"
+            )
+
+            print(
+                f"     エラー: {e}"
+            )
+
+            return False
 
     # --------------------------------------------------------
     # 完了
