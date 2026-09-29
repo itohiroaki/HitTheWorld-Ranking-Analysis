@@ -1,7 +1,7 @@
 {
   "date": "20260929",
   "previous_date": "20260928",
-  "player_count": 1024,
+  "player_count": 1025,
   "event_summary": {
     "entry": 1,
     "exit": 1,
@@ -1353,6 +1353,14 @@
         "tracking_id": "player_d022cf6ebd67ba30"
       },
       {
+        "rank": 45,
+        "character": "蝶歩六爺",
+        "level": 98,
+        "server": "Eda4",
+        "guild": "なみだふくよ",
+        "tracking_id": "player_faea64bbd56c49b1"
+      },
+      {
         "rank": 46,
         "character": "くろずぎんちゃん",
         "level": 98,
@@ -1542,7 +1550,7 @@
         "level": 97,
         "server": "Eda4",
         "guild": "",
-        "tracking_id": "player_faea64bbd56c49b1"
+        "tracking_id": "player_1fb334460bd9356d"
       },
       {
         "rank": 70,
@@ -2604,7 +2612,7 @@
         "101": 3,
         "100": 4,
         "99": 6,
-        "98": 43,
+        "98": 44,
         "97": 39
       },
       "Virba": {
@@ -2618,7 +2626,7 @@
     "server_distribution": {
       "Eda": {
         "Eda1": 47,
-        "Eda4": 35,
+        "Eda4": 36,
         "Eda2": 14,
         "Eda3": 3
       },
@@ -2630,9 +2638,9 @@
       }
     },
     "guild_distribution": {
+      "なみだふくよ": 26,
       "ねこはら帝国": 26,
       "わっしょい": 25,
-      "なみだふくよ": 25,
       "Oblivion": 16,
       "Harmony": 15,
       "朧桜": 9,
