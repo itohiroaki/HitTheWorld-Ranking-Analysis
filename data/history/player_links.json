@@ -73,33 +73,6 @@
       "reason": "ユーザー確認"
     },
     {
-      "canonical_tracking_id": "player_ffdc425b43356196",
-      "tracking_ids": [
-        "player_ffdc425b43356196",
-        "player_a0b786a425b986a8"
-      ],
-      "confirmed": true,
-      "reason": "ユーザー確認"
-    },
-    {
-      "canonical_tracking_id": "player_3abb9c795c7bc5a8",
-      "tracking_ids": [
-        "player_3abb9c795c7bc5a8",
-        "player_ef133ae2a4cf5946"
-      ],
-      "confirmed": true,
-      "reason": "ユーザー確認"
-    },
-    {
-      "canonical_tracking_id": "player_2379fa09256c35e7",
-      "tracking_ids": [
-        "player_2379fa09256c35e7",
-        "player_0d18bf0288564509"
-      ],
-      "confirmed": true,
-      "reason": "ユーザー確認"
-    },
-    {
       "canonical_tracking_id": "player_28489245e829f916",
       "tracking_ids": [
         "player_28489245e829f916",
@@ -122,15 +95,6 @@
       "tracking_ids": [
         "player_efb0e2840acf08ab",
         "player_56a73969d1f0ebfe"
-      ],
-      "confirmed": true,
-      "reason": "ユーザー確認"
-    },
-    {
-      "canonical_tracking_id": "player_f93e02fe6fc9fb32",
-      "tracking_ids": [
-        "player_f93e02fe6fc9fb32",
-        "player_7922c011fa5e44dc"
       ],
       "confirmed": true,
       "reason": "ユーザー確認"
@@ -363,15 +327,6 @@
       "reason": "ユーザー確認"
     },
     {
-      "canonical_tracking_id": "player_a4d866e334c39c5e",
-      "tracking_ids": [
-        "player_517852ff37523200",
-        "player_a4d866e334c39c5e"
-      ],
-      "confirmed": true,
-      "reason": "ユーザー確認"
-    },
-    {
       "canonical_tracking_id": "player_a80c11f610430992",
       "tracking_ids": [
         "player_72c4be90d5372ebb",
@@ -580,6 +535,119 @@
       "tracking_ids": [
         "player_78740788c689cd5d",
         "player_e98dbf3d604e8e27"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_e73ec702113273d9",
+      "tracking_ids": [
+        "player_a0cea59f8e351ee2",
+        "player_e73ec702113273d9"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_10c89b6a63856c7d",
+      "tracking_ids": [
+        "player_7cc31f4fd0297eec",
+        "player_10c89b6a63856c7d"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_0aee70ffe360d496",
+      "tracking_ids": [
+        "player_0aee70ffe360d496",
+        "player_a0b786a425b986a8",
+        "player_ffdc425b43356196"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_d7c56c69777fb2d7",
+      "tracking_ids": [
+        "player_46304e28aca6a9a4",
+        "player_d7c56c69777fb2d7"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_1f8e2ce92c06fcb9",
+      "tracking_ids": [
+        "player_1f8e2ce92c06fcb9",
+        "player_3abb9c795c7bc5a8",
+        "player_ef133ae2a4cf5946"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_a2fb5911a78640ec",
+      "tracking_ids": [
+        "player_0d18bf0288564509",
+        "player_2379fa09256c35e7",
+        "player_a2fb5911a78640ec"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_67ea6e7df3bbcb9d",
+      "tracking_ids": [
+        "player_eefb082050aa8d67",
+        "player_67ea6e7df3bbcb9d"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_f132a91263e0009a",
+      "tracking_ids": [
+        "player_7922c011fa5e44dc",
+        "player_f132a91263e0009a",
+        "player_f93e02fe6fc9fb32"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_67280ebd9ee7d799",
+      "tracking_ids": [
+        "player_d606bd40759a4bbe",
+        "player_67280ebd9ee7d799"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_320634a2b6a78918",
+      "tracking_ids": [
+        "player_d2a06b55610f8934",
+        "player_320634a2b6a78918"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_d5649fb4b51a69d2",
+      "tracking_ids": [
+        "player_244501d7a55b4691",
+        "player_d5649fb4b51a69d2"
+      ],
+      "confirmed": true,
+      "reason": "ユーザー確認"
+    },
+    {
+      "canonical_tracking_id": "player_47bb68f1fa8c88a5",
+      "tracking_ids": [
+        "player_47bb68f1fa8c88a5",
+        "player_517852ff37523200",
+        "player_a4d866e334c39c5e"
       ],
       "confirmed": true,
       "reason": "ユーザー確認"
