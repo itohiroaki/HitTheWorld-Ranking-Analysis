@@ -231439,16 +231439,17 @@
       }
     ]
   },
-  "五十": {
-    "tracking_id": "player_7c848f5005f0ee86",
-    "canonical_tracking_id": "player_7c848f5005f0ee86",
-    "character": "五十",
+  "いそちゃま": {
+    "tracking_id": "player_d493cef93fb11dca",
+    "canonical_tracking_id": "player_d493cef93fb11dca",
+    "character": "いそちゃま",
     "names": [
-      "五十"
+      "五十",
+      "いそちゃま"
     ],
     "status": {
-      "active": false,
-      "last_seen": ""
+      "active": true,
+      "last_seen": "20261027"
     },
     "world_snapshot": {
       "visible": true,
@@ -231510,13 +231511,13 @@
       ]
     },
     "current": {
-      "character": "五十",
-      "level": null,
-      "server": "",
-      "guild": "",
+      "character": "いそちゃま",
+      "level": 98,
+      "server": "Eda4",
+      "guild": "なみだふくよ",
       "eda": {
-        "visible": false,
-        "rank": null
+        "visible": true,
+        "rank": 67
       },
       "virba": {
         "visible": false,
@@ -231524,8 +231525,8 @@
       }
     },
     "last_known": {
-      "date": "20261021",
-      "character": "五十",
+      "date": "20261027",
+      "character": "いそちゃま",
       "level": 98,
       "server": "Eda4",
       "guild": "なみだふくよ",
@@ -231534,7 +231535,7 @@
     },
     "summary": {
       "first_seen": "20260901",
-      "last_seen": "20261021",
+      "last_seen": "20261027",
       "world_snapshot": {
         "rank": 106,
         "level": 97,
@@ -231595,13 +231596,13 @@
         "reliable_for_daily_change": false
       },
       "current": {
-        "character": "五十",
-        "level": null,
-        "server": "",
-        "guild": "",
+        "character": "いそちゃま",
+        "level": 98,
+        "server": "Eda4",
+        "guild": "なみだふくよ",
         "eda": {
-          "visible": false,
-          "rank": null
+          "visible": true,
+          "rank": 67
         },
         "virba": {
           "visible": false,
@@ -231609,8 +231610,8 @@
         }
       },
       "last_known": {
-        "date": "20261021",
-        "character": "五十",
+        "date": "20261027",
+        "character": "いそちゃま",
         "level": 98,
         "server": "Eda4",
         "guild": "なみだふくよ",
@@ -231619,14 +231620,14 @@
       },
       "first_level": 97,
       "last_known_level": 98,
-      "current_level": null,
-      "level_change": null,
+      "current_level": 98,
+      "level_change": 1,
       "world_observation_days": 50,
       "best_world_rank": 106,
       "worst_world_rank": 106,
       "eda": {
-        "observation_days": 49,
-        "current_rank": null,
+        "observation_days": 55,
+        "current_rank": 67,
         "best_rank": 61,
         "reliable_for_daily_change": true
       },
@@ -232039,6 +232040,69 @@
         "type": "server_rank_down",
         "group": "Eda",
         "old_value": 66,
+        "new_value": 67,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261022",
+        "type": "server_ranking_name_change",
+        "group": "Eda",
+        "old_value": "五十",
+        "new_value": "いそちゃま",
+        "details": {
+          "from_name": "五十",
+          "to_name": "いそちゃま",
+          "last_seen_date": "20261021",
+          "confirmed": true
+        }
+      },
+      {
+        "date": "20261023",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 67,
+        "new_value": 75,
+        "details": {
+          "change": 8
+        }
+      },
+      {
+        "date": "20261024",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 75,
+        "new_value": 73,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261025",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 73,
+        "new_value": 70,
+        "details": {
+          "change": 3
+        }
+      },
+      {
+        "date": "20261026",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 70,
+        "new_value": 68,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261027",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 68,
         "new_value": 67,
         "details": {
           "change": 1
@@ -233579,6 +233643,192 @@
           "Eda": {
             "visible": true,
             "character": "五十",
+            "rank": 67,
+            "level": 98,
+            "server": "Eda4",
+            "guild": "なみだふくよ",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261022",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "いそちゃま",
+            "rank": 67,
+            "level": 98,
+            "server": "Eda4",
+            "guild": "なみだふくよ",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261023",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "いそちゃま",
+            "rank": 75,
+            "level": 98,
+            "server": "Eda4",
+            "guild": "なみだふくよ",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261024",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "いそちゃま",
+            "rank": 73,
+            "level": 98,
+            "server": "Eda4",
+            "guild": "なみだふくよ",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261025",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "いそちゃま",
+            "rank": 70,
+            "level": 98,
+            "server": "Eda4",
+            "guild": "なみだふくよ",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261026",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "いそちゃま",
+            "rank": 68,
+            "level": 98,
+            "server": "Eda4",
+            "guild": "なみだふくよ",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261027",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "いそちゃま",
             "rank": 67,
             "level": 98,
             "server": "Eda4",
@@ -259313,16 +259563,18 @@
       }
     ]
   },
-  "魔法少女珍夕オ": {
-    "tracking_id": "player_761fca2eb2b6cc6a",
-    "canonical_tracking_id": "player_761fca2eb2b6cc6a",
-    "character": "魔法少女珍夕オ",
+  "珍獄卿": {
+    "tracking_id": "player_d5649fb4b51a69d2",
+    "canonical_tracking_id": "player_d5649fb4b51a69d2",
+    "character": "珍獄卿",
     "names": [
-      "魔法少女珍夕オ"
+      "魔法少女珍夕オ",
+      "も珍たろう",
+      "珍獄卿"
     ],
     "status": {
-      "active": false,
-      "last_seen": ""
+      "active": true,
+      "last_seen": "20261027"
     },
     "world_snapshot": {
       "visible": true,
@@ -259384,13 +259636,13 @@
       ]
     },
     "current": {
-      "character": "魔法少女珍夕オ",
-      "level": null,
-      "server": "",
-      "guild": "",
+      "character": "珍獄卿",
+      "level": 100,
+      "server": "Eda3",
+      "guild": "わっしょい",
       "eda": {
-        "visible": false,
-        "rank": null
+        "visible": true,
+        "rank": 32
       },
       "virba": {
         "visible": false,
@@ -259398,17 +259650,17 @@
       }
     },
     "last_known": {
-      "date": "20260917",
-      "character": "魔法少女珍夕オ",
-      "level": 97,
+      "date": "20261027",
+      "character": "珍獄卿",
+      "level": 100,
       "server": "Eda3",
       "guild": "わっしょい",
       "group": "Eda",
-      "rank": 56
+      "rank": 32
     },
     "summary": {
       "first_seen": "20260901",
-      "last_seen": "20261021",
+      "last_seen": "20261027",
       "world_snapshot": {
         "rank": 118,
         "level": 97,
@@ -259469,13 +259721,13 @@
         "reliable_for_daily_change": false
       },
       "current": {
-        "character": "魔法少女珍夕オ",
-        "level": null,
-        "server": "",
-        "guild": "",
+        "character": "珍獄卿",
+        "level": 100,
+        "server": "Eda3",
+        "guild": "わっしょい",
         "eda": {
-          "visible": false,
-          "rank": null
+          "visible": true,
+          "rank": 32
         },
         "virba": {
           "visible": false,
@@ -259483,25 +259735,25 @@
         }
       },
       "last_known": {
-        "date": "20260917",
-        "character": "魔法少女珍夕オ",
-        "level": 97,
+        "date": "20261027",
+        "character": "珍獄卿",
+        "level": 100,
         "server": "Eda3",
         "guild": "わっしょい",
         "group": "Eda",
-        "rank": 56
+        "rank": 32
       },
       "first_level": 97,
-      "last_known_level": 97,
-      "current_level": null,
-      "level_change": null,
+      "last_known_level": 100,
+      "current_level": 100,
+      "level_change": 3,
       "world_observation_days": 50,
       "best_world_rank": 118,
       "worst_world_rank": 118,
       "eda": {
-        "observation_days": 15,
-        "current_rank": null,
-        "best_rank": 56,
+        "observation_days": 55,
+        "current_rank": 32,
+        "best_rank": 26,
         "reliable_for_daily_change": true
       },
       "virba": {
@@ -259659,17 +259911,361 @@
       },
       {
         "date": "20260918",
-        "type": "server_ranking_exit",
+        "type": "server_ranking_name_change",
+        "group": "Eda",
+        "old_value": "魔法少女珍夕オ",
+        "new_value": "も珍たろう",
+        "details": {
+          "from_name": "魔法少女珍夕オ",
+          "to_name": "も珍たろう",
+          "last_seen_date": "20260917",
+          "confirmed": true
+        }
+      },
+      {
+        "date": "20260918",
+        "type": "server_rank_down",
         "group": "Eda",
         "old_value": 56,
-        "new_value": null,
+        "new_value": 58,
         "details": {
-          "last_rank": 56,
-          "last_level": 97,
-          "last_server": "Eda3",
-          "last_guild": "わっしょい",
-          "last_group": "Eda",
-          "last_seen_date": "20260917"
+          "change": 2
+        }
+      },
+      {
+        "date": "20260918",
+        "type": "server_ranking_server_change",
+        "group": "Eda",
+        "old_value": "Eda3",
+        "new_value": "Eda1",
+        "details": {
+          "from_server": "Eda3",
+          "to_server": "Eda1",
+          "gap": false
+        }
+      },
+      {
+        "date": "20260919",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 58,
+        "new_value": 52,
+        "details": {
+          "change": 6
+        }
+      },
+      {
+        "date": "20260920",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 52,
+        "new_value": 49,
+        "details": {
+          "change": 3
+        }
+      },
+      {
+        "date": "20260921",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 49,
+        "new_value": 46,
+        "details": {
+          "change": 3
+        }
+      },
+      {
+        "date": "20260922",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 46,
+        "new_value": 41,
+        "details": {
+          "change": 5
+        }
+      },
+      {
+        "date": "20260923",
+        "type": "server_ranking_level_up",
+        "group": "Eda",
+        "old_value": 97,
+        "new_value": 98,
+        "details": {
+          "change": 1,
+          "confirmed": true
+        }
+      },
+      {
+        "date": "20260926",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 41,
+        "new_value": 40,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20260927",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 40,
+        "new_value": 38,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20260929",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 38,
+        "new_value": 36,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20260930",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 36,
+        "new_value": 35,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261002",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 35,
+        "new_value": 34,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261003",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 34,
+        "new_value": 32,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261004",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 32,
+        "new_value": 34,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261005",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 34,
+        "new_value": 32,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261006",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 32,
+        "new_value": 31,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261007",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 31,
+        "new_value": 30,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261007",
+        "type": "server_ranking_level_up",
+        "group": "Eda",
+        "old_value": 98,
+        "new_value": 99,
+        "details": {
+          "change": 1,
+          "confirmed": true,
+          "duration_confirmed": true,
+          "duration_days": 14,
+          "level_start_date": "20260923"
+        }
+      },
+      {
+        "date": "20261008",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 30,
+        "new_value": 29,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261009",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 29,
+        "new_value": 28,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261010",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 28,
+        "new_value": 29,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261012",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 29,
+        "new_value": 28,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261014",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 28,
+        "new_value": 26,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261018",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 26,
+        "new_value": 29,
+        "details": {
+          "change": 3
+        }
+      },
+      {
+        "date": "20261019",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 29,
+        "new_value": 28,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261021",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 28,
+        "new_value": 27,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261022",
+        "type": "server_ranking_name_change",
+        "group": "Eda",
+        "old_value": "も珍たろう",
+        "new_value": "珍獄卿",
+        "details": {
+          "from_name": "も珍たろう",
+          "to_name": "珍獄卿",
+          "last_seen_date": "20261021",
+          "confirmed": true
+        }
+      },
+      {
+        "date": "20261022",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 27,
+        "new_value": 28,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261022",
+        "type": "server_ranking_server_change",
+        "group": "Eda",
+        "old_value": "Eda1",
+        "new_value": "Eda3",
+        "details": {
+          "from_server": "Eda1",
+          "to_server": "Eda3",
+          "gap": false
+        }
+      },
+      {
+        "date": "20261023",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 28,
+        "new_value": 30,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261025",
+        "type": "server_ranking_level_up",
+        "group": "Eda",
+        "old_value": 99,
+        "new_value": 100,
+        "details": {
+          "change": 1,
+          "confirmed": true,
+          "duration_confirmed": true,
+          "duration_days": 18,
+          "level_start_date": "20261007"
+        }
+      },
+      {
+        "date": "20261026",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 30,
+        "new_value": 31,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261027",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 31,
+        "new_value": 32,
+        "details": {
+          "change": 1
         }
       }
     ],
@@ -260182,12 +260778,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 58,
+            "level": 97,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260213,12 +260809,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 52,
+            "level": 97,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260244,12 +260840,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 49,
+            "level": 97,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260275,12 +260871,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 46,
+            "level": 97,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260306,12 +260902,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 41,
+            "level": 97,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260337,12 +260933,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 41,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260368,12 +260964,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 41,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260399,12 +260995,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 41,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260430,12 +261026,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 40,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260461,12 +261057,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 38,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260492,12 +261088,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 38,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260523,12 +261119,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 36,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260554,12 +261150,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 35,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260585,12 +261181,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 35,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260616,12 +261212,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 34,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260647,12 +261243,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 32,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260678,12 +261274,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 34,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260709,12 +261305,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 32,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260740,12 +261336,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 31,
+            "level": 98,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260771,12 +261367,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 30,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260802,12 +261398,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 29,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260833,12 +261429,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 28,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260864,12 +261460,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 29,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260895,12 +261491,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 29,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260926,12 +261522,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 28,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260957,12 +261553,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 28,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -260988,12 +261584,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 26,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -261019,12 +261615,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 26,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -261050,12 +261646,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 26,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -261081,12 +261677,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 26,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -261112,12 +261708,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 29,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -261143,12 +261739,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 28,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -261174,12 +261770,12 @@
         },
         "server_ranking": {
           "Eda": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 28,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -261205,12 +261801,198 @@
         },
         "server_ranking": {
           "Eda": {
+            "visible": true,
+            "character": "も珍たろう",
+            "rank": 27,
+            "level": 99,
+            "server": "Eda1",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
             "visible": false,
             "character": "",
             "rank": null,
             "level": null,
             "server": "",
             "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261022",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍獄卿",
+            "rank": 28,
+            "level": 99,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261023",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍獄卿",
+            "rank": 30,
+            "level": 99,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261024",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍獄卿",
+            "rank": 30,
+            "level": 99,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261025",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍獄卿",
+            "rank": 30,
+            "level": 100,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261026",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍獄卿",
+            "rank": 31,
+            "level": 100,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261027",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍獄卿",
+            "rank": 32,
+            "level": 100,
+            "server": "Eda3",
+            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
@@ -1864770,1687 +1865552,6 @@
       }
     ]
   },
-  "珍獄卿": {
-    "tracking_id": "player_d5649fb4b51a69d2",
-    "canonical_tracking_id": "player_d5649fb4b51a69d2",
-    "character": "珍獄卿",
-    "names": [
-      "も珍たろう",
-      "珍獄卿"
-    ],
-    "status": {
-      "active": true,
-      "last_seen": "20261027"
-    },
-    "world_snapshot": {
-      "visible": false,
-      "rank": null,
-      "level": null,
-      "server": "",
-      "guild": "",
-      "snapshot_dates": []
-    },
-    "current": {
-      "character": "珍獄卿",
-      "level": 100,
-      "server": "Eda3",
-      "guild": "わっしょい",
-      "eda": {
-        "visible": true,
-        "rank": 32
-      },
-      "virba": {
-        "visible": false,
-        "rank": null
-      }
-    },
-    "last_known": {
-      "date": "20261027",
-      "character": "珍獄卿",
-      "level": 100,
-      "server": "Eda3",
-      "guild": "わっしょい",
-      "group": "Eda",
-      "rank": 32
-    },
-    "summary": {
-      "first_seen": "20260918",
-      "last_seen": "20261027",
-      "world_snapshot": {
-        "rank": null,
-        "level": null,
-        "server": "",
-        "guild": "",
-        "snapshot_dates": [],
-        "reliable_for_daily_change": false
-      },
-      "current": {
-        "character": "珍獄卿",
-        "level": 100,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "eda": {
-          "visible": true,
-          "rank": 32
-        },
-        "virba": {
-          "visible": false,
-          "rank": null
-        }
-      },
-      "last_known": {
-        "date": "20261027",
-        "character": "珍獄卿",
-        "level": 100,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "group": "Eda",
-        "rank": 32
-      },
-      "first_level": 97,
-      "last_known_level": 100,
-      "current_level": 100,
-      "level_change": 3,
-      "world_observation_days": 0,
-      "best_world_rank": null,
-      "worst_world_rank": null,
-      "eda": {
-        "observation_days": 40,
-        "current_rank": 32,
-        "best_rank": 26,
-        "reliable_for_daily_change": true
-      },
-      "virba": {
-        "observation_days": 0,
-        "current_rank": null,
-        "best_rank": null,
-        "reliable_for_daily_change": true
-      }
-    },
-    "events": [
-      {
-        "date": "20260918",
-        "type": "server_ranking_entry",
-        "group": "Eda",
-        "old_value": null,
-        "new_value": 58,
-        "details": {
-          "rank": 58,
-          "level": 97,
-          "server": "Eda1",
-          "guild": "わっしょい",
-          "group": "Eda",
-          "first_observation": true
-        }
-      },
-      {
-        "date": "20260919",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 58,
-        "new_value": 52,
-        "details": {
-          "change": 6
-        }
-      },
-      {
-        "date": "20260920",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 52,
-        "new_value": 49,
-        "details": {
-          "change": 3
-        }
-      },
-      {
-        "date": "20260921",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 49,
-        "new_value": 46,
-        "details": {
-          "change": 3
-        }
-      },
-      {
-        "date": "20260922",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 46,
-        "new_value": 41,
-        "details": {
-          "change": 5
-        }
-      },
-      {
-        "date": "20260923",
-        "type": "server_ranking_level_up",
-        "group": "Eda",
-        "old_value": 97,
-        "new_value": 98,
-        "details": {
-          "change": 1,
-          "confirmed": true
-        }
-      },
-      {
-        "date": "20260926",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 41,
-        "new_value": 40,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20260927",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 40,
-        "new_value": 38,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20260929",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 38,
-        "new_value": 36,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20260930",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 36,
-        "new_value": 35,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261002",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 35,
-        "new_value": 34,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261003",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 34,
-        "new_value": 32,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261004",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 32,
-        "new_value": 34,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261005",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 34,
-        "new_value": 32,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261006",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 32,
-        "new_value": 31,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261007",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 31,
-        "new_value": 30,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261007",
-        "type": "server_ranking_level_up",
-        "group": "Eda",
-        "old_value": 98,
-        "new_value": 99,
-        "details": {
-          "change": 1,
-          "confirmed": true,
-          "duration_confirmed": true,
-          "duration_days": 14,
-          "level_start_date": "20260923"
-        }
-      },
-      {
-        "date": "20261008",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 30,
-        "new_value": 29,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261009",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 29,
-        "new_value": 28,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261010",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 28,
-        "new_value": 29,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261012",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 29,
-        "new_value": 28,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261014",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 28,
-        "new_value": 26,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261018",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 26,
-        "new_value": 29,
-        "details": {
-          "change": 3
-        }
-      },
-      {
-        "date": "20261019",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 29,
-        "new_value": 28,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261021",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 28,
-        "new_value": 27,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261022",
-        "type": "server_ranking_name_change",
-        "group": "Eda",
-        "old_value": "も珍たろう",
-        "new_value": "珍獄卿",
-        "details": {
-          "from_name": "も珍たろう",
-          "to_name": "珍獄卿",
-          "last_seen_date": "20261021",
-          "confirmed": true
-        }
-      },
-      {
-        "date": "20261022",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 27,
-        "new_value": 28,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261022",
-        "type": "server_ranking_server_change",
-        "group": "Eda",
-        "old_value": "Eda1",
-        "new_value": "Eda3",
-        "details": {
-          "from_server": "Eda1",
-          "to_server": "Eda3",
-          "gap": false
-        }
-      },
-      {
-        "date": "20261023",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 28,
-        "new_value": 30,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261025",
-        "type": "server_ranking_level_up",
-        "group": "Eda",
-        "old_value": 99,
-        "new_value": 100,
-        "details": {
-          "change": 1,
-          "confirmed": true,
-          "duration_confirmed": true,
-          "duration_days": 18,
-          "level_start_date": "20261007"
-        }
-      },
-      {
-        "date": "20261026",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 30,
-        "new_value": 31,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261027",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 31,
-        "new_value": 32,
-        "details": {
-          "change": 1
-        }
-      }
-    ],
-    "history": [
-      {
-        "date": "20260918",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 58,
-            "level": 97,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260919",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 52,
-            "level": 97,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260920",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 49,
-            "level": 97,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260921",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 46,
-            "level": 97,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260922",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 41,
-            "level": 97,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260923",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 41,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260924",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 41,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260925",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 41,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260926",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 40,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260927",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 38,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260928",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 38,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260929",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 36,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20260930",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 35,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261001",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 35,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261002",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 34,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261003",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 32,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261004",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 34,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261005",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 32,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261006",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 31,
-            "level": 98,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261007",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 30,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261008",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 29,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261009",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 28,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261010",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 29,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261011",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 29,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261012",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 28,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261013",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 28,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261014",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 26,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261015",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 26,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261016",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 26,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261017",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 26,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261018",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 29,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261019",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 28,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261020",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 28,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261021",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "も珍たろう",
-            "rank": 27,
-            "level": 99,
-            "server": "Eda1",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261022",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍獄卿",
-            "rank": 28,
-            "level": 99,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261023",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍獄卿",
-            "rank": 30,
-            "level": 99,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261024",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍獄卿",
-            "rank": 30,
-            "level": 99,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261025",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍獄卿",
-            "rank": 30,
-            "level": 100,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261026",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍獄卿",
-            "rank": 31,
-            "level": 100,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261027",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍獄卿",
-            "rank": 32,
-            "level": 100,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      }
-    ]
-  },
   "れいしす": {
     "tracking_id": "player_ab960e7b0af99397",
     "canonical_tracking_id": "player_ab960e7b0af99397",
@@ -1869727,16 +1868828,17 @@
       }
     ]
   },
-  "鶴の珍返し": {
-    "tracking_id": "player_ffd8bdb57c9ad4a2",
-    "canonical_tracking_id": "player_ffd8bdb57c9ad4a2",
-    "character": "鶴の珍返し",
+  "珍極丸": {
+    "tracking_id": "player_302e06cc1afa249a",
+    "canonical_tracking_id": "player_302e06cc1afa249a",
+    "character": "珍極丸",
     "names": [
-      "鶴の珍返し"
+      "鶴の珍返し",
+      "珍極丸"
     ],
     "status": {
-      "active": false,
-      "last_seen": ""
+      "active": true,
+      "last_seen": "20261027"
     },
     "world_snapshot": {
       "visible": false,
@@ -1869747,13 +1868849,13 @@
       "snapshot_dates": []
     },
     "current": {
-      "character": "鶴の珍返し",
-      "level": null,
-      "server": "",
-      "guild": "",
+      "character": "珍極丸",
+      "level": 98,
+      "server": "Eda3",
+      "guild": "わっしょい",
       "eda": {
-        "visible": false,
-        "rank": null
+        "visible": true,
+        "rank": 74
       },
       "virba": {
         "visible": false,
@@ -1869761,17 +1868863,17 @@
       }
     },
     "last_known": {
-      "date": "20261021",
-      "character": "鶴の珍返し",
+      "date": "20261027",
+      "character": "珍極丸",
       "level": 98,
-      "server": "Eda1",
+      "server": "Eda3",
       "guild": "わっしょい",
       "group": "Eda",
-      "rank": 68
+      "rank": 74
     },
     "summary": {
       "first_seen": "20260918",
-      "last_seen": "20261021",
+      "last_seen": "20261027",
       "world_snapshot": {
         "rank": null,
         "level": null,
@@ -1869781,13 +1868883,13 @@
         "reliable_for_daily_change": false
       },
       "current": {
-        "character": "鶴の珍返し",
-        "level": null,
-        "server": "",
-        "guild": "",
+        "character": "珍極丸",
+        "level": 98,
+        "server": "Eda3",
+        "guild": "わっしょい",
         "eda": {
-          "visible": false,
-          "rank": null
+          "visible": true,
+          "rank": 74
         },
         "virba": {
           "visible": false,
@@ -1869795,24 +1868897,24 @@
         }
       },
       "last_known": {
-        "date": "20261021",
-        "character": "鶴の珍返し",
+        "date": "20261027",
+        "character": "珍極丸",
         "level": 98,
-        "server": "Eda1",
+        "server": "Eda3",
         "guild": "わっしょい",
         "group": "Eda",
-        "rank": 68
+        "rank": 74
       },
       "first_level": 97,
       "last_known_level": 98,
-      "current_level": null,
-      "level_change": null,
+      "current_level": 98,
+      "level_change": 1,
       "world_observation_days": 0,
       "best_world_rank": null,
       "worst_world_rank": null,
       "eda": {
-        "observation_days": 34,
-        "current_rank": null,
+        "observation_days": 40,
+        "current_rank": 74,
         "best_rank": 65,
         "reliable_for_daily_change": true
       },
@@ -1870066,6 +1869168,91 @@
         "group": "Eda",
         "old_value": 69,
         "new_value": 68,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261022",
+        "type": "server_ranking_name_change",
+        "group": "Eda",
+        "old_value": "鶴の珍返し",
+        "new_value": "珍極丸",
+        "details": {
+          "from_name": "鶴の珍返し",
+          "to_name": "珍極丸",
+          "last_seen_date": "20261021",
+          "confirmed": true
+        }
+      },
+      {
+        "date": "20261022",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 68,
+        "new_value": 70,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261022",
+        "type": "server_ranking_server_change",
+        "group": "Eda",
+        "old_value": "Eda1",
+        "new_value": "Eda3",
+        "details": {
+          "from_server": "Eda1",
+          "to_server": "Eda3",
+          "gap": false
+        }
+      },
+      {
+        "date": "20261023",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 70,
+        "new_value": 74,
+        "details": {
+          "change": 4
+        }
+      },
+      {
+        "date": "20261024",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 74,
+        "new_value": 72,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261025",
+        "type": "server_rank_up",
+        "group": "Eda",
+        "old_value": 72,
+        "new_value": 71,
+        "details": {
+          "change": 1
+        }
+      },
+      {
+        "date": "20261026",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 71,
+        "new_value": 73,
+        "details": {
+          "change": 2
+        }
+      },
+      {
+        "date": "20261027",
+        "type": "server_rank_down",
+        "group": "Eda",
+        "old_value": 73,
+        "new_value": 74,
         "details": {
           "change": 1
         }
@@ -1871112,6 +1870299,192 @@
             "rank": 68,
             "level": 98,
             "server": "Eda1",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261022",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍極丸",
+            "rank": 70,
+            "level": 98,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261023",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍極丸",
+            "rank": 74,
+            "level": 98,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261024",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍極丸",
+            "rank": 72,
+            "level": 98,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261025",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍極丸",
+            "rank": 71,
+            "level": 98,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261026",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍極丸",
+            "rank": 73,
+            "level": 98,
+            "server": "Eda3",
+            "guild": "わっしょい",
+            "reliable_for_daily_change": true
+          },
+          "Virba": {
+            "visible": false,
+            "character": "",
+            "rank": null,
+            "level": null,
+            "server": "",
+            "guild": "",
+            "reliable_for_daily_change": true
+          }
+        }
+      },
+      {
+        "date": "20261027",
+        "world": {
+          "visible": false,
+          "rank": null,
+          "level": null,
+          "server": "",
+          "guild": "",
+          "reliable_for_daily_change": false
+        },
+        "server_ranking": {
+          "Eda": {
+            "visible": true,
+            "character": "珍極丸",
+            "rank": 74,
+            "level": 98,
+            "server": "Eda3",
             "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
@@ -1889814,710 +1889187,6 @@
             "level": 98,
             "server": "Eda4",
             "guild": "なみだふくよ",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      }
-    ]
-  },
-  "いそちゃま": {
-    "tracking_id": "player_d493cef93fb11dca",
-    "canonical_tracking_id": "player_d493cef93fb11dca",
-    "character": "いそちゃま",
-    "names": [
-      "いそちゃま"
-    ],
-    "status": {
-      "active": true,
-      "last_seen": "20261027"
-    },
-    "world_snapshot": {
-      "visible": false,
-      "rank": null,
-      "level": null,
-      "server": "",
-      "guild": "",
-      "snapshot_dates": []
-    },
-    "current": {
-      "character": "いそちゃま",
-      "level": 98,
-      "server": "Eda4",
-      "guild": "なみだふくよ",
-      "eda": {
-        "visible": true,
-        "rank": 67
-      },
-      "virba": {
-        "visible": false,
-        "rank": null
-      }
-    },
-    "last_known": {
-      "date": "20261027",
-      "character": "いそちゃま",
-      "level": 98,
-      "server": "Eda4",
-      "guild": "なみだふくよ",
-      "group": "Eda",
-      "rank": 67
-    },
-    "summary": {
-      "first_seen": "20261022",
-      "last_seen": "20261027",
-      "world_snapshot": {
-        "rank": null,
-        "level": null,
-        "server": "",
-        "guild": "",
-        "snapshot_dates": [],
-        "reliable_for_daily_change": false
-      },
-      "current": {
-        "character": "いそちゃま",
-        "level": 98,
-        "server": "Eda4",
-        "guild": "なみだふくよ",
-        "eda": {
-          "visible": true,
-          "rank": 67
-        },
-        "virba": {
-          "visible": false,
-          "rank": null
-        }
-      },
-      "last_known": {
-        "date": "20261027",
-        "character": "いそちゃま",
-        "level": 98,
-        "server": "Eda4",
-        "guild": "なみだふくよ",
-        "group": "Eda",
-        "rank": 67
-      },
-      "first_level": 98,
-      "last_known_level": 98,
-      "current_level": 98,
-      "level_change": 0,
-      "world_observation_days": 0,
-      "best_world_rank": null,
-      "worst_world_rank": null,
-      "eda": {
-        "observation_days": 6,
-        "current_rank": 67,
-        "best_rank": 67,
-        "reliable_for_daily_change": true
-      },
-      "virba": {
-        "observation_days": 0,
-        "current_rank": null,
-        "best_rank": null,
-        "reliable_for_daily_change": true
-      }
-    },
-    "events": [
-      {
-        "date": "20261022",
-        "type": "server_ranking_entry",
-        "group": "Eda",
-        "old_value": null,
-        "new_value": 67,
-        "details": {
-          "rank": 67,
-          "level": 98,
-          "server": "Eda4",
-          "guild": "なみだふくよ",
-          "group": "Eda",
-          "first_observation": true
-        }
-      },
-      {
-        "date": "20261023",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 67,
-        "new_value": 75,
-        "details": {
-          "change": 8
-        }
-      },
-      {
-        "date": "20261024",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 75,
-        "new_value": 73,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261025",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 73,
-        "new_value": 70,
-        "details": {
-          "change": 3
-        }
-      },
-      {
-        "date": "20261026",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 70,
-        "new_value": 68,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261027",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 68,
-        "new_value": 67,
-        "details": {
-          "change": 1
-        }
-      }
-    ],
-    "history": [
-      {
-        "date": "20261022",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "いそちゃま",
-            "rank": 67,
-            "level": 98,
-            "server": "Eda4",
-            "guild": "なみだふくよ",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261023",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "いそちゃま",
-            "rank": 75,
-            "level": 98,
-            "server": "Eda4",
-            "guild": "なみだふくよ",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261024",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "いそちゃま",
-            "rank": 73,
-            "level": 98,
-            "server": "Eda4",
-            "guild": "なみだふくよ",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261025",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "いそちゃま",
-            "rank": 70,
-            "level": 98,
-            "server": "Eda4",
-            "guild": "なみだふくよ",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261026",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "いそちゃま",
-            "rank": 68,
-            "level": 98,
-            "server": "Eda4",
-            "guild": "なみだふくよ",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261027",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "いそちゃま",
-            "rank": 67,
-            "level": 98,
-            "server": "Eda4",
-            "guild": "なみだふくよ",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      }
-    ]
-  },
-  "珍極丸": {
-    "tracking_id": "player_302e06cc1afa249a",
-    "canonical_tracking_id": "player_302e06cc1afa249a",
-    "character": "珍極丸",
-    "names": [
-      "珍極丸"
-    ],
-    "status": {
-      "active": true,
-      "last_seen": "20261027"
-    },
-    "world_snapshot": {
-      "visible": false,
-      "rank": null,
-      "level": null,
-      "server": "",
-      "guild": "",
-      "snapshot_dates": []
-    },
-    "current": {
-      "character": "珍極丸",
-      "level": 98,
-      "server": "Eda3",
-      "guild": "わっしょい",
-      "eda": {
-        "visible": true,
-        "rank": 74
-      },
-      "virba": {
-        "visible": false,
-        "rank": null
-      }
-    },
-    "last_known": {
-      "date": "20261027",
-      "character": "珍極丸",
-      "level": 98,
-      "server": "Eda3",
-      "guild": "わっしょい",
-      "group": "Eda",
-      "rank": 74
-    },
-    "summary": {
-      "first_seen": "20261022",
-      "last_seen": "20261027",
-      "world_snapshot": {
-        "rank": null,
-        "level": null,
-        "server": "",
-        "guild": "",
-        "snapshot_dates": [],
-        "reliable_for_daily_change": false
-      },
-      "current": {
-        "character": "珍極丸",
-        "level": 98,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "eda": {
-          "visible": true,
-          "rank": 74
-        },
-        "virba": {
-          "visible": false,
-          "rank": null
-        }
-      },
-      "last_known": {
-        "date": "20261027",
-        "character": "珍極丸",
-        "level": 98,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "group": "Eda",
-        "rank": 74
-      },
-      "first_level": 98,
-      "last_known_level": 98,
-      "current_level": 98,
-      "level_change": 0,
-      "world_observation_days": 0,
-      "best_world_rank": null,
-      "worst_world_rank": null,
-      "eda": {
-        "observation_days": 6,
-        "current_rank": 74,
-        "best_rank": 70,
-        "reliable_for_daily_change": true
-      },
-      "virba": {
-        "observation_days": 0,
-        "current_rank": null,
-        "best_rank": null,
-        "reliable_for_daily_change": true
-      }
-    },
-    "events": [
-      {
-        "date": "20261022",
-        "type": "server_ranking_entry",
-        "group": "Eda",
-        "old_value": null,
-        "new_value": 70,
-        "details": {
-          "rank": 70,
-          "level": 98,
-          "server": "Eda3",
-          "guild": "わっしょい",
-          "group": "Eda",
-          "first_observation": true
-        }
-      },
-      {
-        "date": "20261023",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 70,
-        "new_value": 74,
-        "details": {
-          "change": 4
-        }
-      },
-      {
-        "date": "20261024",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 74,
-        "new_value": 72,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261025",
-        "type": "server_rank_up",
-        "group": "Eda",
-        "old_value": 72,
-        "new_value": 71,
-        "details": {
-          "change": 1
-        }
-      },
-      {
-        "date": "20261026",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 71,
-        "new_value": 73,
-        "details": {
-          "change": 2
-        }
-      },
-      {
-        "date": "20261027",
-        "type": "server_rank_down",
-        "group": "Eda",
-        "old_value": 73,
-        "new_value": 74,
-        "details": {
-          "change": 1
-        }
-      }
-    ],
-    "history": [
-      {
-        "date": "20261022",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍極丸",
-            "rank": 70,
-            "level": 98,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261023",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍極丸",
-            "rank": 74,
-            "level": 98,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261024",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍極丸",
-            "rank": 72,
-            "level": 98,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261025",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍極丸",
-            "rank": 71,
-            "level": 98,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261026",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍極丸",
-            "rank": 73,
-            "level": 98,
-            "server": "Eda3",
-            "guild": "わっしょい",
-            "reliable_for_daily_change": true
-          },
-          "Virba": {
-            "visible": false,
-            "character": "",
-            "rank": null,
-            "level": null,
-            "server": "",
-            "guild": "",
-            "reliable_for_daily_change": true
-          }
-        }
-      },
-      {
-        "date": "20261027",
-        "world": {
-          "visible": false,
-          "rank": null,
-          "level": null,
-          "server": "",
-          "guild": "",
-          "reliable_for_daily_change": false
-        },
-        "server_ranking": {
-          "Eda": {
-            "visible": true,
-            "character": "珍極丸",
-            "rank": 74,
-            "level": 98,
-            "server": "Eda3",
-            "guild": "わっしょい",
             "reliable_for_daily_change": true
           },
           "Virba": {
