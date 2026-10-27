@@ -12,3 +12,28 @@ Thumbs.db
 
 # Logs
 *.log
+# Generated ranking and analysis data (local only)
+data/diff/
+data/ranking/*.csv
+data/ranking_server/*.csv
+
+# Local backups and temporary work files
+backup/
+data/temp/
+*.backup
+*.backup_*
+temp_*.py
+
+# Local investigation scripts and reports
+audit_*.py
+check_*.py
+compare_*.py
+make_high.py
+move_virba_csvs.py
+repair_daily_analysis.py
+git_search.txt
+
+# Local player-link data and history backups
+toryplayer_links.json
+data/history/*backup*.json
+data/history/*before_rebuild*.json
