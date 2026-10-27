@@ -5,25 +5,950 @@
   "event_summary": {
     "entry": 0,
     "exit": 0,
-    "rank_up": 0,
-    "rank_down": 0,
-    "level_up": 0,
+    "rank_up": 50,
+    "rank_down": 55,
+    "level_up": 8,
     "level_down": 0,
     "server_change": 0,
-    "guild_change": 0,
-    "total": 1
+    "guild_change": 13,
+    "total": 126
   },
   "rankings": {
-    "rank_up": [],
-    "rank_down": [],
+    "rank_up": [
+      {
+        "character": "教主",
+        "group": "Virba",
+        "old_rank": 80,
+        "new_rank": 70,
+        "change": 10
+      },
+      {
+        "character": "RuruU酒",
+        "group": "Virba",
+        "old_rank": 83,
+        "new_rank": 78,
+        "change": 5
+      },
+      {
+        "character": "ですくれあ",
+        "group": "Virba",
+        "old_rank": 98,
+        "new_rank": 94,
+        "change": 4
+      },
+      {
+        "character": "月華",
+        "group": "Virba",
+        "old_rank": 32,
+        "new_rank": 29,
+        "change": 3
+      },
+      {
+        "character": "羌かーい",
+        "group": "Eda",
+        "old_rank": 56,
+        "new_rank": 53,
+        "change": 3
+      },
+      {
+        "character": "きづなぁ",
+        "group": "Eda",
+        "old_rank": 69,
+        "new_rank": 66,
+        "change": 3
+      },
+      {
+        "character": "ふわしょこちゃま",
+        "group": "Eda",
+        "old_rank": 77,
+        "new_rank": 74,
+        "change": 3
+      },
+      {
+        "character": "あまとぅー",
+        "group": "Eda",
+        "old_rank": 80,
+        "new_rank": 77,
+        "change": 3
+      },
+      {
+        "character": "かびちゃま",
+        "group": "Eda",
+        "old_rank": 100,
+        "new_rank": 97,
+        "change": 3
+      },
+      {
+        "character": "Slinky",
+        "group": "Virba",
+        "old_rank": 30,
+        "new_rank": 28,
+        "change": 2
+      },
+      {
+        "character": "あきちゃま",
+        "group": "Eda",
+        "old_rank": 40,
+        "new_rank": 38,
+        "change": 2
+      },
+      {
+        "character": "キッコロ",
+        "group": "Virba",
+        "old_rank": 52,
+        "new_rank": 50,
+        "change": 2
+      },
+      {
+        "character": "ちゅるななちゃま",
+        "group": "Eda",
+        "old_rank": 58,
+        "new_rank": 56,
+        "change": 2
+      },
+      {
+        "character": "oneちゃま",
+        "group": "Eda",
+        "old_rank": 61,
+        "new_rank": 59,
+        "change": 2
+      },
+      {
+        "character": "いそちゃま",
+        "group": "Eda",
+        "old_rank": 70,
+        "new_rank": 68,
+        "change": 2
+      },
+      {
+        "character": "靉篷楴",
+        "group": "Eda",
+        "old_rank": 74,
+        "new_rank": 72,
+        "change": 2
+      },
+      {
+        "character": "超ハブ太郎",
+        "group": "Eda",
+        "old_rank": 83,
+        "new_rank": 81,
+        "change": 2
+      },
+      {
+        "character": "ぴょーんぴょーん",
+        "group": "Virba",
+        "old_rank": 84,
+        "new_rank": 82,
+        "change": 2
+      },
+      {
+        "character": "不滅見習い",
+        "group": "Eda",
+        "old_rank": 91,
+        "new_rank": 89,
+        "change": 2
+      },
+      {
+        "character": "Litz",
+        "group": "Virba",
+        "old_rank": 92,
+        "new_rank": 90,
+        "change": 2
+      },
+      {
+        "character": "マンディ",
+        "group": "Eda",
+        "old_rank": 98,
+        "new_rank": 96,
+        "change": 2
+      },
+      {
+        "character": "らきっちゃまくん",
+        "group": "Eda",
+        "old_rank": 11,
+        "new_rank": 10,
+        "change": 1
+      },
+      {
+        "character": "佐天涙子のよっ友",
+        "group": "Eda",
+        "old_rank": 16,
+        "new_rank": 15,
+        "change": 1
+      },
+      {
+        "character": "RinQ",
+        "group": "Virba",
+        "old_rank": 20,
+        "new_rank": 19,
+        "change": 1
+      },
+      {
+        "character": "そぉー",
+        "group": "Virba",
+        "old_rank": 22,
+        "new_rank": 21,
+        "change": 1
+      },
+      {
+        "character": "ヒストリエ",
+        "group": "Eda",
+        "old_rank": 26,
+        "new_rank": 25,
+        "change": 1
+      },
+      {
+        "character": "じぇけ",
+        "group": "Virba",
+        "old_rank": 26,
+        "new_rank": 25,
+        "change": 1
+      },
+      {
+        "character": "RaitaN",
+        "group": "Virba",
+        "old_rank": 28,
+        "new_rank": 27,
+        "change": 1
+      },
+      {
+        "character": "ぱおーんの呼吸",
+        "group": "Eda",
+        "old_rank": 29,
+        "new_rank": 28,
+        "change": 1
+      },
+      {
+        "character": "ぷちにゃんこ",
+        "group": "Virba",
+        "old_rank": 31,
+        "new_rank": 30,
+        "change": 1
+      },
+      {
+        "character": "どどちゃま",
+        "group": "Eda",
+        "old_rank": 31,
+        "new_rank": 30,
+        "change": 1
+      },
+      {
+        "character": "ナブディス",
+        "group": "Virba",
+        "old_rank": 34,
+        "new_rank": 33,
+        "change": 1
+      },
+      {
+        "character": "おやびんdm",
+        "group": "Virba",
+        "old_rank": 35,
+        "new_rank": 34,
+        "change": 1
+      },
+      {
+        "character": "ぎんぴー",
+        "group": "Eda",
+        "old_rank": 37,
+        "new_rank": 36,
+        "change": 1
+      },
+      {
+        "character": "へっぽこ牧太郎",
+        "group": "Virba",
+        "old_rank": 39,
+        "new_rank": 38,
+        "change": 1
+      },
+      {
+        "character": "Ehekatl",
+        "group": "Virba",
+        "old_rank": 43,
+        "new_rank": 42,
+        "change": 1
+      },
+      {
+        "character": "偽やんきっちゃま",
+        "group": "Eda",
+        "old_rank": 44,
+        "new_rank": 43,
+        "change": 1
+      },
+      {
+        "character": "CHUMP",
+        "group": "Eda",
+        "old_rank": 50,
+        "new_rank": 49,
+        "change": 1
+      },
+      {
+        "character": "ぴっぴよ",
+        "group": "Virba",
+        "old_rank": 50,
+        "new_rank": 49,
+        "change": 1
+      },
+      {
+        "character": "うさこぉぉ",
+        "group": "Eda",
+        "old_rank": 51,
+        "new_rank": 50,
+        "change": 1
+      },
+      {
+        "character": "ADA",
+        "group": "Eda",
+        "old_rank": 52,
+        "new_rank": 51,
+        "change": 1
+      },
+      {
+        "character": "みっくー",
+        "group": "Virba",
+        "old_rank": 54,
+        "new_rank": 53,
+        "change": 1
+      },
+      {
+        "character": "deaちゃま",
+        "group": "Eda",
+        "old_rank": 62,
+        "new_rank": 61,
+        "change": 1
+      },
+      {
+        "character": "もぐらまん",
+        "group": "Virba",
+        "old_rank": 64,
+        "new_rank": 63,
+        "change": 1
+      },
+      {
+        "character": "トリリズム",
+        "group": "Virba",
+        "old_rank": 70,
+        "new_rank": 69,
+        "change": 1
+      },
+      {
+        "character": "ななしちゃま",
+        "group": "Eda",
+        "old_rank": 72,
+        "new_rank": 71,
+        "change": 1
+      },
+      {
+        "character": "ゆんゆんぽむ",
+        "group": "Eda",
+        "old_rank": 85,
+        "new_rank": 84,
+        "change": 1
+      },
+      {
+        "character": "名探偵コナソ",
+        "group": "Eda",
+        "old_rank": 86,
+        "new_rank": 85,
+        "change": 1
+      },
+      {
+        "character": "ナイスネイチャ",
+        "group": "Virba",
+        "old_rank": 90,
+        "new_rank": 89,
+        "change": 1
+      },
+      {
+        "character": "Mamypoko",
+        "group": "Virba",
+        "old_rank": 100,
+        "new_rank": 99,
+        "change": 1
+      }
+    ],
+    "rank_down": [
+      {
+        "character": "THYANA",
+        "group": "Virba",
+        "old_rank": 27,
+        "new_rank": 32,
+        "change": 5
+      },
+      {
+        "character": "ちゃまえるて",
+        "group": "Eda",
+        "old_rank": 73,
+        "new_rank": 78,
+        "change": 5
+      },
+      {
+        "character": "かわうそごろう",
+        "group": "Eda",
+        "old_rank": 49,
+        "new_rank": 52,
+        "change": 3
+      },
+      {
+        "character": "芻姫",
+        "group": "Eda",
+        "old_rank": 55,
+        "new_rank": 58,
+        "change": 3
+      },
+      {
+        "character": "びー先輩",
+        "group": "Eda",
+        "old_rank": 66,
+        "new_rank": 69,
+        "change": 3
+      },
+      {
+        "character": "ピコ417",
+        "group": "Virba",
+        "old_rank": 78,
+        "new_rank": 81,
+        "change": 3
+      },
+      {
+        "character": "りとるん",
+        "group": "Virba",
+        "old_rank": 81,
+        "new_rank": 84,
+        "change": 3
+      },
+      {
+        "character": "むーまきまき改",
+        "group": "Virba",
+        "old_rank": 95,
+        "new_rank": 98,
+        "change": 3
+      },
+      {
+        "character": "まじゴメンへら",
+        "group": "Eda",
+        "old_rank": 97,
+        "new_rank": 100,
+        "change": 3
+      },
+      {
+        "character": "駄馬頭琴",
+        "group": "Virba",
+        "old_rank": 29,
+        "new_rank": 31,
+        "change": 2
+      },
+      {
+        "character": "Bye",
+        "group": "Virba",
+        "old_rank": 33,
+        "new_rank": 35,
+        "change": 2
+      },
+      {
+        "character": "ミケーレ",
+        "group": "Virba",
+        "old_rank": 49,
+        "new_rank": 51,
+        "change": 2
+      },
+      {
+        "character": "くろずぎんちゃん",
+        "group": "Eda",
+        "old_rank": 60,
+        "new_rank": 62,
+        "change": 2
+      },
+      {
+        "character": "啄木鳥",
+        "group": "Eda",
+        "old_rank": 68,
+        "new_rank": 70,
+        "change": 2
+      },
+      {
+        "character": "Posaune",
+        "group": "Virba",
+        "old_rank": 69,
+        "new_rank": 71,
+        "change": 2
+      },
+      {
+        "character": "珍極丸",
+        "group": "Eda",
+        "old_rank": 71,
+        "new_rank": 73,
+        "change": 2
+      },
+      {
+        "character": "こんそめぱんち",
+        "group": "Virba",
+        "old_rank": 77,
+        "new_rank": 79,
+        "change": 2
+      },
+      {
+        "character": "おとくちゃま",
+        "group": "Eda",
+        "old_rank": 78,
+        "new_rank": 80,
+        "change": 2
+      },
+      {
+        "character": "紫苑くん",
+        "group": "Eda",
+        "old_rank": 84,
+        "new_rank": 86,
+        "change": 2
+      },
+      {
+        "character": "ffoxxy",
+        "group": "Eda",
+        "old_rank": 89,
+        "new_rank": 91,
+        "change": 2
+      },
+      {
+        "character": "ジゼル",
+        "group": "Virba",
+        "old_rank": 89,
+        "new_rank": 91,
+        "change": 2
+      },
+      {
+        "character": "masaki",
+        "group": "Eda",
+        "old_rank": 96,
+        "new_rank": 98,
+        "change": 2
+      },
+      {
+        "character": "ピエチャマール",
+        "group": "Eda",
+        "old_rank": 10,
+        "new_rank": 11,
+        "change": 1
+      },
+      {
+        "character": "嶽ちゃんマン",
+        "group": "Eda",
+        "old_rank": 15,
+        "new_rank": 16,
+        "change": 1
+      },
+      {
+        "character": "S2000",
+        "group": "Virba",
+        "old_rank": 19,
+        "new_rank": 20,
+        "change": 1
+      },
+      {
+        "character": "ひまちゃん",
+        "group": "Virba",
+        "old_rank": 21,
+        "new_rank": 22,
+        "change": 1
+      },
+      {
+        "character": "もふもふらんど",
+        "group": "Virba",
+        "old_rank": 25,
+        "new_rank": 26,
+        "change": 1
+      },
+      {
+        "character": "かりぶた",
+        "group": "Eda",
+        "old_rank": 25,
+        "new_rank": 26,
+        "change": 1
+      },
+      {
+        "character": "じるちゃま",
+        "group": "Eda",
+        "old_rank": 28,
+        "new_rank": 29,
+        "change": 1
+      },
+      {
+        "character": "珍獄卿",
+        "group": "Eda",
+        "old_rank": 30,
+        "new_rank": 31,
+        "change": 1
+      },
+      {
+        "character": "ぽむ爺ちゃま",
+        "group": "Eda",
+        "old_rank": 36,
+        "new_rank": 37,
+        "change": 1
+      },
+      {
+        "character": "yuユタta",
+        "group": "Virba",
+        "old_rank": 38,
+        "new_rank": 39,
+        "change": 1
+      },
+      {
+        "character": "ももちん",
+        "group": "Eda",
+        "old_rank": 38,
+        "new_rank": 39,
+        "change": 1
+      },
+      {
+        "character": "天使の指輪",
+        "group": "Eda",
+        "old_rank": 39,
+        "new_rank": 40,
+        "change": 1
+      },
+      {
+        "character": "きよきよしい",
+        "group": "Virba",
+        "old_rank": 42,
+        "new_rank": 43,
+        "change": 1
+      },
+      {
+        "character": "sumibi",
+        "group": "Eda",
+        "old_rank": 43,
+        "new_rank": 44,
+        "change": 1
+      },
+      {
+        "character": "バステト",
+        "group": "Virba",
+        "old_rank": 51,
+        "new_rank": 52,
+        "change": 1
+      },
+      {
+        "character": "PAxSS",
+        "group": "Virba",
+        "old_rank": 53,
+        "new_rank": 54,
+        "change": 1
+      },
+      {
+        "character": "さぁばちゃま",
+        "group": "Eda",
+        "old_rank": 53,
+        "new_rank": 54,
+        "change": 1
+      },
+      {
+        "character": "国宝級イケメン",
+        "group": "Eda",
+        "old_rank": 54,
+        "new_rank": 55,
+        "change": 1
+      },
+      {
+        "character": "ばはーとちゃま",
+        "group": "Eda",
+        "old_rank": 59,
+        "new_rank": 60,
+        "change": 1
+      },
+      {
+        "character": "あられみっくす",
+        "group": "Virba",
+        "old_rank": 63,
+        "new_rank": 64,
+        "change": 1
+      },
+      {
+        "character": "にー",
+        "group": "Virba",
+        "old_rank": 71,
+        "new_rank": 72,
+        "change": 1
+      },
+      {
+        "character": "ーMofyー",
+        "group": "Virba",
+        "old_rank": 72,
+        "new_rank": 73,
+        "change": 1
+      },
+      {
+        "character": "赤頭巾",
+        "group": "Virba",
+        "old_rank": 73,
+        "new_rank": 74,
+        "change": 1
+      },
+      {
+        "character": "RONTAMA",
+        "group": "Virba",
+        "old_rank": 74,
+        "new_rank": 75,
+        "change": 1
+      },
+      {
+        "character": "UKA",
+        "group": "Virba",
+        "old_rank": 75,
+        "new_rank": 76,
+        "change": 1
+      },
+      {
+        "character": "T4Y",
+        "group": "Virba",
+        "old_rank": 76,
+        "new_rank": 77,
+        "change": 1
+      },
+      {
+        "character": "o葵o",
+        "group": "Virba",
+        "old_rank": 79,
+        "new_rank": 80,
+        "change": 1
+      },
+      {
+        "character": "すけ兵",
+        "group": "Eda",
+        "old_rank": 81,
+        "new_rank": 82,
+        "change": 1
+      },
+      {
+        "character": "oニケo",
+        "group": "Virba",
+        "old_rank": 82,
+        "new_rank": 83,
+        "change": 1
+      },
+      {
+        "character": "かいりちゃま",
+        "group": "Eda",
+        "old_rank": 82,
+        "new_rank": 83,
+        "change": 1
+      },
+      {
+        "character": "れぷれ",
+        "group": "Virba",
+        "old_rank": 91,
+        "new_rank": 92,
+        "change": 1
+      },
+      {
+        "character": "ぷっぷかぷっか",
+        "group": "Virba",
+        "old_rank": 94,
+        "new_rank": 95,
+        "change": 1
+      },
+      {
+        "character": "サイネリア",
+        "group": "Virba",
+        "old_rank": 99,
+        "new_rank": 100,
+        "change": 1
+      }
+    ],
     "entry": [],
     "exit": [],
-    "level_up": [],
+    "level_up": [
+      {
+        "character": "バシルーラ",
+        "group": "Virba",
+        "old_level": 100,
+        "new_level": 101,
+        "change": 1
+      },
+      {
+        "character": "Gotz",
+        "group": "Virba",
+        "old_level": 99,
+        "new_level": 100,
+        "change": 1
+      },
+      {
+        "character": "どどちゃま",
+        "group": "Eda",
+        "old_level": 99,
+        "new_level": 100,
+        "change": 1
+      },
+      {
+        "character": "Chieften",
+        "group": "Eda",
+        "old_level": 99,
+        "new_level": 100,
+        "change": 1
+      },
+      {
+        "character": "ちゅるななちゃま",
+        "group": "Eda",
+        "old_level": 98,
+        "new_level": 99,
+        "change": 1
+      },
+      {
+        "character": "oneちゃま",
+        "group": "Eda",
+        "old_level": 98,
+        "new_level": 99,
+        "change": 1
+      },
+      {
+        "character": "ラクシャーサ",
+        "group": "Virba",
+        "old_level": 97,
+        "new_level": 98,
+        "change": 1
+      },
+      {
+        "character": "ですくれあ",
+        "group": "Virba",
+        "old_level": 97,
+        "new_level": 98,
+        "change": 1
+      }
+    ],
     "level_down": []
   },
   "changes": {
     "server_change": [],
-    "guild_change": []
+    "guild_change": [
+      {
+        "character": "ーBambiー",
+        "group": "Eda",
+        "old_value": "Overture",
+        "new_value": "Nirvana",
+        "details": {
+          "from_guild": "Overture",
+          "to_guild": "Nirvana"
+        }
+      },
+      {
+        "character": "ナイスネイチャ",
+        "group": "Virba",
+        "old_value": "Harmony",
+        "new_value": "全弾被弾",
+        "details": {
+          "from_guild": "Harmony",
+          "to_guild": "全弾被弾"
+        }
+      },
+      {
+        "character": "どどちゃま",
+        "group": "Eda",
+        "old_value": "なみだしてんし",
+        "new_value": "なみだふくよ",
+        "details": {
+          "from_guild": "なみだしてんし",
+          "to_guild": "なみだふくよ"
+        }
+      },
+      {
+        "character": "ぽむ爺ちゃま",
+        "group": "Eda",
+        "old_value": "なみだしてんし",
+        "new_value": "なみだふくよ",
+        "details": {
+          "from_guild": "なみだしてんし",
+          "to_guild": "なみだふくよ"
+        }
+      },
+      {
+        "character": "ピエチャマール",
+        "group": "Eda",
+        "old_value": "なみだしてんし",
+        "new_value": "なみだふくよ",
+        "details": {
+          "from_guild": "なみだしてんし",
+          "to_guild": "なみだふくよ"
+        }
+      },
+      {
+        "character": "つーちゃま",
+        "group": "Eda",
+        "old_value": "なみだしてんし",
+        "new_value": "なみだふくよ",
+        "details": {
+          "from_guild": "なみだしてんし",
+          "to_guild": "なみだふくよ"
+        }
+      },
+      {
+        "character": "あきちゃま",
+        "group": "Eda",
+        "old_value": "なみだしてんし",
+        "new_value": "なみだふくよ",
+        "details": {
+          "from_guild": "なみだしてんし",
+          "to_guild": "なみだふくよ"
+        }
+      },
+      {
+        "character": "おもちゃのつるぎ",
+        "group": "Eda",
+        "old_value": "Overture",
+        "new_value": "Nirvana",
+        "details": {
+          "from_guild": "Overture",
+          "to_guild": "Nirvana"
+        }
+      },
+      {
+        "character": "芻姫",
+        "group": "Eda",
+        "old_value": "なみだしてんし",
+        "new_value": "なみだふくよ",
+        "details": {
+          "from_guild": "なみだしてんし",
+          "to_guild": "なみだふくよ"
+        }
+      },
+      {
+        "character": "BICHOBI",
+        "group": "Eda",
+        "old_value": "Overture",
+        "new_value": "Nirvana",
+        "details": {
+          "from_guild": "Overture",
+          "to_guild": "Nirvana"
+        }
+      },
+      {
+        "character": "かびちゃま",
+        "group": "Eda",
+        "old_value": "なみだしてんし",
+        "new_value": "なみだふくよ",
+        "details": {
+          "from_guild": "なみだしてんし",
+          "to_guild": "なみだふくよ"
+        }
+      },
+      {
+        "character": "綺稀",
+        "group": "Eda",
+        "old_value": "Arcadla",
+        "new_value": "Nirvana",
+        "details": {
+          "from_guild": "Arcadla",
+          "to_guild": "Nirvana"
+        }
+      },
+      {
+        "character": "靉篷楴",
+        "group": "Eda",
+        "old_value": "Overture",
+        "new_value": "Nirvana",
+        "details": {
+          "from_guild": "Overture",
+          "to_guild": "Nirvana"
+        }
+      }
+    ]
   },
   "current_ranking": {
     "Eda": [
