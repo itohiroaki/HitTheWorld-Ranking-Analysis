@@ -104,11 +104,6 @@ def check_output_files():
     expected_files = [
         BASE_DIR
         / "data"
-        / "ranking"
-        / f"ranking_{today}.csv",
-
-        BASE_DIR
-        / "data"
         / "ranking_server"
         / f"ranking_virba_{today}.csv",
 

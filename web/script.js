@@ -5491,14 +5491,35 @@ function findPlayerByTrackingId(
 
 
     return players.find(
-        player =>
-            String(
-                player.tracking_id ||
-                ""
-            ) ===
-            String(
-                trackingId
-            )
+        player => {
+
+            const currentTrackingId =
+                String(
+                    player.tracking_id ||
+                    ""
+                );
+
+            const canonicalTrackingId =
+                String(
+                    player.canonical_tracking_id ||
+                    ""
+                );
+
+            const targetTrackingId =
+                String(
+                    trackingId
+                );
+
+
+            return (
+                currentTrackingId ===
+                targetTrackingId
+            ) || (
+                canonicalTrackingId ===
+                targetTrackingId
+            );
+
+        }
     );
 
 }

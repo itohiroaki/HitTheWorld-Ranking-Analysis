@@ -184,86 +184,64 @@ def parse_table(table, max_rank):
 
 def parse_rankings(html):
     """
-    公式ページ内のランキングテーブルを取得
+    公式ページ内のランキングテーブルを取得する。
 
-    TABLE 1 → 全体
-    TABLE 2 → Virba
-    TABLE 3 → Eda
+    サーバー名を確認してVirba / Edaを判定する。
+    全体ランキングは、サーバー名がないランキングテーブルから取得する。
     """
 
-    soup = BeautifulSoup(
-        html,
-        "html.parser"
-    )
+    soup = BeautifulSoup(html, "html.parser")
+    tables = soup.find_all("table")
 
-    tables = soup.find_all(
-        "table"
-    )
+    print(f"ランキングテーブル検出数: {len(tables)}")
 
-    print(
-        f"ランキングテーブル検出数: {len(tables)}"
-    )
+    world_rows = []
+    virba_rows = []
+    eda_rows = []
 
-    if len(tables) < 3:
-        print(
-            "ランキングテーブルが3つ未満です。"
+    for i, table in enumerate(tables, start=1):
+        # テーブル内のサーバー名を確認
+        servers = set()
+
+        for tr in table.find_all("tr"):
+            server = get_cell_text(tr, "table__server")
+            if server:
+                servers.add(server)
+
+        print(f"\nテーブル {i}: サーバー名={sorted(servers)}")
+
+        if any(server.startswith("Virba") for server in servers):
+            print("【Virbaランキング】")
+            virba_rows = parse_table(table, 100)
+            print(f"取得件数: {len(virba_rows)}")
+
+        elif any(server.startswith("Eda") for server in servers):
+            print("【Edaランキング】")
+            eda_rows = parse_table(table, 100)
+            print(f"取得件数: {len(eda_rows)}")
+
+        elif not servers:
+            # サーバー名がないテーブルは全体ランキング候補
+            # 実際に順位データが取れた場合のみ採用する
+            candidate_rows = parse_table(table, 1000)
+
+            if candidate_rows:
+                print("【全体ランキング候補】")
+                print(f"取得件数: {len(candidate_rows)}")
+                world_rows = candidate_rows
+
+    # サーバー別ランキングは両方必要
+    if not virba_rows:
+        raise RuntimeError(
+            "Virbaランキングを取得できませんでした。"
         )
 
-        return [], [], []
+    if not eda_rows:
+        raise RuntimeError(
+            "Edaランキングを取得できませんでした。"
+        )
 
-    # --------------------------------
-    # 全体
-    # --------------------------------
-
-    print()
-    print("【全体ランキング】")
-
-    world_rows = parse_table(
-        tables[0],
-        1000
-    )
-
-    print(
-        f"取得件数: {len(world_rows)}"
-    )
-
-    # --------------------------------
-    # Virba
-    # --------------------------------
-
-    print()
-    print("【Virbaランキング】")
-
-    virba_rows = parse_table(
-        tables[1],
-        100
-    )
-
-    print(
-        f"取得件数: {len(virba_rows)}"
-    )
-
-    # --------------------------------
-    # Eda
-    # --------------------------------
-
-    print()
-    print("【Edaランキング】")
-
-    eda_rows = parse_table(
-        tables[2],
-        100
-    )
-
-    print(
-        f"取得件数: {len(eda_rows)}"
-    )
-
-    return (
-        world_rows,
-        virba_rows,
-        eda_rows
-    )
+    return world_rows, virba_rows, eda_rows
 
 
 def save_world_csv(rows):

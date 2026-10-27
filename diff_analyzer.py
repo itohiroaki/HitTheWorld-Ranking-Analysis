@@ -471,6 +471,7 @@ def check_csv_identical(
 # メイン
 # ============================================================
 
+
 def main():
 
     print("=" * 60)
@@ -479,183 +480,99 @@ def main():
     print("=" * 60)
 
     # ==================================================
-    # 全体ランキング
+    # サーバーランキングを基準に対象日を決定
     # ==================================================
 
-    ranking_files = sorted(
-        RANKING_DIR.glob(
-            "ranking_*.csv"
-        )
-    )
+    server_files_by_group = {}
 
-    if len(ranking_files) < 2:
-
-        print()
-        print(
-            "比較できる全体ランキングCSVが"
-            "2日分以上ありません。"
-        )
-
-        return
-
-    old_world_file = ranking_files[-2]
-    new_world_file = ranking_files[-1]
-
-    old_world_date = (
-        old_world_file.stem
-        .replace("ranking_", "")
-    )
-
-    new_world_date = (
-        new_world_file.stem
-        .replace("ranking_", "")
-    )
-
-    print()
-    print(
-        f"全体ランキング: "
-        f"{old_world_date} → "
-        f"{new_world_date}"
-    )
-
-    old_world_df = load_ranking(
-        old_world_file
-    )
-
-    new_world_df = load_ranking(
-        new_world_file
-    )
-
-    world_result = analyze_diff(
-        old_world_df,
-        new_world_df
-    )
-
-    print_analysis(
-        "【全体ランキング】",
-        old_world_date,
-        new_world_date,
-        world_result
-    )
-
-    world_identical = check_csv_identical(
-        old_world_df,
-        new_world_df
-    )
-
-    print()
-    print("【全体CSV完全一致チェック】")
-    print("-" * 50)
-
-    if world_identical:
-        print("CSVは完全に同一です")
-    else:
-        print("CSVには差があります")
-
-    # ==================================================
-    # サーバーランキング
-    # ==================================================
-
-    server_results = {}
-
-    for group in [
-        "virba",
-        "eda"
-    ]:
-
-        server_files = sorted(
+    for group in ["virba", "eda"]:
+        files = sorted(
             SERVER_RANKING_DIR.glob(
                 f"ranking_{group}_*.csv"
             )
         )
 
+        if len(files) < 2:
+            raise RuntimeError(
+                f"{group.capitalize()}の比較可能なCSVが"
+                "2日分ありません。"
+            )
+
+        server_files_by_group[group] = files
+
+    # 各サーバーの最新2日分を取得
+    selected = {}
+
+    for group, files in server_files_by_group.items():
+        old_file = files[-2]
+        new_file = files[-1]
+
+        old_date = old_file.stem.replace(
+            f"ranking_{group}_", ""
+        )
+        new_date = new_file.stem.replace(
+            f"ranking_{group}_", ""
+        )
+
+        selected[group] = {
+            "old_file": old_file,
+            "new_file": new_file,
+            "old_date": old_date,
+            "new_date": new_date,
+        }
+
+    # VirbaとEdaの最新日が一致しなければ停止
+    virba_date = selected["virba"]["new_date"]
+    eda_date = selected["eda"]["new_date"]
+
+    if virba_date != eda_date:
+        raise RuntimeError(
+            "VirbaとEdaの最新CSVの日付が一致しません。"
+            f" Virba={virba_date}, Eda={eda_date}"
+        )
+
+    new_date = virba_date
+
+    print(f"\n今回の対象日: {new_date}")
+
+    # ==================================================
+    # サーバー別ランキングの差分分析
+    # ==================================================
+
+    server_results = {}
+
+    for group in ["virba", "eda"]:
+        info = selected[group]
+
+        old_date = info["old_date"]
+        new_date_group = info["new_date"]
+
         print()
-        print(
-            "=" * 60
-        )
-        print(
-            f"{group.capitalize()}ランキング"
-        )
-        print(
-            "=" * 60
-        )
+        print("=" * 60)
+        print(f"{group.capitalize()}ランキング")
+        print("=" * 60)
+        print(f"比較対象: {old_date} → {new_date_group}")
 
-        if len(server_files) < 2:
+        old_df = load_ranking(info["old_file"])
+        new_df = load_ranking(info["new_file"])
 
-            print(
-                f"{group.capitalize()}は"
-                "比較できるCSVが2日分ありません。"
-            )
-
-            continue
-
-        old_server_file = server_files[-2]
-        new_server_file = server_files[-1]
-
-        old_server_date = (
-            old_server_file.stem
-            .replace(
-                f"ranking_{group}_",
-                ""
-            )
-        )
-
-        new_server_date = (
-            new_server_file.stem
-            .replace(
-                f"ranking_{group}_",
-                ""
-            )
-        )
-
-        print()
-        print(
-            f"比較対象: "
-            f"{old_server_date} → "
-            f"{new_server_date}"
-        )
-
-        old_server_df = load_ranking(
-            old_server_file
-        )
-
-        new_server_df = load_ranking(
-            new_server_file
-        )
-
-        result = analyze_diff(
-            old_server_df,
-            new_server_df
-        )
+        result = analyze_diff(old_df, new_df)
 
         print_analysis(
             f"【{group.capitalize()}ランキング】",
-            old_server_date,
-            new_server_date,
+            old_date,
+            new_date_group,
             result
         )
 
-        identical = check_csv_identical(
-            old_server_df,
-            new_server_df
-        )
+        identical = check_csv_identical(old_df, new_df)
 
         print()
-        print(
-            f"【{group.capitalize()} "
-            f"CSV完全一致チェック】"
-        )
-
-        print("-" * 50)
-
-        if identical:
-            print("CSVは完全に同一です")
-        else:
-            print("CSVには差があります")
+        print(f"CSV完全一致: {'はい' if identical else 'いいえ'}")
 
         server_results[group.capitalize()] = {
-            "old_date": old_server_date,
-            "new_date": new_server_date,
+            "old_date": old_date,
+            "new_date": new_date_group,
             "summary": result["summary"],
             "rank_changes": result["rank_changes"],
             "level_changes": result["level_changes"],
@@ -667,60 +584,102 @@ def main():
         }
 
     # ==================================================
+    # 全体ランキングは任意扱い
+    # ==================================================
+
+    world_result = {
+        "old_date": None,
+        "new_date": None,
+        "source": "world_ranking",
+        "available": False,
+        "daily_change_reliability": "unavailable",
+        "summary": {
+            "old_count": 0,
+            "new_count": 0,
+            "common_count": 0,
+            "not_visible_count": 0,
+            "new_visible_count": 0,
+        },
+        "rank_changes": [],
+        "level_changes": [],
+        "guild_changes": [],
+        "server_changes": [],
+        "not_visible": [],
+        "new_visible": [],
+        "csv_identical": None,
+    }
+
+    world_old_file = RANKING_DIR / f"ranking_{selected['virba']['old_date']}.csv"
+    world_new_file = RANKING_DIR / f"ranking_{new_date}.csv"
+
+    if world_old_file.exists() and world_new_file.exists():
+        old_world_df = load_ranking(world_old_file)
+        new_world_df = load_ranking(world_new_file)
+
+        # 全体ランキングにはVirbaとEdaの両方が含まれる想定。
+        # VirbaだけのCSVなどを全体ランキングと誤認しない。
+        def has_multiple_server_families(df):
+            servers = df["server"].fillna("").astype(str)
+
+            has_virba = servers.str.startswith("Virba").any()
+            has_eda = servers.str.startswith("Eda").any()
+
+            return has_virba and has_eda
+
+        if (
+            has_multiple_server_families(old_world_df)
+            and has_multiple_server_families(new_world_df)
+        ):
+            world_result = analyze_diff(
+                old_world_df,
+                new_world_df
+            )
+
+            world_identical = check_csv_identical(
+                old_world_df,
+                new_world_df
+            )
+
+            world_result = {
+                "old_date": selected["virba"]["old_date"],
+                "new_date": new_date,
+                "source": "world_ranking",
+                "available": True,
+                "daily_change_reliability": "reference_only",
+                "summary": world_result["summary"],
+                "rank_changes": world_result["rank_changes"],
+                "level_changes": world_result["level_changes"],
+                "guild_changes": world_result["guild_changes"],
+                "server_changes": world_result["server_changes"],
+                "not_visible": world_result["not_visible"],
+                "new_visible": world_result["new_visible"],
+                "csv_identical": world_identical,
+            }
+
+            print("\n全体ランキング: 比較しました")
+        else:
+            print(
+                "\n全体ランキング: 有効な全体データと"
+                "確認できないため、今回は比較しません。"
+            )
+    else:
+        print(
+            "\n全体ランキング: 対象日のCSVが揃っていないため、"
+            "今回は比較しません。"
+        )
+
+    # ==================================================
     # JSON保存
     # ==================================================
 
     diff_data = {
-
-        "world": {
-            "old_date": old_world_date,
-            "new_date": new_world_date,
-
-            "source": "world_ranking",
-
-            "daily_change_reliability":
-                "reference_only",
-
-            "summary":
-                world_result["summary"],
-
-            "rank_changes":
-                world_result["rank_changes"],
-
-            "level_changes":
-                world_result["level_changes"],
-
-            "guild_changes":
-                world_result["guild_changes"],
-
-            "server_changes":
-                world_result["server_changes"],
-
-            "not_visible":
-                world_result["not_visible"],
-
-            "new_visible":
-                world_result["new_visible"],
-
-            "csv_identical":
-                world_identical,
-        },
-
-        "server_ranking":
-            server_results,
+        "world": world_result,
+        "server_ranking": server_results,
     }
 
-    diff_file = (
-        DIFF_DIR /
-        f"diff_{new_world_date}.json"
-    )
+    diff_file = DIFF_DIR / f"diff_{new_date}.json"
 
-    with open(
-        diff_file,
-        "w",
-        encoding="utf-8"
-    ) as f:
-
+    with open(diff_file, "w", encoding="utf-8") as f:
         json.dump(
             diff_data,
             f,
@@ -732,15 +691,9 @@ def main():
     print("=" * 60)
     print("差分分析終了")
     print("=" * 60)
-
-    print()
-    print("【差分データ保存】")
-    print("-" * 50)
-    print(
-        f"保存先: "
-        f"{diff_file.resolve()}"
-    )
+    print(f"保存先: {diff_file.resolve()}")
 
 
 if __name__ == "__main__":
     main()
+
