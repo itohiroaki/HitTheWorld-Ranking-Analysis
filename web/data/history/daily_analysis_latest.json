@@ -1,507 +1,528 @@
 {
-  "date": "20261126",
-  "previous_date": "20261125",
+  "date": "20261127",
+  "previous_date": "20261126",
   "player_count": 1061,
   "event_summary": {
     "entry": 0,
     "exit": 0,
-    "rank_up": 37,
-    "rank_down": 36,
-    "level_up": 3,
-    "level_down": 1,
+    "rank_up": 38,
+    "rank_down": 38,
+    "level_up": 4,
+    "level_down": 0,
     "server_change": 0,
     "guild_change": 0,
-    "total": 77
+    "total": 80
   },
   "rankings": {
     "rank_up": [
       {
-        "character": "ヴィオラo",
-        "group": "Virba",
-        "old_rank": 56,
-        "new_rank": 53,
-        "change": 3
-      },
-      {
-        "character": "超ハブ太郎",
-        "group": "Eda",
-        "old_rank": 78,
-        "new_rank": 75,
-        "change": 3
-      },
-      {
-        "character": "ゆたすりー",
-        "group": "Eda",
-        "old_rank": 99,
-        "new_rank": 96,
-        "change": 3
-      },
-      {
-        "character": "いずみ",
-        "group": "Virba",
-        "old_rank": 27,
-        "new_rank": 25,
-        "change": 2
-      },
-      {
-        "character": "珍獄卿",
-        "group": "Eda",
-        "old_rank": 39,
-        "new_rank": 37,
-        "change": 2
-      },
-      {
-        "character": "おもちゃのつるぎ",
-        "group": "Eda",
-        "old_rank": 40,
-        "new_rank": 38,
-        "change": 2
-      },
-      {
-        "character": "CHUMP",
-        "group": "Eda",
-        "old_rank": 47,
-        "new_rank": 45,
-        "change": 2
-      },
-      {
-        "character": "シンデレラボーイ",
-        "group": "Virba",
-        "old_rank": 87,
-        "new_rank": 85,
-        "change": 2
-      },
-      {
-        "character": "xあさスズメx",
-        "group": "Eda",
-        "old_rank": 90,
-        "new_rank": 88,
-        "change": 2
-      },
-      {
-        "character": "げんめた",
-        "group": "Virba",
-        "old_rank": 11,
-        "new_rank": 10,
-        "change": 1
-      },
-      {
-        "character": "ZioZio",
-        "group": "Virba",
-        "old_rank": 15,
-        "new_rank": 14,
-        "change": 1
-      },
-      {
-        "character": "桐ケ谷和人",
-        "group": "Eda",
-        "old_rank": 16,
-        "new_rank": 15,
-        "change": 1
-      },
-      {
-        "character": "せんとりー",
-        "group": "Virba",
-        "old_rank": 23,
-        "new_rank": 22,
-        "change": 1
-      },
-      {
-        "character": "まやちん",
-        "group": "Eda",
-        "old_rank": 32,
-        "new_rank": 31,
-        "change": 1
-      },
-      {
-        "character": "ひろぽん",
-        "group": "Eda",
-        "old_rank": 33,
-        "new_rank": 32,
-        "change": 1
-      },
-      {
-        "character": "まいる",
-        "group": "Virba",
-        "old_rank": 37,
-        "new_rank": 36,
-        "change": 1
-      },
-      {
-        "character": "ーMofyー",
-        "group": "Virba",
-        "old_rank": 41,
-        "new_rank": 40,
-        "change": 1
-      },
-      {
-        "character": "にー",
-        "group": "Virba",
-        "old_rank": 46,
-        "new_rank": 45,
-        "change": 1
-      },
-      {
-        "character": "あるぱんちゅ",
-        "group": "Virba",
-        "old_rank": 47,
-        "new_rank": 46,
-        "change": 1
-      },
-      {
-        "character": "UEPOM",
-        "group": "Virba",
-        "old_rank": 48,
-        "new_rank": 47,
-        "change": 1
-      },
-      {
-        "character": "MIZE",
-        "group": "Eda",
-        "old_rank": 54,
-        "new_rank": 53,
-        "change": 1
-      },
-      {
-        "character": "ちゅるななちゃま",
-        "group": "Eda",
-        "old_rank": 58,
-        "new_rank": 57,
-        "change": 1
-      },
-      {
-        "character": "syuurann",
-        "group": "Eda",
-        "old_rank": 59,
-        "new_rank": 58,
-        "change": 1
-      },
-      {
-        "character": "あぬぐる",
-        "group": "Virba",
-        "old_rank": 61,
-        "new_rank": 60,
-        "change": 1
-      },
-      {
-        "character": "ななしちゃま",
-        "group": "Eda",
-        "old_rank": 62,
-        "new_rank": 61,
-        "change": 1
-      },
-      {
-        "character": "びー先輩",
-        "group": "Eda",
-        "old_rank": 66,
-        "new_rank": 65,
-        "change": 1
-      },
-      {
-        "character": "ffoxxy",
-        "group": "Eda",
-        "old_rank": 70,
-        "new_rank": 69,
-        "change": 1
-      },
-      {
-        "character": "ちゃまえるて",
-        "group": "Eda",
-        "old_rank": 71,
-        "new_rank": 70,
-        "change": 1
-      },
-      {
-        "character": "珍極丸",
-        "group": "Eda",
-        "old_rank": 72,
-        "new_rank": 71,
-        "change": 1
-      },
-      {
-        "character": "トリリズム",
-        "group": "Virba",
-        "old_rank": 73,
-        "new_rank": 72,
-        "change": 1
-      },
-      {
-        "character": "啄木鳥",
-        "group": "Eda",
-        "old_rank": 74,
-        "new_rank": 73,
-        "change": 1
-      },
-      {
-        "character": "ナイスネイチャ",
-        "group": "Virba",
-        "old_rank": 75,
-        "new_rank": 74,
-        "change": 1
-      },
-      {
-        "character": "oどきんちゃんo",
-        "group": "Virba",
-        "old_rank": 76,
-        "new_rank": 75,
-        "change": 1
-      },
-      {
-        "character": "かびちゃま",
-        "group": "Eda",
-        "old_rank": 87,
-        "new_rank": 86,
-        "change": 1
-      },
-      {
-        "character": "ロセリックス",
-        "group": "Virba",
-        "old_rank": 89,
-        "new_rank": 88,
-        "change": 1
-      },
-      {
-        "character": "超フェンリル",
-        "group": "Virba",
-        "old_rank": 94,
-        "new_rank": 93,
-        "change": 1
-      },
-      {
-        "character": "うえぇぇーい",
-        "group": "Eda",
-        "old_rank": 98,
-        "new_rank": 97,
-        "change": 1
-      }
-    ],
-    "rank_down": [
-      {
         "character": "うりりん",
         "group": "Virba",
-        "old_rank": 45,
-        "new_rank": 48,
+        "old_rank": 48,
+        "new_rank": 45,
         "change": 3
       },
       {
-        "character": "くろずぎんちゃん",
+        "character": "どどちゃま",
         "group": "Eda",
-        "old_rank": 69,
-        "new_rank": 72,
-        "change": 3
+        "old_rank": 25,
+        "new_rank": 23,
+        "change": 2
       },
       {
         "character": "ももちん",
         "group": "Eda",
-        "old_rank": 31,
-        "new_rank": 33,
-        "change": 2
-      },
-      {
-        "character": "れいしす",
-        "group": "Eda",
-        "old_rank": 37,
-        "new_rank": 39,
-        "change": 2
-      },
-      {
-        "character": "天使の指輪",
-        "group": "Eda",
-        "old_rank": 38,
-        "new_rank": 40,
+        "old_rank": 33,
+        "new_rank": 31,
         "change": 2
       },
       {
         "character": "やどんちゃん",
         "group": "Eda",
-        "old_rank": 57,
-        "new_rank": 59,
+        "old_rank": 59,
+        "new_rank": 57,
         "change": 2
       },
       {
-        "character": "れぷれ",
+        "character": "ぽす太郎",
         "group": "Virba",
-        "old_rank": 74,
-        "new_rank": 76,
+        "old_rank": 77,
+        "new_rank": 75,
         "change": 2
       },
       {
-        "character": "綺稀",
-        "group": "Eda",
-        "old_rank": 76,
-        "new_rank": 78,
-        "change": 2
-      },
-      {
-        "character": "結弦",
-        "group": "Eda",
-        "old_rank": 88,
-        "new_rank": 90,
-        "change": 2
-      },
-      {
-        "character": "ちるちゃま",
-        "group": "Eda",
-        "old_rank": 96,
-        "new_rank": 98,
-        "change": 2
-      },
-      {
-        "character": "ダディ",
-        "group": "Eda",
-        "old_rank": 97,
-        "new_rank": 99,
-        "change": 2
-      },
-      {
-        "character": "白光するblan",
+        "character": "o葵o",
         "group": "Virba",
-        "old_rank": 10,
-        "new_rank": 11,
+        "old_rank": 81,
+        "new_rank": 79,
+        "change": 2
+      },
+      {
+        "character": "にゃんこ隊長",
+        "group": "Eda",
+        "old_rank": 94,
+        "new_rank": 92,
+        "change": 2
+      },
+      {
+        "character": "唯我独尊太郎",
+        "group": "Virba",
+        "old_rank": 99,
+        "new_rank": 97,
+        "change": 2
+      },
+      {
+        "character": "すずこだよ",
+        "group": "Eda",
+        "old_rank": 19,
+        "new_rank": 18,
         "change": 1
       },
       {
-        "character": "マジ天使えとかな",
-        "group": "Virba",
-        "old_rank": 14,
-        "new_rank": 15,
-        "change": 1
-      },
-      {
-        "character": "亀仙忍",
-        "group": "Eda",
-        "old_rank": 15,
-        "new_rank": 16,
-        "change": 1
-      },
-      {
-        "character": "THYANA",
+        "character": "せんとりー",
         "group": "Virba",
         "old_rank": 22,
-        "new_rank": 23,
+        "new_rank": 21,
         "change": 1
       },
       {
-        "character": "ノアリア",
+        "character": "いずみ",
         "group": "Virba",
         "old_rank": 25,
-        "new_rank": 26,
+        "new_rank": 24,
         "change": 1
       },
       {
-        "character": "おやびんdm",
-        "group": "Virba",
+        "character": "へびちん",
+        "group": "Eda",
         "old_rank": 26,
-        "new_rank": 27,
+        "new_rank": 25,
         "change": 1
       },
       {
-        "character": "ぴっぴよ",
+        "character": "大国ちゃま",
+        "group": "Eda",
+        "old_rank": 30,
+        "new_rank": 29,
+        "change": 1
+      },
+      {
+        "character": "駄馬頭琴",
         "group": "Virba",
+        "old_rank": 31,
+        "new_rank": 30,
+        "change": 1
+      },
+      {
+        "character": "ぽむ爺ちゃま",
+        "group": "Eda",
         "old_rank": 36,
+        "new_rank": 35,
+        "change": 1
+      },
+      {
+        "character": "ぷちにゃんこ",
+        "group": "Virba",
+        "old_rank": 38,
         "new_rank": 37,
         "change": 1
       },
       {
-        "character": "Ehekatl",
+        "character": "ーMofyー",
         "group": "Virba",
         "old_rank": 40,
-        "new_rank": 41,
+        "new_rank": 39,
         "change": 1
       },
       {
-        "character": "煌茶燦",
+        "character": "天使の指輪",
         "group": "Eda",
-        "old_rank": 45,
+        "old_rank": 40,
+        "new_rank": 39,
+        "change": 1
+      },
+      {
+        "character": "UEPOM",
+        "group": "Virba",
+        "old_rank": 47,
         "new_rank": 46,
         "change": 1
       },
       {
-        "character": "いるちむ",
+        "character": "羌かーい",
         "group": "Eda",
-        "old_rank": 46,
+        "old_rank": 48,
         "new_rank": 47,
         "change": 1
       },
       {
-        "character": "いそちゃま",
-        "group": "Eda",
-        "old_rank": 53,
-        "new_rank": 54,
+        "character": "Nyaro",
+        "group": "Virba",
+        "old_rank": 51,
+        "new_rank": 50,
         "change": 1
       },
       {
-        "character": "もぐらまん",
-        "group": "Virba",
+        "character": "MIZE",
+        "group": "Eda",
         "old_rank": 53,
+        "new_rank": 52,
+        "change": 1
+      },
+      {
+        "character": "偽やんきっちゃま",
+        "group": "Eda",
+        "old_rank": 55,
         "new_rank": 54,
         "change": 1
       },
       {
         "character": "ねこにん",
         "group": "Virba",
+        "old_rank": 55,
+        "new_rank": 54,
+        "change": 1
+      },
+      {
+        "character": "ふわしょこちゃま",
+        "group": "Eda",
+        "old_rank": 64,
+        "new_rank": 63,
+        "change": 1
+      },
+      {
+        "character": "T4Y",
+        "group": "Virba",
+        "old_rank": 69,
+        "new_rank": 68,
+        "change": 1
+      },
+      {
+        "character": "きづなぁ",
+        "group": "Eda",
+        "old_rank": 77,
+        "new_rank": 76,
+        "change": 1
+      },
+      {
+        "character": "ワンタロウ",
+        "group": "Eda",
+        "old_rank": 80,
+        "new_rank": 79,
+        "change": 1
+      },
+      {
+        "character": "ぽっぽ13",
+        "group": "Eda",
+        "old_rank": 81,
+        "new_rank": 80,
+        "change": 1
+      },
+      {
+        "character": "かいりちゃま",
+        "group": "Eda",
+        "old_rank": 83,
+        "new_rank": 82,
+        "change": 1
+      },
+      {
+        "character": "名犯人コナソ",
+        "group": "Eda",
+        "old_rank": 85,
+        "new_rank": 84,
+        "change": 1
+      },
+      {
+        "character": "こんそめぱんち",
+        "group": "Virba",
+        "old_rank": 87,
+        "new_rank": 86,
+        "change": 1
+      },
+      {
+        "character": "xあさスズメx",
+        "group": "Eda",
+        "old_rank": 88,
+        "new_rank": 87,
+        "change": 1
+      },
+      {
+        "character": "超フェンリル",
+        "group": "Virba",
+        "old_rank": 93,
+        "new_rank": 92,
+        "change": 1
+      },
+      {
+        "character": "ゆたすりー",
+        "group": "Eda",
+        "old_rank": 96,
+        "new_rank": 95,
+        "change": 1
+      },
+      {
+        "character": "せっけんパンダ",
+        "group": "Virba",
+        "old_rank": 97,
+        "new_rank": 96,
+        "change": 1
+      },
+      {
+        "character": "ダディ",
+        "group": "Eda",
+        "old_rank": 99,
+        "new_rank": 98,
+        "change": 1
+      },
+      {
+        "character": "紫苑くん",
+        "group": "Eda",
+        "old_rank": 100,
+        "new_rank": 99,
+        "change": 1
+      }
+    ],
+    "rank_down": [
+      {
+        "character": "バーサス",
+        "group": "Virba",
+        "old_rank": 96,
+        "new_rank": 99,
+        "change": 3
+      },
+      {
+        "character": "てくちゃま",
+        "group": "Eda",
+        "old_rank": 24,
+        "new_rank": 26,
+        "change": 2
+      },
+      {
+        "character": "まやちん",
+        "group": "Eda",
+        "old_rank": 31,
+        "new_rank": 33,
+        "change": 2
+      },
+      {
+        "character": "にー",
+        "group": "Virba",
+        "old_rank": 45,
+        "new_rank": 47,
+        "change": 2
+      },
+      {
+        "character": "あるぱんちゅ",
+        "group": "Virba",
+        "old_rank": 46,
+        "new_rank": 48,
+        "change": 2
+      },
+      {
+        "character": "BICHOBI",
+        "group": "Eda",
+        "old_rank": 79,
+        "new_rank": 81,
+        "change": 2
+      },
+      {
+        "character": "マンディ",
+        "group": "Eda",
+        "old_rank": 92,
+        "new_rank": 94,
+        "change": 2
+      },
+      {
+        "character": "ちるちゃま",
+        "group": "Eda",
+        "old_rank": 98,
+        "new_rank": 100,
+        "change": 2
+      },
+      {
+        "character": "ヒストリエ",
+        "group": "Eda",
+        "old_rank": 18,
+        "new_rank": 19,
+        "change": 1
+      },
+      {
+        "character": "S2000",
+        "group": "Virba",
+        "old_rank": 21,
+        "new_rank": 22,
+        "change": 1
+      },
+      {
+        "character": "ゆきくんJPN",
+        "group": "Eda",
+        "old_rank": 23,
+        "new_rank": 24,
+        "change": 1
+      },
+      {
+        "character": "ひまちゃん",
+        "group": "Virba",
+        "old_rank": 24,
+        "new_rank": 25,
+        "change": 1
+      },
+      {
+        "character": "かりぶた",
+        "group": "Eda",
+        "old_rank": 29,
+        "new_rank": 30,
+        "change": 1
+      },
+      {
+        "character": "月華",
+        "group": "Virba",
+        "old_rank": 30,
+        "new_rank": 31,
+        "change": 1
+      },
+      {
+        "character": "Chieften",
+        "group": "Eda",
+        "old_rank": 35,
+        "new_rank": 36,
+        "change": 1
+      },
+      {
+        "character": "ぴっぴよ",
+        "group": "Virba",
+        "old_rank": 37,
+        "new_rank": 38,
+        "change": 1
+      },
+      {
+        "character": "RaitaN",
+        "group": "Virba",
+        "old_rank": 39,
+        "new_rank": 40,
+        "change": 1
+      },
+      {
+        "character": "れいしす",
+        "group": "Eda",
+        "old_rank": 39,
+        "new_rank": 40,
+        "change": 1
+      },
+      {
+        "character": "いるちむ",
+        "group": "Eda",
+        "old_rank": 47,
+        "new_rank": 48,
+        "change": 1
+      },
+      {
+        "character": "あおたろ",
+        "group": "Virba",
+        "old_rank": 50,
+        "new_rank": 51,
+        "change": 1
+      },
+      {
+        "character": "超あるふred",
+        "group": "Eda",
+        "old_rank": 52,
+        "new_rank": 53,
+        "change": 1
+      },
+      {
+        "character": "いそちゃま",
+        "group": "Eda",
         "old_rank": 54,
         "new_rank": 55,
         "change": 1
       },
       {
-        "character": "バステト",
+        "character": "もぐらまん",
         "group": "Virba",
-        "old_rank": 55,
-        "new_rank": 56,
+        "old_rank": 54,
+        "new_rank": 55,
         "change": 1
       },
       {
-        "character": "キッコロ",
+        "character": "ちゅるななちゃま",
+        "group": "Eda",
+        "old_rank": 57,
+        "new_rank": 58,
+        "change": 1
+      },
+      {
+        "character": "syuurann",
+        "group": "Eda",
+        "old_rank": 58,
+        "new_rank": 59,
+        "change": 1
+      },
+      {
+        "character": "芻姫",
+        "group": "Eda",
+        "old_rank": 63,
+        "new_rank": 64,
+        "change": 1
+      },
+      {
+        "character": "りーふかれんと",
         "group": "Virba",
-        "old_rank": 60,
-        "new_rank": 61,
+        "old_rank": 68,
+        "new_rank": 69,
         "change": 1
       },
       {
-        "character": "あまとぅー",
-        "group": "Eda",
-        "old_rank": 61,
-        "new_rank": 62,
-        "change": 1
-      },
-      {
-        "character": "ばはーとちゃま",
-        "group": "Eda",
-        "old_rank": 65,
-        "new_rank": 66,
-        "change": 1
-      },
-      {
-        "character": "アルシア",
+        "character": "oどきんちゃんo",
         "group": "Virba",
-        "old_rank": 72,
-        "new_rank": 73,
-        "change": 1
-      },
-      {
-        "character": "ーBambiー",
-        "group": "Eda",
-        "old_rank": 73,
-        "new_rank": 74,
-        "change": 1
-      },
-      {
-        "character": "こたまん",
-        "group": "Eda",
         "old_rank": 75,
         "new_rank": 76,
         "change": 1
       },
       {
-        "character": "Litz",
-        "group": "Virba",
-        "old_rank": 85,
-        "new_rank": 86,
+        "character": "こたまん",
+        "group": "Eda",
+        "old_rank": 76,
+        "new_rank": 77,
         "change": 1
       },
       {
-        "character": "こんそめぱんち",
+        "character": "れぷれ",
+        "group": "Virba",
+        "old_rank": 76,
+        "new_rank": 77,
+        "change": 1
+      },
+      {
+        "character": "oばいきんまんo",
+        "group": "Virba",
+        "old_rank": 79,
+        "new_rank": 80,
+        "change": 1
+      },
+      {
+        "character": "ぐらすぅ",
+        "group": "Virba",
+        "old_rank": 80,
+        "new_rank": 81,
+        "change": 1
+      },
+      {
+        "character": "ゆんゆんぽむ",
+        "group": "Eda",
+        "old_rank": 82,
+        "new_rank": 83,
+        "change": 1
+      },
+      {
+        "character": "シェラ",
+        "group": "Eda",
+        "old_rank": 84,
+        "new_rank": 85,
+        "change": 1
+      },
+      {
+        "character": "Litz",
         "group": "Virba",
         "old_rank": 86,
         "new_rank": 87,
@@ -510,22 +531,22 @@
       {
         "character": "靉篷楴",
         "group": "Eda",
-        "old_rank": 86,
-        "new_rank": 87,
+        "old_rank": 87,
+        "new_rank": 88,
         "change": 1
       },
       {
-        "character": "Mamypoko",
+        "character": "oニケo",
         "group": "Virba",
-        "old_rank": 88,
-        "new_rank": 89,
+        "old_rank": 92,
+        "new_rank": 93,
         "change": 1
       },
       {
-        "character": "ジゼル",
-        "group": "Virba",
-        "old_rank": 93,
-        "new_rank": 94,
+        "character": "おとくちゃま",
+        "group": "Eda",
+        "old_rank": 95,
+        "new_rank": 96,
         "change": 1
       }
     ],
@@ -533,36 +554,35 @@
     "exit": [],
     "level_up": [
       {
-        "character": "Slinky",
-        "group": "Virba",
-        "old_level": 99,
-        "new_level": 100,
+        "character": "ももちん",
+        "group": "Eda",
+        "old_level": 100,
+        "new_level": 101,
         "change": 1
       },
       {
-        "character": "ちゅるななちゃま",
+        "character": "syuurann",
         "group": "Eda",
         "old_level": 99,
         "new_level": 100,
         "change": 1
       },
       {
-        "character": "ゆたすりー",
+        "character": "やどんちゃん",
+        "group": "Eda",
+        "old_level": 99,
+        "new_level": 100,
+        "change": 1
+      },
+      {
+        "character": "紫苑くん",
         "group": "Eda",
         "old_level": 98,
         "new_level": 99,
         "change": 1
       }
     ],
-    "level_down": [
-      {
-        "character": "やどんちゃん",
-        "group": "Eda",
-        "old_level": 100,
-        "new_level": 99,
-        "change": 1
-      }
-    ]
+    "level_down": []
   },
   "changes": {
     "server_change": [],
@@ -583,7 +603,7 @@
         "character": "かおる一",
         "level": 105,
         "server": "Eda3",
-        "guild": "",
+        "guild": "わっしょい",
         "tracking_id": "player_850800d8a6dab927"
       },
       {
@@ -708,19 +728,19 @@
       },
       {
         "rank": 18,
-        "character": "ヒストリエ",
-        "level": 101,
-        "server": "Eda3",
-        "guild": "M2O",
-        "tracking_id": "player_19bdaa5d533e3ca2"
-      },
-      {
-        "rank": 19,
         "character": "すずこだよ",
         "level": 101,
         "server": "Eda3",
         "guild": "わっしょい",
         "tracking_id": "player_0aee70ffe360d496"
+      },
+      {
+        "rank": 19,
+        "character": "ヒストリエ",
+        "level": 101,
+        "server": "Eda3",
+        "guild": "M2O",
+        "tracking_id": "player_19bdaa5d533e3ca2"
       },
       {
         "rank": 20,
@@ -748,22 +768,6 @@
       },
       {
         "rank": 23,
-        "character": "ゆきくんJPN",
-        "level": 101,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "tracking_id": "player_482b0e4bb02e452f"
-      },
-      {
-        "rank": 24,
-        "character": "てくちゃま",
-        "level": 101,
-        "server": "Eda4",
-        "guild": "なみだふくよ",
-        "tracking_id": "player_10c89b6a63856c7d"
-      },
-      {
-        "rank": 25,
         "character": "どどちゃま",
         "level": 101,
         "server": "Eda4",
@@ -771,12 +775,28 @@
         "tracking_id": "player_5f610305cd5ef76e"
       },
       {
-        "rank": 26,
+        "rank": 24,
+        "character": "ゆきくんJPN",
+        "level": 101,
+        "server": "Eda3",
+        "guild": "わっしょい",
+        "tracking_id": "player_482b0e4bb02e452f"
+      },
+      {
+        "rank": 25,
         "character": "へびちん",
         "level": 101,
         "server": "Eda1",
         "guild": "5secret",
         "tracking_id": "player_832cc50d7a60f7f0"
+      },
+      {
+        "rank": 26,
+        "character": "てくちゃま",
+        "level": 101,
+        "server": "Eda4",
+        "guild": "なみだふくよ",
+        "tracking_id": "player_10c89b6a63856c7d"
       },
       {
         "rank": 27,
@@ -796,14 +816,6 @@
       },
       {
         "rank": 29,
-        "character": "かりぶた",
-        "level": 101,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "tracking_id": "player_1f8e2ce92c06fcb9"
-      },
-      {
-        "rank": 30,
         "character": "大国ちゃま",
         "level": 101,
         "server": "Eda4",
@@ -811,12 +823,20 @@
         "tracking_id": "player_67280ebd9ee7d799"
       },
       {
-        "rank": 31,
-        "character": "まやちん",
-        "level": 100,
+        "rank": 30,
+        "character": "かりぶた",
+        "level": 101,
         "server": "Eda3",
         "guild": "わっしょい",
-        "tracking_id": "player_a2fb5911a78640ec"
+        "tracking_id": "player_1f8e2ce92c06fcb9"
+      },
+      {
+        "rank": 31,
+        "character": "ももちん",
+        "level": 101,
+        "server": "Eda1",
+        "guild": "5secret",
+        "tracking_id": "player_31f9c4bcc559694d"
       },
       {
         "rank": 32,
@@ -828,11 +848,11 @@
       },
       {
         "rank": 33,
-        "character": "ももちん",
+        "character": "まやちん",
         "level": 100,
-        "server": "Eda1",
-        "guild": "5secret",
-        "tracking_id": "player_31f9c4bcc559694d"
+        "server": "Eda3",
+        "guild": "わっしょい",
+        "tracking_id": "player_a2fb5911a78640ec"
       },
       {
         "rank": 34,
@@ -844,19 +864,19 @@
       },
       {
         "rank": 35,
-        "character": "Chieften",
-        "level": 100,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "tracking_id": "player_47bb68f1fa8c88a5"
-      },
-      {
-        "rank": 36,
         "character": "ぽむ爺ちゃま",
         "level": 100,
         "server": "Eda4",
         "guild": "なみだふくよ",
         "tracking_id": "player_ba836878950f041f"
+      },
+      {
+        "rank": 36,
+        "character": "Chieften",
+        "level": 100,
+        "server": "Eda3",
+        "guild": "わっしょい",
+        "tracking_id": "player_47bb68f1fa8c88a5"
       },
       {
         "rank": 37,
@@ -876,19 +896,19 @@
       },
       {
         "rank": 39,
-        "character": "れいしす",
-        "level": 100,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "tracking_id": "player_ab960e7b0af99397"
-      },
-      {
-        "rank": 40,
         "character": "天使の指輪",
         "level": 100,
         "server": "Eda3",
         "guild": "わっしょい",
         "tracking_id": "player_1c17be6106ef419e"
+      },
+      {
+        "rank": 40,
+        "character": "れいしす",
+        "level": 100,
+        "server": "Eda3",
+        "guild": "わっしょい",
+        "tracking_id": "player_ab960e7b0af99397"
       },
       {
         "rank": 41,
@@ -940,19 +960,19 @@
       },
       {
         "rank": 47,
-        "character": "いるちむ",
-        "level": 100,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "tracking_id": "player_081ef3f12e58cda0"
-      },
-      {
-        "rank": 48,
         "character": "羌かーい",
         "level": 100,
         "server": "Eda3",
         "guild": "わっしょい",
         "tracking_id": "player_efb0e2840acf08ab"
+      },
+      {
+        "rank": 48,
+        "character": "いるちむ",
+        "level": 100,
+        "server": "Eda3",
+        "guild": "わっしょい",
+        "tracking_id": "player_081ef3f12e58cda0"
       },
       {
         "rank": 49,
@@ -980,14 +1000,6 @@
       },
       {
         "rank": 52,
-        "character": "超あるふred",
-        "level": 100,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "tracking_id": "player_d68ecce7c93d9b37"
-      },
-      {
-        "rank": 53,
         "character": "MIZE",
         "level": 100,
         "server": "Eda1",
@@ -995,20 +1007,28 @@
         "tracking_id": "player_8470cb2a0372d71b"
       },
       {
-        "rank": 54,
-        "character": "いそちゃま",
+        "rank": 53,
+        "character": "超あるふred",
         "level": 100,
-        "server": "Eda4",
-        "guild": "なみだふくよ",
-        "tracking_id": "player_d493cef93fb11dca"
+        "server": "Eda3",
+        "guild": "わっしょい",
+        "tracking_id": "player_d68ecce7c93d9b37"
       },
       {
-        "rank": 55,
+        "rank": 54,
         "character": "偽やんきっちゃま",
         "level": 100,
         "server": "Eda4",
         "guild": "なみだふくよ",
         "tracking_id": "player_5c2fce5924bc842c"
+      },
+      {
+        "rank": 55,
+        "character": "いそちゃま",
+        "level": 100,
+        "server": "Eda4",
+        "guild": "なみだふくよ",
+        "tracking_id": "player_d493cef93fb11dca"
       },
       {
         "rank": 56,
@@ -1020,6 +1040,14 @@
       },
       {
         "rank": 57,
+        "character": "やどんちゃん",
+        "level": 100,
+        "server": "Eda3",
+        "guild": "わっしょい",
+        "tracking_id": "player_76cd517ec46048a0"
+      },
+      {
+        "rank": 58,
         "character": "ちゅるななちゃま",
         "level": 100,
         "server": "Eda4",
@@ -1027,20 +1055,12 @@
         "tracking_id": "player_9a307004de15e11a"
       },
       {
-        "rank": 58,
+        "rank": 59,
         "character": "syuurann",
-        "level": 99,
+        "level": 100,
         "server": "Eda1",
         "guild": "oりあんo",
         "tracking_id": "player_d2679f5b9ee2f75c"
-      },
-      {
-        "rank": 59,
-        "character": "やどんちゃん",
-        "level": 99,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "tracking_id": "player_76cd517ec46048a0"
       },
       {
         "rank": 60,
@@ -1068,19 +1088,19 @@
       },
       {
         "rank": 63,
-        "character": "芻姫",
-        "level": 99,
-        "server": "Eda4",
-        "guild": "なみだふくよ",
-        "tracking_id": "player_d7a6c5af5e353b7e"
-      },
-      {
-        "rank": 64,
         "character": "ふわしょこちゃま",
         "level": 99,
         "server": "Eda4",
         "guild": "なみだしてんし",
         "tracking_id": "player_5e420e8ad002c49b"
+      },
+      {
+        "rank": 64,
+        "character": "芻姫",
+        "level": 99,
+        "server": "Eda4",
+        "guild": "なみだふくよ",
+        "tracking_id": "player_d7a6c5af5e353b7e"
       },
       {
         "rank": 65,
@@ -1172,19 +1192,19 @@
       },
       {
         "rank": 76,
-        "character": "こたまん",
-        "level": 99,
-        "server": "Eda3",
-        "guild": "わっしょい",
-        "tracking_id": "player_3fc32b90e1940b30"
-      },
-      {
-        "rank": 77,
         "character": "きづなぁ",
         "level": 99,
         "server": "Eda3",
         "guild": "わっしょい",
         "tracking_id": "player_481115f34804968f"
+      },
+      {
+        "rank": 77,
+        "character": "こたまん",
+        "level": 99,
+        "server": "Eda3",
+        "guild": "わっしょい",
+        "tracking_id": "player_3fc32b90e1940b30"
       },
       {
         "rank": 78,
@@ -1196,14 +1216,6 @@
       },
       {
         "rank": 79,
-        "character": "BICHOBI",
-        "level": 99,
-        "server": "Eda1",
-        "guild": "Overture",
-        "tracking_id": "player_4f06e94edde78379"
-      },
-      {
-        "rank": 80,
         "character": "ワンタロウ",
         "level": 99,
         "server": "Eda4",
@@ -1211,7 +1223,7 @@
         "tracking_id": "player_6e3d6f119266808f"
       },
       {
-        "rank": 81,
+        "rank": 80,
         "character": "ぽっぽ13",
         "level": 99,
         "server": "Eda1",
@@ -1219,15 +1231,15 @@
         "tracking_id": "player_0b8ec6182d208375"
       },
       {
-        "rank": 82,
-        "character": "ゆんゆんぽむ",
+        "rank": 81,
+        "character": "BICHOBI",
         "level": 99,
-        "server": "Eda3",
-        "guild": "M2O",
-        "tracking_id": "player_ab89781d00085372"
+        "server": "Eda1",
+        "guild": "Overture",
+        "tracking_id": "player_4f06e94edde78379"
       },
       {
-        "rank": 83,
+        "rank": 82,
         "character": "かいりちゃま",
         "level": 99,
         "server": "Eda4",
@@ -1235,20 +1247,28 @@
         "tracking_id": "player_61584cc4aae0a2d3"
       },
       {
-        "rank": 84,
-        "character": "シェラ",
+        "rank": 83,
+        "character": "ゆんゆんぽむ",
         "level": 99,
         "server": "Eda3",
         "guild": "M2O",
-        "tracking_id": "player_bb7651288a368c8d"
+        "tracking_id": "player_ab89781d00085372"
       },
       {
-        "rank": 85,
+        "rank": 84,
         "character": "名犯人コナソ",
         "level": 99,
         "server": "Eda1",
         "guild": "oりあんo",
         "tracking_id": "player_b55360aac941829e"
+      },
+      {
+        "rank": 85,
+        "character": "シェラ",
+        "level": 99,
+        "server": "Eda3",
+        "guild": "M2O",
+        "tracking_id": "player_bb7651288a368c8d"
       },
       {
         "rank": 86,
@@ -1260,19 +1280,19 @@
       },
       {
         "rank": 87,
-        "character": "靉篷楴",
-        "level": 99,
-        "server": "Eda1",
-        "guild": "Overture",
-        "tracking_id": "player_fdf79c7eb1c34fa4"
-      },
-      {
-        "rank": 88,
         "character": "xあさスズメx",
         "level": 99,
         "server": "Eda3",
         "guild": "わっしょい",
         "tracking_id": "player_d626d11ca328f99c"
+      },
+      {
+        "rank": 88,
+        "character": "靉篷楴",
+        "level": 99,
+        "server": "Eda1",
+        "guild": "Overture",
+        "tracking_id": "player_fdf79c7eb1c34fa4"
       },
       {
         "rank": 89,
@@ -1300,11 +1320,11 @@
       },
       {
         "rank": 92,
-        "character": "マンディ",
+        "character": "にゃんこ隊長",
         "level": 99,
-        "server": "Eda3",
-        "guild": "ぴよぴよ団",
-        "tracking_id": "player_b066feaca35e7d7f"
+        "server": "Eda1",
+        "guild": "5secret",
+        "tracking_id": "player_96254f9bc22358b3"
       },
       {
         "rank": 93,
@@ -1316,27 +1336,27 @@
       },
       {
         "rank": 94,
-        "character": "にゃんこ隊長",
+        "character": "マンディ",
         "level": 99,
-        "server": "Eda1",
-        "guild": "5secret",
-        "tracking_id": "player_96254f9bc22358b3"
+        "server": "Eda3",
+        "guild": "ぴよぴよ団",
+        "tracking_id": "player_b066feaca35e7d7f"
       },
       {
         "rank": 95,
-        "character": "おとくちゃま",
-        "level": 99,
-        "server": "Eda4",
-        "guild": "なみだふくよ",
-        "tracking_id": "player_c30d0fe96f51b1d6"
-      },
-      {
-        "rank": 96,
         "character": "ゆたすりー",
         "level": 99,
         "server": "Eda1",
         "guild": "5secret",
         "tracking_id": "player_9581d42b529a54c4"
+      },
+      {
+        "rank": 96,
+        "character": "おとくちゃま",
+        "level": 99,
+        "server": "Eda4",
+        "guild": "なみだふくよ",
+        "tracking_id": "player_c30d0fe96f51b1d6"
       },
       {
         "rank": 97,
@@ -1348,14 +1368,6 @@
       },
       {
         "rank": 98,
-        "character": "ちるちゃま",
-        "level": 99,
-        "server": "Eda4",
-        "guild": "なみだふくよ",
-        "tracking_id": "player_b6e24a2df482820c"
-      },
-      {
-        "rank": 99,
         "character": "ダディ",
         "level": 99,
         "server": "Eda3",
@@ -1363,12 +1375,20 @@
         "tracking_id": "player_0d120fcfe12791a9"
       },
       {
-        "rank": 100,
+        "rank": 99,
         "character": "紫苑くん",
-        "level": 98,
+        "level": 99,
         "server": "Eda1",
         "guild": "5secret",
         "tracking_id": "player_f346490d17cb69c6"
+      },
+      {
+        "rank": 100,
+        "character": "ちるちゃま",
+        "level": 99,
+        "server": "Eda4",
+        "guild": "なみだふくよ",
+        "tracking_id": "player_b6e24a2df482820c"
       }
     ],
     "Virba": [
@@ -1534,19 +1554,19 @@
       },
       {
         "rank": 21,
-        "character": "S2000",
-        "level": 100,
-        "server": "Virba3",
-        "guild": "ねこはら帝国",
-        "tracking_id": "player_8ab338574013c76c"
-      },
-      {
-        "rank": 22,
         "character": "せんとりー",
         "level": 100,
         "server": "Virba1",
         "guild": "NoWords",
         "tracking_id": "player_08d2a0ca161936ed"
+      },
+      {
+        "rank": 22,
+        "character": "S2000",
+        "level": 100,
+        "server": "Virba3",
+        "guild": "ねこはら帝国",
+        "tracking_id": "player_8ab338574013c76c"
       },
       {
         "rank": 23,
@@ -1558,14 +1578,6 @@
       },
       {
         "rank": 24,
-        "character": "ひまちゃん",
-        "level": 100,
-        "server": "Virba3",
-        "guild": "月花町の安らげ荘",
-        "tracking_id": "player_108f992f9e751f14"
-      },
-      {
-        "rank": 25,
         "character": "いずみ",
         "level": 100,
         "server": "Virba3",
@@ -1573,11 +1585,19 @@
         "tracking_id": "player_7eeb69db45c0cf12"
       },
       {
+        "rank": 25,
+        "character": "ひまちゃん",
+        "level": 100,
+        "server": "Virba3",
+        "guild": "月花町の安らげ荘",
+        "tracking_id": "player_108f992f9e751f14"
+      },
+      {
         "rank": 26,
         "character": "ノアリア",
         "level": 100,
         "server": "Virba4",
-        "guild": "Harmony",
+        "guild": "",
         "tracking_id": "player_db3907d700c68937"
       },
       {
@@ -1593,7 +1613,7 @@
         "character": "Slinky",
         "level": 100,
         "server": "Virba2",
-        "guild": "ミーティス",
+        "guild": "",
         "tracking_id": "player_77e85094e23b216e"
       },
       {
@@ -1601,24 +1621,24 @@
         "character": "じぇけ",
         "level": 99,
         "server": "Virba4",
-        "guild": "Harmony",
+        "guild": "",
         "tracking_id": "player_017964b7e6374d4d"
       },
       {
         "rank": 30,
-        "character": "月華",
-        "level": 99,
-        "server": "Virba3",
-        "guild": "ねこはら帝国",
-        "tracking_id": "player_d19d88ca0a203479"
-      },
-      {
-        "rank": 31,
         "character": "駄馬頭琴",
         "level": 99,
         "server": "Virba4",
         "guild": "Harmony",
         "tracking_id": "player_18ba0c5e9ae6fd0d"
+      },
+      {
+        "rank": 31,
+        "character": "月華",
+        "level": 99,
+        "server": "Virba3",
+        "guild": "ねこはら帝国",
+        "tracking_id": "player_d19d88ca0a203479"
       },
       {
         "rank": 32,
@@ -1662,14 +1682,6 @@
       },
       {
         "rank": 37,
-        "character": "ぴっぴよ",
-        "level": 99,
-        "server": "Virba3",
-        "guild": "エクスペリエンス",
-        "tracking_id": "player_5c7d524bc142a2a4"
-      },
-      {
-        "rank": 38,
         "character": "ぷちにゃんこ",
         "level": 99,
         "server": "Virba4",
@@ -1677,20 +1689,28 @@
         "tracking_id": "player_89d4555204eabcf6"
       },
       {
-        "rank": 39,
-        "character": "RaitaN",
+        "rank": 38,
+        "character": "ぴっぴよ",
         "level": 99,
-        "server": "Virba4",
-        "guild": "朧桜",
-        "tracking_id": "player_f57a1f6b765fc035"
+        "server": "Virba3",
+        "guild": "エクスペリエンス",
+        "tracking_id": "player_5c7d524bc142a2a4"
       },
       {
-        "rank": 40,
+        "rank": 39,
         "character": "ーMofyー",
         "level": 99,
         "server": "Virba3",
         "guild": "ねこはら帝国",
         "tracking_id": "player_741d92269a4c1a05"
+      },
+      {
+        "rank": 40,
+        "character": "RaitaN",
+        "level": 99,
+        "server": "Virba4",
+        "guild": "朧桜",
+        "tracking_id": "player_f57a1f6b765fc035"
       },
       {
         "rank": 41,
@@ -1721,27 +1741,19 @@
         "character": "けるたろ",
         "level": 99,
         "server": "Virba4",
-        "guild": "Harmony",
+        "guild": "",
         "tracking_id": "player_e80878b72d04b6d2"
       },
       {
         "rank": 45,
-        "character": "にー",
+        "character": "うりりん",
         "level": 99,
-        "server": "Virba3",
-        "guild": "ねこはら帝国",
-        "tracking_id": "player_58e1a40f970d3ef4"
+        "server": "Virba4",
+        "guild": "朧桜",
+        "tracking_id": "player_198e38e4f40eebc4"
       },
       {
         "rank": 46,
-        "character": "あるぱんちゅ",
-        "level": 99,
-        "server": "Virba3",
-        "guild": "ねこはら帝国",
-        "tracking_id": "player_cb31bf1787658d3d"
-      },
-      {
-        "rank": 47,
         "character": "UEPOM",
         "level": 99,
         "server": "Virba4",
@@ -1749,12 +1761,20 @@
         "tracking_id": "player_c39dfc0aa8e0e671"
       },
       {
-        "rank": 48,
-        "character": "うりりん",
+        "rank": 47,
+        "character": "にー",
         "level": 99,
-        "server": "Virba4",
-        "guild": "朧桜",
-        "tracking_id": "player_198e38e4f40eebc4"
+        "server": "Virba3",
+        "guild": "ねこはら帝国",
+        "tracking_id": "player_58e1a40f970d3ef4"
+      },
+      {
+        "rank": 48,
+        "character": "あるぱんちゅ",
+        "level": 99,
+        "server": "Virba3",
+        "guild": "ねこはら帝国",
+        "tracking_id": "player_cb31bf1787658d3d"
       },
       {
         "rank": 49,
@@ -1766,19 +1786,19 @@
       },
       {
         "rank": 50,
-        "character": "あおたろ",
-        "level": 99,
-        "server": "Virba1",
-        "guild": "れくいえむ",
-        "tracking_id": "player_d90cf1b6235e00a7"
-      },
-      {
-        "rank": 51,
         "character": "Nyaro",
         "level": 99,
         "server": "Virba4",
         "guild": "猫部屋",
         "tracking_id": "player_21c389d721e55359"
+      },
+      {
+        "rank": 51,
+        "character": "あおたろ",
+        "level": 99,
+        "server": "Virba1",
+        "guild": "れくいえむ",
+        "tracking_id": "player_d90cf1b6235e00a7"
       },
       {
         "rank": 52,
@@ -1798,19 +1818,19 @@
       },
       {
         "rank": 54,
-        "character": "もぐらまん",
-        "level": 99,
-        "server": "Virba3",
-        "guild": "ねこはら帝国",
-        "tracking_id": "player_a37655f07c563ca9"
-      },
-      {
-        "rank": 55,
         "character": "ねこにん",
         "level": 99,
         "server": "Virba3",
         "guild": "ねこはら帝国",
         "tracking_id": "player_c7bd49eacc58bde1"
+      },
+      {
+        "rank": 55,
+        "character": "もぐらまん",
+        "level": 99,
+        "server": "Virba3",
+        "guild": "ねこはら帝国",
+        "tracking_id": "player_a37655f07c563ca9"
       },
       {
         "rank": 56,
@@ -1910,14 +1930,6 @@
       },
       {
         "rank": 68,
-        "character": "りーふかれんと",
-        "level": 98,
-        "server": "Virba3",
-        "guild": "月花町の安らげ荘",
-        "tracking_id": "player_fe78c28edc2a9afa"
-      },
-      {
-        "rank": 69,
         "character": "T4Y",
         "level": 98,
         "server": "Virba1",
@@ -1925,11 +1937,19 @@
         "tracking_id": "player_0fcdadacbdb08b00"
       },
       {
+        "rank": 69,
+        "character": "りーふかれんと",
+        "level": 98,
+        "server": "Virba3",
+        "guild": "月花町の安らげ荘",
+        "tracking_id": "player_fe78c28edc2a9afa"
+      },
+      {
         "rank": 70,
         "character": "ピエちゃん",
         "level": 98,
         "server": "Virba4",
-        "guild": "Harmony",
+        "guild": "",
         "tracking_id": "player_b2ba2c10ddb8f1a1"
       },
       {
@@ -1966,6 +1986,14 @@
       },
       {
         "rank": 75,
+        "character": "ぽす太郎",
+        "level": 98,
+        "server": "Virba4",
+        "guild": "Harmony",
+        "tracking_id": "player_e2b7ae9db821fb2a"
+      },
+      {
+        "rank": 76,
         "character": "oどきんちゃんo",
         "level": 98,
         "server": "Virba3",
@@ -1973,20 +2001,12 @@
         "tracking_id": "player_b50698d6fd08ccb3"
       },
       {
-        "rank": 76,
+        "rank": 77,
         "character": "れぷれ",
         "level": 98,
         "server": "Virba4",
         "guild": "朧桜",
         "tracking_id": "player_8b3a438243ed2c0c"
-      },
-      {
-        "rank": 77,
-        "character": "ぽす太郎",
-        "level": 98,
-        "server": "Virba4",
-        "guild": "Harmony",
-        "tracking_id": "player_e2b7ae9db821fb2a"
       },
       {
         "rank": 78,
@@ -1998,6 +2018,14 @@
       },
       {
         "rank": 79,
+        "character": "o葵o",
+        "level": 98,
+        "server": "Virba3",
+        "guild": "ねこはら帝国",
+        "tracking_id": "player_b2f7f9b10745a2c7"
+      },
+      {
+        "rank": 80,
         "character": "oばいきんまんo",
         "level": 98,
         "server": "Virba3",
@@ -2005,20 +2033,12 @@
         "tracking_id": "player_a89e3abd41d6d5f5"
       },
       {
-        "rank": 80,
+        "rank": 81,
         "character": "ぐらすぅ",
         "level": 98,
         "server": "Virba4",
         "guild": "朧桜",
         "tracking_id": "player_e7865bcbdbf303ff"
-      },
-      {
-        "rank": 81,
-        "character": "o葵o",
-        "level": 98,
-        "server": "Virba3",
-        "guild": "ねこはら帝国",
-        "tracking_id": "player_b2f7f9b10745a2c7"
       },
       {
         "rank": 82,
@@ -2054,19 +2074,19 @@
       },
       {
         "rank": 86,
-        "character": "Litz",
-        "level": 98,
-        "server": "Virba3",
-        "guild": "すうぃーてぃす",
-        "tracking_id": "player_d8f28856be677d14"
-      },
-      {
-        "rank": 87,
         "character": "こんそめぱんち",
         "level": 98,
         "server": "Virba2",
         "guild": "ミーティス",
         "tracking_id": "player_18833f77cef1a829"
+      },
+      {
+        "rank": 87,
+        "character": "Litz",
+        "level": 98,
+        "server": "Virba3",
+        "guild": "すうぃーてぃす",
+        "tracking_id": "player_d8f28856be677d14"
       },
       {
         "rank": 88,
@@ -2097,24 +2117,24 @@
         "character": "MEVIUS",
         "level": 98,
         "server": "Virba4",
-        "guild": "Harmony",
+        "guild": "",
         "tracking_id": "player_7e64b58c39ae2347"
       },
       {
         "rank": 92,
-        "character": "oニケo",
-        "level": 98,
-        "server": "Virba4",
-        "guild": "猫と愉快な仲間",
-        "tracking_id": "player_8ff111dbc010b93c"
-      },
-      {
-        "rank": 93,
         "character": "超フェンリル",
         "level": 98,
         "server": "Virba4",
         "guild": "猫と愉快な仲間",
         "tracking_id": "player_7554431b65507923"
+      },
+      {
+        "rank": 93,
+        "character": "oニケo",
+        "level": 98,
+        "server": "Virba4",
+        "guild": "猫と愉快な仲間",
+        "tracking_id": "player_8ff111dbc010b93c"
       },
       {
         "rank": 94,
@@ -2134,19 +2154,19 @@
       },
       {
         "rank": 96,
-        "character": "バーサス",
-        "level": 98,
-        "server": "Virba4",
-        "guild": "猫と愉快な仲間",
-        "tracking_id": "player_3833e3ff0e7bd640"
-      },
-      {
-        "rank": 97,
         "character": "せっけんパンダ",
         "level": 98,
         "server": "Virba4",
         "guild": "朧桜",
         "tracking_id": "player_db59fc85c4b76096"
+      },
+      {
+        "rank": 97,
+        "character": "唯我独尊太郎",
+        "level": 98,
+        "server": "Virba4",
+        "guild": "Harmony",
+        "tracking_id": "player_51c28e5b32d97370"
       },
       {
         "rank": 98,
@@ -2158,11 +2178,11 @@
       },
       {
         "rank": 99,
-        "character": "唯我独尊太郎",
+        "character": "バーサス",
         "level": 98,
         "server": "Virba4",
-        "guild": "Harmony",
-        "tracking_id": "player_51c28e5b32d97370"
+        "guild": "猫と愉快な仲間",
+        "tracking_id": "player_3833e3ff0e7bd640"
       },
       {
         "rank": 100,
@@ -2181,10 +2201,9 @@
         "104": 2,
         "103": 3,
         "102": 6,
-        "101": 17,
-        "100": 27,
-        "99": 42,
-        "98": 1
+        "101": 18,
+        "100": 28,
+        "99": 41
       },
       "Virba": {
         "103": 2,
@@ -2210,11 +2229,11 @@
       }
     },
     "guild_distribution": {
+      "わっしょい": 34,
       "ねこはら帝国": 34,
-      "わっしょい": 33,
       "なみだふくよ": 28,
-      "Harmony": 18,
       "5secret": 13,
+      "Harmony": 13,
       "朧桜": 12,
       "サーフィス": 7,
       "M2O": 6,
@@ -2224,11 +2243,11 @@
       "月花町の安らげ荘": 5,
       "Nirvana": 3,
       "NoWords": 3,
-      "ミーティス": 3,
       "れくいえむ": 3,
       "猫部屋": 3,
       "なみだしてんし": 2,
       "すうぃーてぃす": 2,
+      "ミーティス": 2,
       "castra": 1
     }
   },
